@@ -24,9 +24,14 @@ git branch --no-merged
 
 # 切换到 <name> 分支
 git checkout <name>
+git switch <name>
 
 # 创建并切换到 <name> 分支，等于一下两条命令
 git checkout -b <name>
+git switch -c <name>
+
+# 切换到上一个切换的分支
+git switch -
 
 # 删除合并后的分支
 git branch -d <name>
