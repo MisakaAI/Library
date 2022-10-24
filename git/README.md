@@ -9,18 +9,18 @@
 
 ## 目录
 
-1. [安装](./01_Install.md)
-2. [仓库](./02_Repository.md)
-3. [标签](./03_Tag.md)
-4. [别名](./04_Aliases.md)
-5. [分支](./05_Branching.md)
-6. [暂存](./06_Stashing.md)
-7. [清理](./07_Cleaning.md)
-8. [清理](./08_Server.md)
-9. [Github](./09_Github.md)
-10. [配置](./10_Configuration.md)
-
-
+1. [安装](01_Install.md)
+2. [仓库](02_Repository.md)
+3. [标签](03_Tag.md)
+4. [别名](04_Aliases.md)
+5. [分支](05_Branching.md)
+6. [暂存](06_Stashing.md)
+7. [清理](07_Cleaning.md)
+8. [清理](08_Server.md)
+9. [Github](09_Github.md)
+10. [配置](10_Configuration.md)
+11. [忽略文件](11_.gitignore.md)
+12. [简易指南](12_Easy.md)
 
 ## 参考文献
 
@@ -28,4 +28,5 @@
 - [廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/896043488029600)
 - [git - 简明指南](https://rogerdudler.github.io/git-guide/index.zh.html)
 - [Git 参考手册](http://gitref.justjavac.com/)
-- [《跟Wakaba酱一起学Git使用》](https://item.jd.com/13047666.html)
+- [图解 Git](http://marklodato.github.io/visual-git-guide/index-zh-cn.html)
+- [《跟 Wakaba 酱一起学 Git 使用》](https://item.jd.com/13047666.html)
