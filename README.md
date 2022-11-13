@@ -8,7 +8,7 @@
 
 同时也是一个技能树。
 
-- [Git](./git/README.md)
+- [Git](./Git/README.md)
 
 ## Q&A
 
