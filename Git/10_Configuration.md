@@ -30,6 +30,9 @@ git config --global color.ui true
 
 # 显示历史记录时，每个提交的信息只显示一行
 git config format.pretty oneline
+
+# 中文文件名或者路径不转义
+git config --global core.quotepath false
 ```
 
 ## 推送
