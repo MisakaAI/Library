@@ -19,9 +19,7 @@ port = ''
 user = ''
 password = ''
 
-
 async def main():
-
     # 同步执行sql命令
     async def exec_sql(sql):
         cursor.execute(sql)
@@ -35,8 +33,7 @@ async def main():
         cursor.execute(sql)
 
     # 打开数据库连接
-    db = psycopg2.connect(database=database, host=host,
-                          port=port, user=user, password=password)
+    db = psycopg2.connect(database=database, host=host, port=port, user=user, password=password)
 
     # 设置数据库连接打开自动提交模式
     db.autocommit = True
@@ -54,12 +51,25 @@ async def main():
 
     # 如果不存在就创建一个新的表
     if cursor.fetchone()[0] == 0:
-        sql = "create table {}(\
-            id bigserial primary key not null,\
-            uid char(10) not null,\
-            item char(30) not null,\
-            value decimal not null,\
-            creat_time timestamp not null);".format(table_name)
+        sql = "create table {}(id bigserial primary key not null,\
+        uid char(10) not null,\
+        item char(30) not null,\
+        value decimal not null,\
+        creat_time timestamp not null);".format(table_name)
+        cursor.execute(sql)
+
+    # 查询错误日志是否存在
+    # error_table_name = time.strftime("error_%Y_%m", time.localtime())
+    error_table_name = "scada_error_log"
+    sql = "select count(*) from information_schema.tables where table_name = '{}'".format(error_table_name)
+    cursor.execute(sql)
+
+    # 如果不存在就创建一个新的表
+    if cursor.fetchone()[0] == 0:
+        sql = "create table {}(id bigserial primary key not null,\
+        uid char(10) not null,\
+        item char(30) not null,\
+        creat_time timestamp not null);".format(error_table_name)
         cursor.execute(sql)
 
     # 获取设备列表
@@ -80,11 +90,7 @@ async def main():
 
             # 如果不存在就创建一个新的表
             if cursor.fetchone()[0] == 0:
-                sql = "create table scada_comm_status(\
-                    id serial primary key not null,\
-                    uid char(10) not null,\
-                    value boolean not null,\
-                    time timestamp not null);"
+                sql = "create table scada_comm_status(id serial primary key not null,uid char(10) not null,value boolean not null,time timestamp not null);"
                 cursor.execute(sql)
             # 查询SCADA连通状态
             var = client.get_node(i[1])
@@ -109,8 +115,7 @@ async def main():
             # 如果能连通状态为 True
             if CommStatus:
                 # 获取注塑机的信息列表
-                sql = "select * from scada_list where value like '%{}%' and value not like '%CommStatus%';".format(
-                    zs_id)
+                sql = "select * from scada_list where value like '%{}%' and value not like '%CommStatus%';".format(zs_id)
                 cursor.execute(sql)
                 scada_value_list = cursor.fetchall()
                 # 循环注塑机的信息列表
@@ -141,14 +146,22 @@ async def main():
                             creat_time=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
                         await exec_sql(sql)
                     except:
-                        # 如果出错则写入日志文件
-                        with open(log_file, 'a', encoding='utf-8') as f:
-                            f.write("{}: {}\n".format(time.strftime(
-                                "%Y-%m-%d %H:%M:%S", time.localtime()), x[1]))
+                        # 如果出错，将错误日志写入数据库
+                        sql = "insert into {table_name} (uid,item,creat_time) values ('{uid}','{item}','{creat_time}');".format(
+                            table_name=error_table_name,
+                            uid=zs_id,
+                            item=x[1].split('.')[-1],
+                            creat_time=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+                        await exec_sql(sql)
 
     # 释放游标及数据库连接
     cursor.close()
     db.close()
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except Exception as e:
+        # 其他错误写入日志文件
+        with open(log_file, 'a', encoding='utf-8') as f:
+            f.write("{}: {}\n".format(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), e))
