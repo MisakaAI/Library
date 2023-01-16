@@ -15,6 +15,13 @@ UaExpert 是一个用C ++编写的跨平台OPC UA测试客户端。
 
 首次打开UaExpert会弹出窗口，需要填写Subject，制作安全证书（Certificate）
 
+Country 国家（两位数代码，如：CN）
+State or Province 省
+Location or City 城市
+Organization 组织或企业
+Organization Unit 部门
+Common Name 是证书拥有者名称
+
 ## 使用
 
 ![](./UaExpert/uaexpert_iWtKPoH6zY.png)

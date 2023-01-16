@@ -7,16 +7,18 @@ OPC UA 二进制协议的实现已经在许多不同的 OPC UA 栈上进行了�
 API提供了一个低级接口来发送和接收所有UA定义的结构，以及允许在几行中编写服务器或客户端的高级类。在一个应用程序中很容易混合高级对象和低级UA调用。
 大多数低级代码是从xml规范自动生成的。
 
-
-
-
 ## 安装
 
 ```sh
 pip install asyncua
 ```
 
+## 使用
+
+- [获取命名空间索引](get_namespace.py)
+- [获取指定 Node 下所有 Node 节点](get_children.py)
+
 ## 参考文档
 
--[opcua-asyncio](https://github.com/FreeOpcUa/opcua-asyncio)
+- [opcua-asyncio](https://github.com/FreeOpcUa/opcua-asyncio)
 - [Python opcua-asyncio Documentation](https://opcua-asyncio.readthedocs.io/en/latest/)
