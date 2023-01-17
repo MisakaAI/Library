@@ -17,8 +17,10 @@ pip install asyncua
 
 - [获取命名空间索引](get_namespace.py)
 - [获取指定 Node 下所有 Node 节点](get_children.py)
+- [读取节点数据](read_value.py)
 
 ## 参考文档
 
 - [opcua-asyncio](https://github.com/FreeOpcUa/opcua-asyncio)
 - [Python opcua-asyncio Documentation](https://opcua-asyncio.readthedocs.io/en/latest/)
+- [Python OPC-UA Documentation](https://readthedocs.org/projects/python-opcua/downloads/pdf/stable/)
