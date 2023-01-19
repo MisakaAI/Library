@@ -23,3 +23,4 @@ Windows Subsystem for Linux，简称WSL。
 
 - [Windows 10 无法休眠](./win10_can't_sleep.md)
 - [Windows 10 使用 UTC 时间](./win10_use_utc.md)
+- [远程唤醒](./Wake-on-LAN/wol.md)
