@@ -33,6 +33,8 @@ scrcpy -r file.mkv
 ### 无线连接
 
 ``` bash
+# 查看设备
+adb devices
 # 查看IP
 adb shell ip route
 # 启用设备的网络 adb 功能
