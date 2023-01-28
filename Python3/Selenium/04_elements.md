@@ -190,6 +190,9 @@ driver.find_element(By.CSS_SELECTOR, "h1").text
 
 # 获取特性或属性
 driver.find_element(By.NAME, "email_input").get_attribute("value")
+
+# 获取坐标
+driver.find_element(By.CSS_SELECTOR, 'h1').location
 ```
 
 ## 文件上传
