@@ -32,9 +32,19 @@ scrcpy -r file.mkv
 
 ### 无线连接
 
+[Windows7 安卓驱动 下载](https://www.thecustomdroid.com/google-android-usb-drivers/)
+[ADB](https://developer.android.google.cn/studio/command-line/adb?hl=zh-cn)
+
 ``` bash
 # 查看设备
-adb devices
+adb devices -l
+# 发出 shell 命令
+adb shell
+# 查看设备分辨率
+wm size
+# 查看设备dpi
+wm density
+
 # 查看IP
 adb shell ip route
 # 启用设备的网络 adb 功能
@@ -58,3 +68,7 @@ scrcpy -w
 scrcpy --turn-screen-off
 scrcpy -S
 ```
+
+### 查看设备UA
+
+[UA检测](https://useragent.buyaocha.com/)
