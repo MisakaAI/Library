@@ -35,6 +35,18 @@ git config format.pretty oneline
 git config --global core.quotepath false
 ```
 
+# 安全的存储库
+
+Git 添加了新的目录安全限制。
+
+```bash 
+# 将当前目录设置为安全的存储库
+git config --global --add safe.directory $(pwd)
+
+# 可以通过加通配符为*，忽略所有文件夹。
+git config --global --add safe.directory "*"
+```
+
 ## 推送
 
 ```bash
