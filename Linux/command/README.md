@@ -8,3 +8,4 @@ Linux 常用命令
 - [zip](zip.md)
 - [7z](7z.md)
 - [rar](rar.md)
+- [openssl](openssl.md)
