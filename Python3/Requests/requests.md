@@ -1,5 +1,7 @@
 # requests
 
+HTTP for Humans / 为人类准备的HTTP库
+
 ## 安装
 
 ```bash
@@ -13,13 +15,10 @@ import requests
 
 # Get
 r = requests.get('https://www.baidu.com/')
-print(r.text)
 
 # Post
-
 data = {'name': 'germey', 'age': '25'}
 r = requests.post("https://www.baidu.com/", data=data)
-print(r.text)
 
 # 添加 headers
 headers = {
@@ -28,7 +27,13 @@ headers = {
 
 r = requests.post('https://www.baidu.com/', headers=headers, data=data)
 
+# 不主动重定向
+r = requests.get('https://www.baidu.com/', allow_redirects=False)
+
 # 获取响应信息
+
+print(r.text)
+print(r.encoding)
 print(type(r.status_code), r.status_code)
 print(type(r.headers), r.headers)
 print(type(r.cookies), r.cookies)
@@ -56,5 +61,5 @@ proxies = {
   'http': 'http://10.10.10.10:1080',
   'https': 'http://10.10.10.10:1080',
 }
-requests.get('https://www.baidu.com/', proxies=proxies)
+r = requests.get('https://www.baidu.com/', proxies=proxies)
 ```
