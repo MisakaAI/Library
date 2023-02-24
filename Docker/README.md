@@ -13,3 +13,8 @@
 - [使用镜像 Image](06_Image.md)
 - [定制镜像 Dockerfile](07_Dockerfile.md)
 - [操作容器 Container](08_Container.md)
+- [访问仓库 Repository](09_Repository.md)
+
+## 参考文献
+
+- [Docker技术入门与实战](https://yeasy.gitbook.io/docker_practice/)
