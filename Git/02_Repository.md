@@ -152,6 +152,13 @@ git log --until
 git log --author
 # 仅显示指定提交者相关的提交
 git log --committer
+
+# 显示所有用户&的电子邮件以及CURRENT分支中的提交数：
+# git shortlog --summary --numbered --email
+# 可以简化为 -sne
+# git shortlog -sne
+# 所有分支 -all
+git shortlog -sne --all
 ```
 
 ## 撤消操作
