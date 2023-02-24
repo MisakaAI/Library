@@ -22,8 +22,8 @@
 11. [忽略文件](11_.gitignore.md)
 12. [简易指南](12_Easy.md)
 13. [腾讯工蜂](13_tencent.md)
-14. [Github 小绿块](14_contributions.md)
-
+14. [修复 Github 小绿块](14_contributions.md)
+15. [移除敏感信息](15_privacy.md)
 
 ## 参考文献
 

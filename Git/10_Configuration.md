@@ -1,11 +1,23 @@
 # 配置 Git
 
 ```bash
-# 设置姓名
+# 全局 设置姓名
 git config --global user.name "Your Name"
 
-# 设置邮箱
+# 全局 设置邮箱
 git config --global user.email "email@example.com"
+
+# 单个仓库 设置姓名
+git config user.name "Your Name"
+
+# 单个仓库 设置邮箱
+git config user.email "email@example.com"
+
+# 查看当前姓名
+git config user.name
+
+# 查看当前邮箱
+git config user.email
 ```
 
 ## 基础

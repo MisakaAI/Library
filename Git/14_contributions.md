@@ -40,3 +40,10 @@ fi
 # 将正确的信息 push
 git push --force --tags origin 'refs/heads/*'
 ```
+
+## Git 提示 Force overwriting the backup with -f 解决办法
+
+使用指令批量清除了历史提交记录时，强制推送到远端，本地还留有缓存造成的问题。
+
+可以删掉整个库，重新 `git clone`。
+或者直接删除 `.git/refs/original` 目录后，再次执行指令即可。
