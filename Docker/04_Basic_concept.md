@@ -52,4 +52,3 @@ Docker Registry 公开服务是开放给用户使用、允许用户管理镜像�
 - [镜像](https://yeasy.gitbook.io/docker_practice/basic_concept/image)
 - [容器](https://yeasy.gitbook.io/docker_practice/basic_concept/container)
 - [仓库](https://yeasy.gitbook.io/docker_practice/basic_concept/repository)
-
