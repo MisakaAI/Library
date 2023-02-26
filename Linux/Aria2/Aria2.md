@@ -7,7 +7,7 @@
 
 ```bash
 # 设置版本号
-AriaNG_Version=1.1.7
+AriaNG_Version=1.3.2
 AriaNG_Download="https://github.com/mayswind/AriaNg/releases/download/$AriaNG_Version/AriaNg-$AriaNG_Version.zip"
 
 # 创建下载目录
