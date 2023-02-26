@@ -100,3 +100,7 @@ location = "mirror.baidubce.com"
 Registry Mirrors:
     https://hub-mirror.c.163.com/
 ```
+
+## 参考文献
+
+- [镜像加速器](https://yeasy.gitbook.io/docker_practice/install/mirror)

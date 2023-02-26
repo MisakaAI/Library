@@ -26,7 +26,7 @@ docker run -it ubuntu:22.04 bash
 - `-d, --detach=false` 指定容器运行于前台还是后台，默认为false
 - `-i, --interactive=false` 打开STDIN，用于控制台交互
 - `-t, --tty=false` 分配tty设备，该可以支持终端登录，默认为false
-- `-u, --user=""` 指定容器的用户
+- `-u, --user=""` 指定容器的用户 `<name|uid>[:<group|gid>]`
 - `-a, --attach=[]` 登录容器（必须是以docker run -d启动的容器）
 - `-w, --workdir=""` 指定容器的工作目录
 - `-c, --cpu-shares=0` 设置容器CPU权重，在CPU共享场景使用
@@ -41,7 +41,7 @@ docker run -it ubuntu:22.04 bash
 - `--volumes-from=[]` 给容器挂载其他容器上的卷，挂载到容器的某个目录
 - `--device=[]` 添加主机设备给容器，相当于设备直通
 - `--dns=[]` 指定容器的dns服务器
-- `--dns-search=[]` 指定容器的dns搜索域名，写入到容器的/etc/resolv.conf文件
+- `--dns-search=[]` 指定容器的dns搜索域名，写入到容器的 `/etc/resolv.conf` 文件
 - `--env-file=[]` 指定环境变量文件，文件格式为每行一个环境变量
 - `--link=[]` 指定容器间的关联，使用其他容器的IP、env等信息
 - `--expose=[]` 指定容器暴露的端口，即修改镜像的暴露端口

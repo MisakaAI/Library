@@ -117,3 +117,11 @@ docker commit \
 实际环境中不要使用 `Commit` 生成镜像，请使用 `Dockerfile` 定制镜像。
 使用 `docker commit` 意味着所有对镜像的操作都是黑箱操作，生成的镜像也被称为 **黑箱镜像**
 除了制作镜像的人之外，其他人不知道执行过什么命令、怎么生成的镜像。
+
+## 参考文献
+
+- [获取镜像](https://yeasy.gitbook.io/docker_practice/image/pull)
+- [列出镜像](https://yeasy.gitbook.io/docker_practice/image/list)
+- [删除本地镜像](https://yeasy.gitbook.io/docker_practice/image/rm)
+- [利用 commit 理解镜像构成](https://yeasy.gitbook.io/docker_practice/image/commit)
+- [其它制作镜像的方式](https://yeasy.gitbook.io/docker_practice/image/other)

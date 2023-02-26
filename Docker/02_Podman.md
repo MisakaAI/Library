@@ -30,11 +30,32 @@ dnf install podman
 ```
 
 ```bash
+## Root用户
 # 生成 service 文件
-podman generate systemd -f --name BililiveRecorder > /etc/systemd/system/BililiveRecorder.service
+# podman generate systemd -f --name BililiveRecorder
+
+# 生成 service 文件 并写入systemd目录
+podman generate systemd --name BililiveRecorder > /etc/systemd/system/BililiveRecorder.service
 
 # 开机启动
 systemctl enable BililiveRecorder.service
+
+## 普通用户
+
+# 创建目录
+# mkdir -p ~/.config/systemd/user/
+# cd ~/.config/systemd/user/
+
+# 生成配置文件
+# podman generate systemd -f --name BililiveRecorder
+
+# 启用服务
+# https://wiki.archlinuxcn.org/wiki/Systemd/%E7%94%A8%E6%88%B7
+
+# --user 在用户登陆时启动
+# systemctl --user enable --now  container-BililiveRecorder.service
+# 启用延迟 退出登录不会注销服务
+# loginctl enable-linger [username]
 ```
 
 ## 参考
