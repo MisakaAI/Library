@@ -45,13 +45,16 @@ git config format.pretty oneline
 
 # 中文文件名或者路径不转义
 git config --global core.quotepath false
+
+# 修改默认的编辑器为 vim
+git config --global core.editor vim
 ```
 
-# 安全的存储库
+## 安全的存储库
 
 Git 添加了新的目录安全限制。
 
-```bash 
+```bash
 # 将当前目录设置为安全的存储库
 git config --global --add safe.directory $(pwd)
 
@@ -87,7 +90,7 @@ git config --global core.safecrlf true
 # false: 允许提交包含混合换行符的文件
 ```
 
-# 凭证存储
+## 凭证存储
 
 ```bash
 # credential.helper
