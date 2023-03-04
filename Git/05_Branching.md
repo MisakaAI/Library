@@ -74,7 +74,7 @@ git checkout <name>
 git checkout -b abc <remote>/<name>
 
 # 查看设置的所有跟踪分支
-git branch -vv
+git branch -v
 
 #删除远程分支
 git push origin --delete <name>
