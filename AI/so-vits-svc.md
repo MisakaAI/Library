@@ -11,6 +11,32 @@ git clone https://github.com/innnky/so-vits-svc.git -b 4.0
 # 切换到 4.0 分支
 # git checkout 4.0
 
+# 依赖问题
+
+# Python 3.10
+# https://www.python.org/downloads/release/python-31010/
+
+# Microsoft C++ 生成工具
+# https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/
+# .\vs_BuildTools.exe --norestart --passive --downloadThenInstall --includeRecommended --add Microsoft.VisualStudio.Workload.NativeDesktop --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Workload.MSBuildTools
+
+# vc_redist.x64
+# https://aka.ms/vs/17/release/vc_redist.x64.exe
+
+# CUDA
+# https://developer.nvidia.com/cuda-toolkit
+# https://developer.nvidia.com/cuda-11-7-1-download-archive?target_os=Windows&target_arch=x86_64&target_version=10
+
+# PyTorch
+# https://pytorch.org/get-started/previous-versions/
+# https://download.pytorch.org/whl/torch_stable.html
+# pip install torch==1.13.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117
+# pip install torch==1.13.1+cu117 torchvision==0.13.1+cu11 torchaudio==0.14.1 --extra-index-url https://download.pytorch.org/whl/cu117
+
+# 验证
+# import torch
+# torch.cuda.is_available()
+
 # 安装 Python 依赖
 pip install -r requirements.txt
 
@@ -39,6 +65,9 @@ dataset_raw
 ```
 
 ## 数据预处理
+
+- [自动分割干音](automatic-audio-split.py)
+- [时长统计](count-audio-time.py)
 
 ```bash
 # 重采样至 44100hz

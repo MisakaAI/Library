@@ -14,6 +14,10 @@ fi
 username='MisakaAI'
 usermail='i@zi-o.com'
 
+# 支持 https
+
+apt install apt-transport-https ca-certificates -y
+
 # 检测软件源是否存在备份，如果不存在则创建。
 
 if [ ! -f /etc/apt/sources.list.bak ]
@@ -23,14 +27,34 @@ else
     sudo cp -a /etc/apt/sources.list.bak /etc/apt/sources.list
 fi
 
-# 支持 https
-
-apt install apt-transport-https ca-certificates -y
-
 # 使用 清华大学 源
 
-# sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-# sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+echo "# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free
+
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free
+
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free
+
+# deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free
+# # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free
+
+deb https://security.debian.org/debian-security bullseye-security main contrib non-free
+# deb-src https://security.debian.org/debian-security bullseye-security main contrib non-free" > /etc/apt/sources.list
+
+# Raspberry 专属软件源
+
+if [ ! -f /etc/apt/sources.list.d/raspi.list.bak ]
+then
+    sudo cp -a /etc/apt/sources.list.d/raspi.list /etc/apt/sources.list.d/raspi.list.bak
+else
+    sudo cp -a /etc/apt/sources.list.d/raspi.list.bak /etc/apt/sources.list.d/raspi.list
+fi
+
+sudo sed -i "s@http://archive.raspberrypi.org/debian@https://mirrors.tuna.tsinghua.edu.cn/raspberrypi@g" /etc/apt/sources.list.d/raspi.list
 
 # 更新软件源
 
