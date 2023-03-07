@@ -8,34 +8,49 @@
 # clone 项目
 git clone https://github.com/innnky/so-vits-svc.git -b 4.0
 
-# 切换到 4.0 分支
+# 切换到 4.0 分支（-b 4.0）
 # git checkout 4.0
 
 # 依赖问题
 
-# Python 3.10
+## Python 3.10
 # https://www.python.org/downloads/release/python-31010/
 
-# Microsoft C++ 生成工具
+## Microsoft C++ 生成工具
 # https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/
 # .\vs_BuildTools.exe --norestart --passive --downloadThenInstall --includeRecommended --add Microsoft.VisualStudio.Workload.NativeDesktop --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Workload.MSBuildTools
 
-# vc_redist.x64
+## vc_redist.x64
 # https://aka.ms/vs/17/release/vc_redist.x64.exe
 
-# CUDA
+## CUDA 11.7
 # https://developer.nvidia.com/cuda-toolkit
 # https://developer.nvidia.com/cuda-11-7-1-download-archive?target_os=Windows&target_arch=x86_64&target_version=10
 
-# PyTorch
+# 验证 CUDA
+# nvidia-smi
+# nvcc -V
+
+## PyTorch
 # https://pytorch.org/get-started/previous-versions/
 # https://download.pytorch.org/whl/torch_stable.html
 # pip install torch==1.13.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117
 # pip install torch==1.13.1+cu117 torchvision==0.13.1+cu11 torchaudio==0.14.1 --extra-index-url https://download.pytorch.org/whl/cu117
 
-# 验证
+# 验证 PyTorch 安装
 # import torch
 # torch.cuda.is_available()
+
+## ffmpeg
+# https://ffmpeg.org/download.html
+# 添加到环境变量
+# （搜索）环境变量 - 系统变量 - Path - 编辑 - 新建
+
+# 验证 ffmpeg
+# ffmpeg -version
+
+# pydub
+# pip install pydub
 
 # 安装 Python 依赖
 pip install -r requirements.txt
@@ -62,6 +77,18 @@ dataset_raw
     ├───xx2-0xxx2.wav
     ├───...
     └───xxx7-xxx007.wav
+```
+
+此外还需要编辑 `configs/config.json`
+
+```json
+
+"n_speakers": 10
+
+"spk":{
+    "speaker0": 0,
+    "speaker1": 1,
+}
 ```
 
 ## 数据预处理

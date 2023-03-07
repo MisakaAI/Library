@@ -43,6 +43,6 @@ for f in os.listdir(source_dir):
                         y.export(save_dir / str(str(a)+'-'+str(b)+'-'+str(c)+'.wav'),format="wav")
                         # 显示进度
                         print(f+': '+str(a)+'-'+str(b)+'-'+str(c))
-                        c+=1
+                    c+=1
             b+=1
     a+=1

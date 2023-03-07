@@ -5,9 +5,9 @@ from pathlib import Path
 from pydub import AudioSegment
 
 filedir = Path('H:\so-vits-svc\dataset_raw\zheran')
- 
+
 time_count = 0
-wav_num = 0 
+wav_num = 0
 wav_time_max = 0
 wav_time_min = 5
 
