@@ -1,6 +1,10 @@
 # so-vits-svc
 
-歌声音色转换模型
+基于vits与softvc的歌声音色转换模型
+
+- [SoVITS](https://github.com/innnky/so-vits-svc#readme) This repository has been archived
+- [SoVits](https://github.com/svc-develop-team/so-vits-svc) svc社区维护仓库
+
 本说明基于 `4.0` 版本
 
 ## 部署
@@ -200,3 +204,8 @@ wav_format = 'wav'
 
 可以试试AU的频谱频率显示器 `Shift+D`
 比如有些混音能在低频区发现多一些亮的片段，擦除就能恢复正常。
+
+## 参考文献
+
+- [soVITS3.0炼丹教程](https://www.bilibili.com/read/cv20500632)
+- [最强伴奏与人声分离工具](http://www.staycu.com/1731.html)
