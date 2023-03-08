@@ -1,6 +1,6 @@
 # Memos
 
-一个轻量级的自我托管备忘录中心。开源，永远免费。
+一个可用于知识管理和社交网络的开源、自托管的备忘录中心。
 
 [Memos](https://usememos.com/)
 [github](https://github.com/usememos/memos)
