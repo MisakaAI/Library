@@ -17,6 +17,17 @@
 - [B站录播姬](rec.danmuji.org.md)
 - [Aria2 Pro Docker](aria2-pro.md)
 
+## 一些好玩的docker镜像
+
+- [B站录播姬](rec.danmuji.org.md)
+- [memos](memos.md)
+一个可用于知识管理和社交网络的开源、自托管的备忘录中心。
+- [Aria2](aria2-pro.md)
+`Aria2` 是一个多平台轻量级，支持 `HTTP`、`FTP`、`BitTorrent` 等多协议、多来源的命令行下载工具。
+主要是`RockyLinux 9`的 `EPRL源` 缺少 `Aria2`，所以需要用 `Docker` 的方式运行这个服务。
+- [reader](reader.md)
+阅读3服务器版
+
 ## 参考文献
 
 - [Docker技术入门与实战](https://yeasy.gitbook.io/docker_practice/)
