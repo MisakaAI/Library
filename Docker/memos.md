@@ -21,11 +21,11 @@ firewall-cmd --zone=public --permanent --add-port=5230/tcp
 firewall-cmd --reload
 
 # 生成 service 文件 并写入systemd目录
-podman generate systemd --name BililiveRecorder > /etc/systemd/system/BililiveRecorder.service
+podman generate systemd --name memos > /etc/systemd/system/memos.service
 
 # 启动
-systemctl start BililiveRecorder.service
-systemctl enable BililiveRecorder.service
+systemctl start memos.service
+systemctl enable memos.service
 ```
 
 ## 使用 Nginx 作为反向代理
@@ -66,11 +66,11 @@ docker pull neosmemo/memos:latest
 docker run -d --name memos -p 5230:5230 -v /var/memos:/var/opt/memos neosmemo/memos:latest
 
 # 重新生成 service 文件 并写入systemd目录
-podman generate systemd --name BililiveRecorder > /etc/systemd/system/BililiveRecorder.service
+podman generate systemd --name memos > /etc/systemd/system/memos.service
 
 # 重新加载 systemd 配置
 systemctl daemon-reload
 
 # 启动
-systemctl start BililiveRecorder.service
+systemctl start memos.service
 ```
