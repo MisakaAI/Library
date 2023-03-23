@@ -117,6 +117,15 @@ ID: esbenp.prettier-vscode
 发布者: Prettier
 VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 
+## 突出显示行尾空格
+
+名称: Trailing Spaces
+ID: shardulm94.trailing-spaces
+说明: Highlight trailing spaces and delete them in a flash!
+版本: 0.4.1
+发布者: Shardul Mahadik
+VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces
+
 ## WSL
 
 名称: WSL
