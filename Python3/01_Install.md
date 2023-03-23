@@ -22,8 +22,9 @@ dnf install python3
 
 [在 Windows 上使用 Python](https://docs.python.org/zh-cn/3.10/using/windows.html)
 
--   [完整安装程序](https://www.python.org/downloads/windows/)
--   [Microsoft Store](https://apps.microsoft.com/store/detail/python-310/9PJPW5LDXLZ5)
+- [完整安装程序](https://www.python.org/downloads/windows/)
+- [Microsoft Store](https://apps.microsoft.com/store/detail/python-310/9PJPW5LDXLZ5)
+- [华为云加速下载](https://mirrors.huaweicloud.com/python/)
 
 > 关于 Windows 7
 >
@@ -34,7 +35,6 @@ dnf install python3
 ## MacOS
 
 啊……我没有 Mac。
-
 
 ### FreeBSD & OpenBSD
 
