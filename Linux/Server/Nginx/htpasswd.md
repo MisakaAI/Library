@@ -21,4 +21,3 @@ dnf install httpd-tools
 
 htpasswd -cm .passwd <username>
 ```
-
