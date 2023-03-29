@@ -24,6 +24,7 @@
 13. [腾讯工蜂](13_tencent.md)
 14. [修复 Github 小绿块](14_contributions.md)
 15. [移除敏感信息](15_privacy.md)
+16. [GitLab](16_GitLab.md)
 
 ## 参考文献
 
