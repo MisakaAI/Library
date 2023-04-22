@@ -21,11 +21,11 @@ firewall-cmd --zone=public --permanent --add-port=5230/tcp
 firewall-cmd --reload
 
 # 生成 service 文件 并写入systemd目录
-podman generate systemd --name memos > /etc/systemd/system/memos.service
+podman generate systemd --name BililiveRecorder > /etc/systemd/system/BililiveRecorder.service
 
 # 启动
-systemctl start memos.service
-systemctl enable memos.service
+systemctl start BililiveRecorder.service
+systemctl enable BililiveRecorder.service
 ```
 
 ## 使用 Nginx 作为反向代理
