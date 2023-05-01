@@ -5,7 +5,7 @@
 docker pull p3terx/aria2-pro
 
 # 配置文件目录
-mkdir -p /data/.config/aria2
+mkdir -p /etc/aria2
 # 创建目录
 mkdir -p /data/download
 
@@ -22,7 +22,7 @@ docker run -d \
     -e LISTEN_PORT=6888 \
     -e DISK_CACHE=256M \
     -e IPV6_MODE=true \
-    -v /data/.config/aria2:/config \
+    -v /etc/aria2:/config \
     -v /data/download:/downloads \
     p3terx/aria2-pro
 
@@ -83,3 +83,16 @@ systemctl enable aria2-pro.service
 - `-p 6800:6800` - RPC 通讯端口映射。
 - `-p 6888:6888` - BT 监听端口（TCP）映射，即 Aria2 配置中listen-port选项定义的端口。
 - `-p 6888:6888/udp` - DHT 监听端口（UDP）映射，即 Aria2 配置中dht-listen-port选项定义的端口。
+
+### SSL
+
+```sh
+cp /etc/ssl/1.crt /etc/aria2
+cp /etc/ssl/1.key /etc/aria2
+```
+
+```conf
+rpc-secure=true
+rpc-certificate=/config/1.crt
+rpc-private-key=/config/1.key
+```

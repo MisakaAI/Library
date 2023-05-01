@@ -11,10 +11,10 @@ AriaNG_Version=1.3.2
 AriaNG_Download="https://github.com/mayswind/AriaNg/releases/download/$AriaNG_Version/AriaNg-$AriaNG_Version.zip"
 
 # 创建下载目录
-mkdir /var/download
+mkdir /data/download
 
 # 安装 Aria2
-apt install -y aria2 unzip
+dnf install -y aria2 unzip
 
 # 创建配置目录
 mkdir /etc/aria2
