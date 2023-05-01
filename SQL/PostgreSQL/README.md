@@ -7,3 +7,4 @@ PostgreSQL是一种特性非常齐全的自由软件的对象-关系型数据库
 
 - [查询基本信息](01_base.sql)
 - [备份](02_pgdump.md)
+- [公网访问](03_public_access.md)

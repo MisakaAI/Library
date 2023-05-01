@@ -10,8 +10,6 @@
 -c 或 --clean：只对纯文本格式有意义。指定输出的脚本中是否生成清理该数据库对象语句（如drop table 命令）。
 -C 或 --create：只对纯文本格式有意义。指定脚本中是否输出一条 create database 语句和连接到该数据库的语句。一般在备份的源数据库和目标数据库的名称一致时，才指定此参数。
 
-
-
 ```bash
 pg_dump -h 192.168.0.120 -U postgres -C dbname > backup.sql
 ```
