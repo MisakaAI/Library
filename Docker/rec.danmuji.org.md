@@ -44,3 +44,13 @@ podman generate systemd --name BililiveRecorder > /etc/systemd/system/BililiveRe
 systemctl start BililiveRecorder.service
 systemctl enable BililiveRecorder.service
 ```
+
+## Nginx
+
+```conf
+location /rec/ {
+    auth_basic "Restricted";
+    auth_basic_user_file /etc/nginx/htpasswd;
+    proxy_pass http://localhost:2356/;
+}
+```
