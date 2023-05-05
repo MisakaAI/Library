@@ -108,6 +108,22 @@ dnf install swtpm libtpms
 virt-xml <WindowsVM> --add-device --disk virtio-win.iso,device=cdrom
 ```
 
+#### 创建快照
+
+```sh
+# 为镜像创建快照 TAG为test
+qemu-img snapshot -c test /var/lib/libvirt/images/Windows_11.qcow2
+
+# 列出某个镜像的所有快照
+qemu-img snapshot -l /var/lib/libvirt/images/Windows_11.qcow2
+
+# 使用快照
+qemu-img snapshot -a test /var/lib/libvirt/images/Windows_11.qcow2
+
+# 删除快照
+qemu-img snapshot -d test /var/lib/libvirt/images/Windows_11.qcow2
+```
+
 ## 参考文献
 
 - [配置和管理虚拟化](https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/9/html/configuring_and_managing_virtualization/index)
