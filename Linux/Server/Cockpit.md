@@ -47,6 +47,39 @@ cockpit 将以 root 用户身份读取文件，因此它们可以具有严格的
 dnf install cockpit-machines
 ```
 
+## 使用 Nginx 代理
+
+```conf
+server {
+    listen      443 ssl;
+    listen      [::]:443 ssl;
+    server_name localhost;
+
+    location / {
+        # 需要代理到 Cockpit 的连接
+        proxy_pass https://127.0.0.1:9090;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # 运行所必需的 websocket
+        proxy_http_version 1.1;
+        proxy_buffering off;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        # 将 ETag 标头从 Cockpit 传递给客户端。
+        # See: https://github.com/cockpit-project/cockpit/issues/5239
+        gzip off;
+    }
+
+    # 使用正则的方法匹配其他目录
+    location ~* /(file1|file2)/(.*) {
+        root   /var/www/html;
+        index index.html;
+    }
+}
+```
+
 ## 参考文献
 
 - [使用 RHEL 9 web 控制台管理系统](https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/9/html/managing_systems_using_the_rhel_9_web_console/index#doc-wrapper)
