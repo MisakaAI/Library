@@ -1,6 +1,6 @@
 # Browsersync
 
-[Browsersync]()能让浏览器实时、快速响应您的文件更改（html、js、css、sass、less等）并自动刷新页面。
+[Browsersync](https://github.com/BrowserSync/browser-sync/)能让浏览器实时、快速响应您的文件更改（html、js、css、sass、less等）并自动刷新页面。
 
 ## 安装
 
