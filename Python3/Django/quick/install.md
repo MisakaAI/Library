@@ -3,8 +3,9 @@
 ```bash
 # Python3
 apt install python3 python3-pip
+
 # Django
-pip install Django
+pip install django
 ```
 
 ## 查看安装的 Django 版本
@@ -13,16 +14,19 @@ pip install Django
 python -m django --version
 ```
 
-### 可选
+### 其他可能会用到的
 
 ```bash
-# Apache +  mod_wsgi
+# Apache
 apt install apache2
-# Nginx +  uWSGI
+
+# Nginx
 apt install nginx
+
 # SQLite
 apt install sqlite3
+
 # PostgreSQL
 apt install postgresql
-pip install psycopg2
+pip install "psycopg[binary]"
 ```
