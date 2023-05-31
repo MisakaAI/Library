@@ -12,6 +12,10 @@
 # Django
 pip install django
 
+# Django 跨域
+# https://pypi.org/project/django-cors-headers/
+pip install django-cors-headers
+
 # psycopg3 用于连接 PostgreSQL 数据库
 pip install "psycopg[binary]"
 
