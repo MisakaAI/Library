@@ -12,7 +12,7 @@ Clash项目为开源项目，可以下载各平台的安装包：
 
 ```bash
 # 下载
-wget -O clash.gz https://github.com/Dreamacro/clash/releases/download/v1.14.0/clash-linux-amd64-v1.14.0.gz
+wget -O clash.gz https://github.com/Dreamacro/clash/releases/download/v1.16.0/clash-linux-amd64-v1.16.0.gz
 
 # 解压
 gzip -dc clash.gz > /usr/local/bin/clash
@@ -27,7 +27,8 @@ rm -f clash.gz
 mkdir /etc/clash
 
 # 下载 MMDB 文件
-wget -O /etc/clash/Country.mmdb https://www.sub-speeder.com/client-download/Country.mmdb
+# wget -O /etc/clash/Country.mmdb https://www.sub-speeder.com/client-download/Country.mmdb
+wget -O /etc/clash/Country.mmdb https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb
 
 # 导入已有的Catnet的订阅链接
 wget -O /etc/clash/config.yaml <你的订阅链接>
@@ -126,22 +127,25 @@ systemctl stop clash
 wget --no-proxy -O ${CLASH_CONFIG} ${SUBSCRIBE}
 
 if [ -n "${WEB_UI}" ]; then
-sed -i "s?^#\{0,1\} \{0,1\}external-ui.*?external-ui: ${WEB_UI}?" ${CLASH_CONFIG}
+# sed -i "s?^#\{0,1\} \{0,1\}external-ui.*?external-ui: ${WEB_UI}?" ${CLASH_CONFIG}
 fi
 
 if [ -n "${CONTROLLER_API_PROT}" ]; then
-sed -i "s?^external-controller.*?external-controller: '0.0.0.0:${CONTROLLER_API_PROT}'?" ${CLASH_CONFIG}
+# sed -i "s?^external-controller.*?external-controller: '0.0.0.0:${CONTROLLER_API_PROT}'?" ${CLASH_CONFIG}
+sed -i "s?^external-controller.*?external-ui: \"/var/www/clash\"\nexternal-controller: '0.0.0.0:${CONTROLLER_API_PROT}'?" ${CLASH_CONFIG}
 fi
 
 if [ -n "${SECRET}" ]; then
 sed -i "s?^secret.*?secret: '${SECRET}'?" ${CLASH_CONFIG}
 fi
 
+sed -i "s?^mode: .*?mode: global?" ${CLASH_CONFIG}
+
 systemctl start clash
 ```
 
-上述脚本写入 `/etc/cron.weekly/clash.sh` 并配置好相关变量后，保存退出并赋予可执行权限
+上述脚本写入 `/etc/cron.daily/clash.sh` 并配置好相关变量后，保存退出并赋予可执行权限
 
 ```bash
-chmod 0755 /etc/cron.weekly/clash.sh
+chmod 0755 /etc/cron.daily/clash.sh
 ```
