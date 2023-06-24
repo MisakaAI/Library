@@ -19,6 +19,10 @@ pip install django-cors-headers
 # psycopg3 用于连接 PostgreSQL 数据库
 pip install "psycopg[binary]"
 
+# uwsgi
+# dnf install python3-devel
+pip install uwsgi
+
 # 创建项目
 django-admin startproject <project name>
 
@@ -60,7 +64,8 @@ python manage.py createsuperuser
 
 ## 部署
 
-- [部署](deployment/wsgi.md)
+- [Apache 部署](deployment/mod_wsgi.md)
+- [Nginx 部署](deployment/uwsgi.md)
 
 ## 管理
 
