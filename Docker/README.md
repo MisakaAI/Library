@@ -27,6 +27,8 @@
 主要是`RockyLinux 9`的 `EPRL源` 缺少 `Aria2`，所以需要用 `Docker` 的方式运行这个服务。
 - [reader](reader.md)
 阅读3服务器版
+- [qBittorrent](qbittorrent.md)
+专业磁力种子下载工具
 
 ## 参考文献
 
