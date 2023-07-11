@@ -43,30 +43,35 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-## 模型层
+### 模型层
 
 - [模型](model/models.md)
 - [模型字段](model/model-field-types.md)
 
-## 视图层
+### 视图层
 
 - [视图](view/view.md)
 - [URL调度器](view/urls.md)
 - [静态文件](view/staticfiles.md)
 
-## 模板层
+### 模板层
 
 - [模板](template/template.md)
 
-## 表单
+### 表单
 
 - [表单](form/forms.md)
 
-## 部署
+### 部署
 
 - [Apache 部署](deployment/mod_wsgi.md)
 - [Nginx 部署](deployment/uwsgi.md)
 
-## 管理
+### 管理
 
 - [管理站点](admin/admin.md)
+
+## 参考文献
+
+- [The Django Book](http://djangobook.py3k.cn/2.0/)
+Django 2.0的文档，早期 Django 没有官方的中文文档的时候，这份网站为我的学习提供了很大的帮助。
