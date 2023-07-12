@@ -273,27 +273,27 @@ mount -t cifs //ip-address>/sambashare /mnt/samba -o username=samba,password=sam
 
 ```conf
 [global]
-	# 工作组
-	workgroup = MISAKANETWORK
-	# 服务描述
-	server string = Samba Server Version %v
+    # 工作组
+    workgroup = MISAKANETWORK
+    # 服务描述
+    server string = Samba Server Version %v
 
-	# 日志文件
-	log file = /var/log/samba/log.%m
-	# 单个日志文件的最大大小 （以KiB为单位）
-	max log size = 1000
-	# 文件
-	logging = file
+    # 日志文件
+    log file = /var/log/samba/log.%m
+    # 单个日志文件的最大大小 （以KiB为单位）
+    max log size = 1000
+    # 文件
+    logging = file
 
-	# user ：使用 SAMBA 本身的密码数据库，密码数据库与底下的 smb passwd file 有关
-	security = user
-	# 用户后台类型
-	passdb backend = tdbsam
-	# 允许登录的主机
-	hosts allow = 192.168.0.0/24
+    # user ：使用 SAMBA 本身的密码数据库，密码数据库与底下的 smb passwd file 有关
+    security = user
+    # 用户后台类型
+    passdb backend = tdbsam
+    # 允许登录的主机
+    hosts allow = 192.168.0.0/24
 
-	# 关闭打印共享功能
-	load printers = no
+    # 关闭打印共享功能
+    load printers = no
 [homes]
         comment = Home Directories
         valid users = %S, %D%w%S
@@ -302,24 +302,28 @@ mount -t cifs //ip-address>/sambashare /mnt/samba -o username=samba,password=sam
         inherit acls = yes
 
 [public]
-	# 描述
-	comment = samba public
-	# 目录
-	path = /data
-	# 是否只读
-	read only = no
-	# 是否可写
-	writable = yes
-	# 新创建的文件 预设权限为 0644
-	create mask = 0644
-	# 新创建的目录 预设权限为 0755
-	directory mask = 0755
-	# 开放给其他人浏览
-	browseable = yes
-	# 是否让所有可以登入的用户看到这个项目
-	public = yes
-	guest ok = yes
-	# 指定能够进入到此资源的特定用户
-	# 多用户或组使用逗号隔开，@group表示group用户组
-	valid users = root
+    # 描述
+    comment = samba public
+    # 目录
+    path = /data
+    # 是否只读
+    read only = no
+    # 是否可写
+    writable = yes
+    # 新创建的文件 预设权限为 0644
+    create mask = 0644
+    # 新创建的目录 预设权限为 0755
+    directory mask = 0755
+    # 开放给其他人浏览
+    browseable = yes
+    # 是否让所有可以登入的用户看到这个项目
+    public = yes
+    guest ok = yes
+    # 指定能够进入到此资源的特定用户
+    # 多用户或组使用逗号隔开，@group表示group用户组
+    valid users = root
 ```
+
+## 参考文献
+
+- [Linux Samba服务主配文件smb.conf中文详解](https://www.cnblogs.com/fatt/p/5856892.html)

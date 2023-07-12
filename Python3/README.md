@@ -12,6 +12,10 @@ Python由荷兰数学和计算机科学研究学会的吉多·范罗苏姆（Gui
 4. [简介](04_introduction.md)
 5. [流程控制](05_controlflow.md)
 6. [函数](06_functions.md)
+7. [嵌入式](07_embeddable.md)
+8. [多线程](08_Thread.md)
+9. [异步](09_Async.md)
+10. [全局变量](10_global.md)
 
 ## 参考文献
 
