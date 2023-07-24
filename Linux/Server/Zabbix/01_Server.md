@@ -17,6 +17,12 @@ dpkg -i zabbix-release_6.0-4+ubuntu22.04_all.deb
 apt update
 ```
 
+# 清华大学镜像源
+
+```txt
+https://mirrors.tuna.tsinghua.edu.cn/zabbix/
+```
+
 ## 安装server/agent/前端
 
 ```bash

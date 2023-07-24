@@ -9,3 +9,4 @@ Linux 服务器常用软件
 - [h5ai](h5ai.md)
 - [Samba](Samba.md)
 - [Ward](Ward.md)
+- [NTP](ntp.md)
