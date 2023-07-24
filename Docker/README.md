@@ -14,8 +14,7 @@
 - [定制镜像 Dockerfile](07_Dockerfile.md)
 - [操作容器 Container](08_Container.md)
 - [访问仓库 Repository](09_Repository.md)
-- [B站录播姬](rec.danmuji.org.md)
-- [Aria2 Pro Docker](aria2-pro.md)
+- [一些小问题](10_question.md)
 
 ## 一些好玩的docker镜像
 

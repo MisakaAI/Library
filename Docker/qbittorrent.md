@@ -25,7 +25,7 @@ docker run -d \
     -p 63739:63739/udp \
     -v /data/qbittorrent/config:/config \
     -v /data/qbittorrent/downloads:/downloads \
-    --restart unless-stopped qbittorrent:latest
+    --restart unless-stopped linuxserver/qbittorrent:latest
 
 # 防火墙
 firewall-cmd --zone=public --permanent --add-port=8080/tcp

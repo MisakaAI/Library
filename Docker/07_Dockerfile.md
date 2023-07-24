@@ -25,7 +25,6 @@ CMD /usr/bin/aria2c --conf-path=/etc/aria2/aria2.conf
 
 ```
 
-
 ## 参考文献
 
 - [使用 Dockerfile 定制镜像](https://yeasy.gitbook.io/docker_practice/image/build)

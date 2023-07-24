@@ -9,10 +9,10 @@ docker pull bililive/recorder:latest
 # 启动录播姬
 
 # 公网使用推荐：配置 https + 用户名&密码
-docker run -d -u 1000:1000 -v 宿主机路径:/rec -p 2356:2356 --mount type=bind,source=/etc/ssl,target=/etc/ssl,readonly --name="BililiveRecorder" bililive/recorder run --bind "http://*:2356" --http-basic-user "用户名" --http-basic-pass "密码" --cert-pem-path "证书文件路径" --cert-key-path "私钥文件路径" /rec
+docker run -d -u 1000:1000 -v 宿主机路径:/rec -p 2356:2356 --restart unless-stopped --mount type=bind,source=/etc/ssl,target=/etc/ssl,readonly --name="BililiveRecorder" bililive/recorder run --bind "http://*:2356" --http-basic-user "用户名" --http-basic-pass "密码" --cert-pem-path "证书文件路径" --cert-key-path "私钥文件路径" /rec
 
 # 仅本地：仅http
-docker run -d -u 1000:1000 -v 宿主机路径:/rec -p 2356:2356 --name="BililiveRecorder" bililive/recorder
+docker run -d -u 1000:1000 -v 宿主机路径:/rec -p 2356:2356 --restart unless-stopped --name="BililiveRecorder" bililive/recorder
 
 # -d 后台运行
 # -u 用户 <name|uid>[:<group|gid>] 用于处理保存文件的权限

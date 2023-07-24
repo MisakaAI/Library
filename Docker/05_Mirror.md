@@ -78,9 +78,6 @@ blocked = false
 location = "docker.io"
 
 [[registry.mirror]]
-location = "o7tgst5i.mirror.aliyuncs.com"
-
-[[registry.mirror]]
 location = "docker.mirrors.ustc.edu.cn"
 
 [[registry.mirror]]
