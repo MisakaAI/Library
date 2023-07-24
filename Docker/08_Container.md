@@ -120,3 +120,16 @@ cat ubuntu.tar | docker import - test/ubuntu:v1.0
 # 通过指定 URL 或者某个目录来导入
 $ docker import http://example.com/exampleimage.tgz example/imagerepo
 ```
+
+## 日志
+
+```bash
+# 跟踪日志输出
+docker logs -f
+
+# 查看最新的 10 条日志
+docker logs --tail=10
+
+# 显示某个开始时间的所有日志
+docker logs --since="2023-01-01"
+```
