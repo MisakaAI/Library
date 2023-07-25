@@ -77,8 +77,8 @@ insecure = false
 blocked = false
 location = "docker.io"
 
-[[registry.mirror]]
-location = "docker.mirrors.ustc.edu.cn"
+# [[registry.mirror]]
+# location = "docker.mirrors.ustc.edu.cn"
 
 [[registry.mirror]]
 location = "hub-mirror.c.163.com"
