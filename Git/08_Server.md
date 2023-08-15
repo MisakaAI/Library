@@ -20,6 +20,9 @@ useradd git -g git -r -m -s /usr/bin/git-shell
 # --bare 裸库，只保存 git 提交的版本信息。
 # 即普通仓库中 .git 目录下的内容。
 git init --bare sample.git
+
+# 修改仓库权限
+chown -R git:git sample.git
 ```
 
 ## 客户端
