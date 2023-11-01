@@ -19,18 +19,60 @@ a = "Hello World";
 var a = "Hello World";
 ```
 
+#### 变量类型
+
+- `const` 常量，即不可修改的变量，且必须初始化，否则会报错。
+- `var` 变量，如果不初始化会输出 `undefined`，不会报错。
+- `let` 只在当前作用域中有效，函数内部使用 `let` 定义后，对函数外部无影响。
+
+#### 声明变量类型
+
+声明新变量时，可以使用关键词 `new` 来声明其类型。
+
+```js
+var a = new String;
+var b = new Number;
+var c = new Boolean;
+var d = new Array;
+var e = new Object;
+```
+
 ## 数据类型
 
-### 原生数据类型 primitive type
+### 值类型
 
-- 字符串（单引号，双引号）：`'Hello'` `"World"`
-- 整数：`-1` `0` `1`
-- 小数：`3.14`
-- 布尔值：`true` `false`
+又称：原生数据类型 primitive type
+
+- 字符串：`string`
+  - 双引号 `"Hello"`
+  - 单引号 `'World'`
+- 数字：`number`
+  - 负数 `-1`
+  - 零 `0`
+  - 整数 `1`
+  - 小数 `3.14`
+- 布尔值：`boolean`
+  - 真 `true`
+  - 假 `false`
 - 无：`null`
 - 未定义：`undefined`
 
-### 对象数据类型 object type
+#### 布尔值
+
+每种数据都有对应的布尔值，为真 `true` 或假 `false`。
+空字符串 `''` 为 `false`，非空字符串 `' '` 均为 `true`。
+数字 `0` 为 `false`，其余数字 `1` `-1` 均为 `true`。
+`null` 和 `undefined` 也代表 `false`
+
+### 引用类型
+
+又称：对象数据类型 object type
+
+- 对象：Object
+- 数组：Array
+- 函数：Function
+
+#### 对象
 
 ```js
 // 定义一个对象
@@ -43,11 +85,45 @@ var a = {
 a.apple = "苹果";
 
 // 直接读取对象中的数据
-console.log(a.key);
+a.key
 // 通过变量读取对象中的数据
 var b = "key";
-console.log(a[b]);
+a[b]
 ```
+
+#### 数组
+
+```js
+// 定义数组
+var a = [];
+var a = new Array();
+
+// 数组元素数量
+a.length;
+
+// 添加元素到末尾
+a.push("apple");
+
+// 删除末尾元素
+a.pop();
+
+// 插入、删除或替换元素
+var a = [1,2,3,4,5,6,7,8,9];
+// 从0开始计数，删除第2位起的1个元素
+a.splice(2,1); // a = [1, 2, 4, 5, 6, 7, 8, 9]
+
+// 删除第2位起的3个元素，并插入11,22,33。
+a.splice(2,3,11,22,33); // a = [1, 2, 11, 22, 33, 7, 8, 9]
+
+// 数组转化为字符串
+// 括号内为分隔元素的符号。
+// 如果括号内为空，则默认为逗号。
+var b = a.join(',');
+```
+
+#### 函数
+
+- [函数](./02_function.md)
 
 #### 复制对象
 
@@ -59,16 +135,16 @@ console.log(a[b]);
 var x = { a: 1 };
 
 // 复制对象不能直接赋值
-var x1 = x
-x1.a = 0
-console.log(x.a) // 0
-console.log(x1.a) // 0
+var x1 = x;
+x1.a = 0;
+x.a; // 0
+x1.a; // 0
 
 // 浅拷贝
 var obj2 = Object.assign({}, x);
-x2.a=0
-console.log(x.a) // 1
-console.log(x2.a) // 0
+x2.a=0;
+x.a; // 1
+x2.a; // 0
 ```
 
 ##### 深拷贝（deep copy）
@@ -80,15 +156,15 @@ var x3 = { a: 0, b: { c: 0 } };
 
 // 浅拷贝
 var x4 = Object.assign({}, x3);
-x4.b.c = 1
-console.log(x3.b.c) // 1
-console.log(x4.b.c) // 1
+x4.b.c = 1;
+x3.b.c; // 1
+x4.b.c; // 1
 
 // 深拷贝
 var x5 = JSON.parse(JSON.stringify(x3));
-x5.b.c = 2
-console.log(x3.b.c) // 1
-console.log(x5.b.c) // 2
+x5.b.c = 2;
+x3.b.c; // 1
+x5.b.c; // 2
 ```
 
 #### 查看数据类型
@@ -106,10 +182,10 @@ var g = 'hello world';
 var h = {};
 var i = [];
 
-typeof(a)
-typeof(b)
+typeof(a);
+typeof(b);
 ...
-typeof(i)
+typeof(i);
 ```
 
 ## 运算符
@@ -136,8 +212,32 @@ var a = 1;
 var b = 0;
 if ( a > b ) {
     console.log(true);
+} else if ( a == b ) {
+    console.log(null);
+} else {
+    console.log(false);
 }
 ```
+
+### 表达式与运算符
+
+- [表达式与运算符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_operators)
+
+#### 相等运算符
+
+```js
+// 相等运算符
+1 == '1' // true
+
+// 严格相等运算符
+1 === '1' // false
+```
+
+#### 三元运算符
+
+`表达式?真执行:假执行`
+
+
 
 ## 循环 for / while
 
@@ -155,32 +255,43 @@ while (i<10) {
 }
 ```
 
-## 数组
+## 常用方法
+
+### 输出
+
+- 输出到控制台:`console.log()`
+- 输出到弹窗:`alert()`
+- 输出到页面:`document.write()`
 
 ```js
-// 定义数组
-var a = [];
-var a = new Array();
+console.log('Hello World!');
+alert('Hello World!');
+document.write("Hello World !");
+```
 
-// 数组元素数量
-a.length
+### 字符串
 
-// 添加元素到末尾
-a.push("apple");
+- 转化为字符串：`toString()`
+- 转化为整数：`parseInt()`
+`parseInt()` 方法还有基模式，可以把二进制、八进制、十六进制或其他任何进制的字符串转换成整数。
+- 转化为浮点数：`parseFloat()`
+- 匹配字符串：`indexOf()`
+- 分割字符串：`split()`
+- 字符串长度：`length`
+- 字符串替换：`replace('替换字符','替换字符')`
 
-// 删除末尾元素
-a.pop()
+```js
+var a = 123456;
+var b = a.toString(); // '123456'
+var c = parseInt(b) // 123456
+var d = parseInt('0xA',16) // 10
 
-// 插入、删除或替换元素
-var a = [1,2,3,4,5,6,7,8,9];
-// 从0开始计数，删除第2位起的1个元素
-a.splice(2,1); // a = [1, 2, 4, 5, 6, 7, 8, 9]
+b.indexOf('1'); // 0
+b.indexOf('0'); // -1
 
-// 删除第2位起的3个元素，并插入11,22,33。
-a.splice(2,3,11,22,33); // a = [1, 2, 11, 22, 33, 7, 8, 9]
+b.length; // 6
 
-// 数组转化为字符串
-// 括号内为分隔元素的符号。
-// 如果括号内为空，则默认为逗号。
-var b = a.join(',');
+var pi = '3.1415926';
+pi.split('.'); // ['3', '1415926']
+var e = parseFloat(pi) // 3.1415926
 ```
