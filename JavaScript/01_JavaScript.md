@@ -260,13 +260,29 @@ while (i<10) {
 ### 输出
 
 - 输出到控制台:`console.log()`
-- 输出到弹窗:`alert()`
+- 输出到弹窗:`alert()` `confirm()` `prompt()`
 - 输出到页面:`document.write()`
 
 ```js
 console.log('Hello World!');
 alert('Hello World!');
 document.write("Hello World !");
+```
+
+#### 弹出框
+
+在弹出框中换行使用 `\n`
+
+```js
+// 警告框
+window.alert("Hello World!"); // 可以不带 windows 前缀，下同
+alert("Hello World!");
+
+// 确认框
+confirm("sometext");
+
+// 输入框
+prompt("sometext","defaultText");
 ```
 
 ### 字符串
@@ -295,3 +311,12 @@ var pi = '3.1415926';
 pi.split('.'); // ['3', '1415926']
 var e = parseFloat(pi) // 3.1415926
 ```
+
+## 日期
+
+- 日期 `Date()`
+
+## 参考文献
+
+- 《JavaScript百练成仙》
+- [JavaScript 教程](https://www.w3school.com.cn/js/index.asp)
