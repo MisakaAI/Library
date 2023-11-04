@@ -253,6 +253,12 @@ while (i<10) {
     console.log(i);
     i++;
 }
+
+// ES6 - of
+var a = ["A","B","C","D","E","F","G"];
+for (var i in a) { console.log(i) }; // 0,1,2,3,4,5,6
+for (var i in a) { console.log(a[i]) }; // A,B,C,D,E,F,G
+for (var i of a) { console.log(i) }; // A,B,C,D,E,F,G
 ```
 
 ## 常用方法
