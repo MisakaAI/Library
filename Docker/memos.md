@@ -7,25 +7,25 @@
 
 ```bash
 # 拉取镜像
-docker pull bililive/recorder:latest
+docker pull ghcr.io/usememos/memos:latest
 
 # 创建工作目录
-mkdir /var/memos
+mkdir /data/memos
 
 # 启动
 # docker run -d --name memos -p 5230:5230 -v ~/.memos/:/var/opt/memos neosmemo/memos:latest
-docker run -d --name memos -p 5230:5230 -v /var/memos:/var/opt/memos neosmemo/memos:latest
+docker run -d --name memos -p 5230:5230 -v /data/memos:/var/opt/memos ghcr.io/usememos/memos:latest
 
 # 防火墙
 firewall-cmd --zone=public --permanent --add-port=5230/tcp
 firewall-cmd --reload
 
 # 生成 service 文件 并写入systemd目录
-podman generate systemd --name BililiveRecorder > /etc/systemd/system/BililiveRecorder.service
+podman generate systemd --name memos > /etc/systemd/system/memos.service
 
 # 启动
-systemctl start BililiveRecorder.service
-systemctl enable BililiveRecorder.service
+systemctl start memos.service
+systemctl enable memos.service
 ```
 
 ## 使用 Nginx 作为反向代理
@@ -63,7 +63,7 @@ docker image rm memos:latest
 
 # 重新拉取及启动
 docker pull neosmemo/memos:latest
-docker run -d --name memos -p 5230:5230 -v /var/memos:/var/opt/memos neosmemo/memos:latest
+docker run -d --name memos -p 5230:5230 -v /data/memos:/var/opt/memos neosmemo/memos:latest
 
 # 重新生成 service 文件 并写入systemd目录
 podman generate systemd --name memos > /etc/systemd/system/memos.service
