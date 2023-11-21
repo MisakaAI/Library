@@ -8,6 +8,8 @@
 修改 `~/.ssh/config`
 
 ```txt
-HostKeyAlgorithms +ssh-rsa
-PubkeyAcceptedAlgorithms +ssh-rsa
+Host git.code.tencent.com
+    HostName git.code.tencent.com
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedAlgorithms +ssh-rsa
 ```
