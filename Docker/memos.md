@@ -14,7 +14,7 @@ mkdir /data/memos
 
 # 启动
 # docker run -d --name memos -p 5230:5230 -v ~/.memos/:/var/opt/memos neosmemo/memos:latest
-docker run -d --name memos -p 5230:5230 -v /data/memos:/var/opt/memos ghcr.io/usememos/memos:latest
+docker run -d --name memos -p 5230:5230 --restart=unless-stopped -v /data/memos:/var/opt/memos ghcr.io/usememos/memos:latest
 
 # 防火墙
 firewall-cmd --zone=public --permanent --add-port=5230/tcp
