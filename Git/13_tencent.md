@@ -7,9 +7,16 @@
 
 修改 `~/.ssh/config`
 
-```txt
+```config
 Host git.code.tencent.com
     HostName git.code.tencent.com
     HostKeyAlgorithms +ssh-rsa
     PubkeyAcceptedAlgorithms +ssh-rsa
+```
+
+```sh
+echo "Host git.code.tencent.com
+    HostName git.code.tencent.com
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedAlgorithms +ssh-rsa" >> ~/.ssh/config
 ```
