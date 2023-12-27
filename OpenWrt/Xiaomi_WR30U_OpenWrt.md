@@ -87,7 +87,9 @@ poweroff
 
 ## Step 6 刷入 OpenWrt
 
-下载固件：[Techdata: Xiaomi WR30U](https://openwrt.org/toh/hwdata/xiaomi/xiaomi_wr30u)
+### 官方固件
+
+[Techdata: Xiaomi WR30U](https://openwrt.org/toh/hwdata/xiaomi/xiaomi_wr30u)
 
 - `Firmware OpenWrt Install URL` 的 `.ubi` 文件
 - `Firmware OpenWrt Upgrade URL` 的 `.bin` 文件
@@ -104,7 +106,7 @@ poweroff
 
 路由器会再次重启，完成全部刷机工作。
 
-## Step 7 设置界面为中文
+#### 设置界面为中文
 
 I'm Chinese !
 
@@ -113,6 +115,21 @@ I'm Chinese !
 查找 `luci-i18n-base-zh-cn` ，然后点击 `Install...` 进行安装。
 
 通常刷新一下会自动变成中文界面，如果没变，在`System / System / Language and Style`中，调整 Language 为中文即可。
+
+### 第三方固件
+
+[潘多拉 QWRT MT7981 小米 WR30U 联通版](https://www.right.com.cn/forum/thread-8284824-1-1.html)
+
+#### 网易UU游戏加速器
+
+[OpenWrt插件安装百科](https://router.uu.163.com/app/html/online/baike_share.html?baike_id=5f963c9304c215e129ca40e8)
+
+## DNS
+
+1. **WAN口dns** 最常用的DNS设置方式。可以由DHCP请求获得，或自行设置。在静态IP的情况下，必须设置，否则无法查询外面的主机
+2. **LAN 口dns** 如果路由器用于桥接方式，并且使用静态IP时，无法用DHCP请求的方式得到DNS，这是该选项的主要用途。其他场合下，则会忽略由DHCP服务器的DNS设置，改用这个设置。
+3. **lan口DHCP通告** 如果该机器是子网的DHCP服务器，用于设置DHCP客户端的DNS。如果留空，默认则用自身的IP。通常客户端看到的DNS是这个（手机，电脑等）
+4. **DHCP/DNS里的dns转发** 如果自己是子网的DNS服务器，用于设置转发服务器。如果不设置，则用上游DNS（由1或2）服务器
 
 ## 参考文献
 
