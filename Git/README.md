@@ -16,7 +16,7 @@
 5. [分支](05_Branching.md)
 6. [暂存](06_Stashing.md)
 7. [清理](07_Cleaning.md)
-8. [清理](08_Server.md)
+8. [服务器](08_Server.md)
 9. [Github](09_Github.md)
 10. [配置](10_Configuration.md)
 11. [忽略文件](11_.gitignore.md)
