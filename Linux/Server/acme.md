@@ -64,9 +64,13 @@ acme.sh --install-cert -d misaka.cn \
 --reloadcmd     "systemctl force-reload nginx.service"
 ```
 
-## 查看已安装证书信息
+## 查看已安装证书
 
 ```sh
+# 查看已安装证书
+acme.sh --list
+
+# 查看已安装证书信息
 acme.sh --info -d misaka.cn
 ```
 
@@ -91,4 +95,8 @@ acme.sh --upgrade --auto-upgrade
 acme.sh --upgrade --auto-upgrade  0
 ```
 
-###
+## 卸载
+
+```sh
+acme.sh --uninstall
+```
