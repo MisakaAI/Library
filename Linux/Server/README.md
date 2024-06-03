@@ -11,3 +11,4 @@ Linux 服务器常用软件
 - [Ward](Ward.md)
 - [NTP](ntp.md)
 - [acme](acme.md)
+- [Fail2Ban](Fail2Ban.md)
