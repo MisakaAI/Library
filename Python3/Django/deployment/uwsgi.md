@@ -108,9 +108,3 @@ server {
 ```sh
 systemctl restart nginx
 ```
-
-
-
-
-
-
