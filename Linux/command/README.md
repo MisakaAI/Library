@@ -12,3 +12,7 @@ Linux 常用命令
 ## 加密
 
 - [openssl](openssl.md)
+
+## 磁盘
+
+-[smartmontools](smartmontools.md)
