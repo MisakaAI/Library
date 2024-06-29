@@ -15,6 +15,7 @@
 - [操作容器 Container](08_Container.md)
 - [访问仓库 Repository](09_Repository.md)
 - [一些小问题](10_question.md)
+- [使用代理](11_Proxy.md)
 
 ## 一些好玩的docker镜像
 

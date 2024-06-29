@@ -1,5 +1,8 @@
 # 镜像加速器
 
+ 自 2024-06-06 开始，中国境内的 Docker Hub 镜像加速器相继停止服务。
+ 需要使用代理等其他方式访问 Docker Hub。
+
 - [阿里云](https://www.aliyun.com/product/acr?source=5176.11533457&userCode=8lx5zmtu) `(点击管理控制台 -> 登录账号(淘宝账号) -> 右侧镜像工具 -> 镜像加速器 -> 复制加速器地址)`
 - [网易云](https://www.163yun.com/help/documents/56918246390157312) `https://hub-mirror.c.163.com`
 - [百度云](https://cloud.baidu.com/doc/CCE/s/Yjxppt74z#%E4%BD%BF%E7%94%A8dockerhub%E5%8A%A0%E9%80%9F%E5%99%A8) `https://mirror.baidubce.com`
