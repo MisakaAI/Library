@@ -29,6 +29,7 @@
 阅读3服务器版
 - [qBittorrent](qbittorrent.md)
 专业磁力种子下载工具
+- [幻兽帕鲁](Palworld.md)
 
 ## 参考文献
 
