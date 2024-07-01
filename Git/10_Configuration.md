@@ -45,12 +45,6 @@ git config --global format.pretty oneline
 
 # 中文文件名或者路径不转义
 git config --global core.quotepath false
-
-# 修改默认的编辑器为 vim
-git config --global core.editor vim
-
-# 配置全局的凭据帮助程序，使用 Git 进行身份验证时会记住凭据（用户名和密码）
-git config --global credential.helper store
 ```
 
 ## 安全的存储库
