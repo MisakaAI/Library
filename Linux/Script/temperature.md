@@ -4,13 +4,14 @@
 
 ```bash
 # 读取温度值
+name=$(cat /sys/class/hwmon/hwmon0/name)
 temp=$(cat /sys/class/hwmon/hwmon0/temp1_input)
 
 # 将温度值转换为摄氏度
 celsius=$(awk "BEGIN {printf \"%.2f\n\", $temp / 1000}")
 
 # 输出文本
-echo "hwmon1: $celsius"
+echo "$name: $celsius ℃"
 ```
 
 ## sensors
