@@ -1,5 +1,7 @@
 #!/bin/env python3
 
+# 将音频文件分割为用于训练的小段
+
 import os
 from pathlib import Path
 from pydub import AudioSegment

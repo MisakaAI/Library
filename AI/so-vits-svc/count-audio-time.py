@@ -1,5 +1,7 @@
 #!/bin/env python3
 
+# 统计音频文件总时长
+
 import os
 from pathlib import Path
 from pydub import AudioSegment
