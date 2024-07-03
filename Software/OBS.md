@@ -82,6 +82,39 @@ HDR 标称峰值电平 `1000 nits`
 
 OBS的实时预览功能没有必要的时候建议关闭。
 
+## 弹幕姬
+
+- [拉普拉斯弹幕机](https://play-live.bilibili.com/details/1698160605076?from=1)
+- [直播弹幕姬BLC](https://play-live.bilibili.com/details/1675336975685?from=1)
+- [BLC弹幕姬](https://github.com/xfgryujk/blivechat)
+- [Bilibili Live Chat](https://github.com/Tsuk1ko/bilibili-live-chat)
+
+```css
+body {
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.danmaku-content {
+    padding-left: 5px;
+    padding-bottom:5px;
+    height: auto;
+}
+.danmaku-message,.danmaku-author-name,.danmaku-gift-name,.danmaku-gift-num {
+    font-family: "凤凰点阵体 16px";
+    font-weight: normal;
+    font-size:32px;
+    line-height:38px;
+}
+.danmaku-author-face {
+    width: 38px;
+    height: 38px;
+    border-radius: 38px;
+    margin-right: 5px;
+}
+```
+
 ## 参考文献
 
 - [给新人主播一些OBS设置建议，让你的直播间画质提升个数量级。](https://www.bilibili.com/read/cv7482412/)
