@@ -15,4 +15,13 @@ Linux 常用命令
 
 ## 磁盘
 
--[smartmontools](smartmontools.md)
+- [smartmontools](smartmontools.md)
+- [测磁盘坏块](badblocks.md)
+- [挂载硬盘](fstab.md)
+- [管理磁盘](udisksctl.md)
+- [调整硬盘参数](hdparm.md)
+- [管理硬盘休眠](hd-idle.md)
+
+## 电源
+
+- [apcupsd](apcupsd.md)
