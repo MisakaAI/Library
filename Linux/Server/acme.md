@@ -26,15 +26,25 @@ alias acme.sh=~/.acme.sh/acme.sh
 使用 `dnspod.cn`，创建 `DNSPod Token`。
 （注意：不要创建为 `腾讯云 API 密钥`）
 
-参考： [dnsapi](https://github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_dp)
+#### 参考
+
+- [DNSPod.cn](https://github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_dp)
+- [CloudFlare](https://github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_cf)
 
 ```sh
+# DNSPod.cn
 export DP_Id="<id>"
 export DP_Key="<key>"
+# CloudFlare
+export CF_Key="763eac4f1bcebd8b5c95e9fc50d010b4"
+export CF_Email="alice@example.com"
 ```
 
 ```sh
-./acme.sh --issue --dns dns_dp -d misaka.cn -d *.misaka.cn
+# DNSPod.cn
+./acme.sh --issue --dns dns_dp -d misaka.cn -d '*.misaka.cn'
+# CloudFlare
+./acme.sh --issue --dns dns_cf -d misaka.cn -d '*.misaka.cn'
 ```
 
 证书就会自动生成了. 这里给出的 `api id` 和 `api key` 会被自动记录下来, 将来你在使用 `dnspod api` 的时候, 就不需要再次指定了. 直接生成就好了:
