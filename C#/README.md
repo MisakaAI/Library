@@ -9,8 +9,10 @@ C# 语言是适用于 .NET 平台的最流行语言。
 - [环境搭建](00_env.md)
 - [语言基础](01_fundamentals.md)
 - [语句](02_structure.md)
-- [对象与类](03_class.md)
-- [面向对象编程](04_OOP.md)
+- [类](03_class.md)
+- [对象](04_object.md)
+- [字符串](05_string.md)
+- [数组](06_array.md)
 
 ## 参考文献
 
