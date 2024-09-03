@@ -22,6 +22,41 @@ char|Char|2|任意 Unicode 字符
 string|String||字符序列
 object|Object||所有其他类型的基类型
 
+在C#中，类型分为两大类：值类型和引用类型。
+它们的主要区别在于内存分配和存储方式。
+
+- **值类型**
+变量直接包含其数据，每个变量都有自己独立的数据副本。
+当你将一个值类型变量赋值给另一个变量时，实际上是创建了这个值的副本，它们相互独立。
+
+- **引用类型**
+存储的是对象的引用（或地址），而不是对象本身的值。
+多个变量可以引用同一个对象，改变其中一个变量的内容会影响其他引用同一对象的变量。
+
+引用类型可以为空（null），但是值类型不可以。
+
+```cs
+// 值类型
+int a = 5;
+int b = a; // 这里 b 是 a 的副本
+b = 10;
+Console.WriteLine(a); // 输出 5，a 和 b 是独立的
+
+// 引用类型
+class Person
+{
+    public string Name;
+}
+
+Person person1 = new Person();
+person1.Name = "Alice";
+
+Person person2 = person1; // person2 和 person1 引用同一个对象
+person2.Name = "Bob";
+
+Console.WriteLine(person1.Name); // 输出 Bob，因为 person1 和 person2 指向同一个对象
+```
+
 ## 变量
 
 变量是数据占位符。

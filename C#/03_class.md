@@ -109,10 +109,10 @@ namespace MyNamescape
 
 C#使用访问修饰符来控制类的可见性和访问权限。
 
-- `public`：访问不受限制。
-- `private`：只能在类内部访问。
-- `protected`：可以在类本身及其子类中访问。
-- `internal`：访问仅限于当前程序集。
+- `public`：公众的，访问不受限制。
+- `private`：受保护的，只能在类内部访问。
+- `protected`：私有的，可以在类本身及其子类中访问。
+- `internal`：内部的，访问仅限于当前程序集。
 
 默认情况下类是 `internal` 的，除非明确的声明为`public`。
 
