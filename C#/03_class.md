@@ -61,6 +61,24 @@ class Program
 
 每个类必须至少有一个构造函数，否则这个类就不能创建对象。
 构造函数和方法一样，但是没有返回值。
+构造函数的名称与类名相同。
+
+```cs
+class Employee
+{
+    public static int numberOfEmployees; // 静态变量，用于跟踪员工总数
+    public string Name;
+    public int Age;
+
+    // 构造函数
+    public Employee(string name, int age)
+    {
+        Name = name;
+        Age = age;
+        numberOfEmployees+=1
+    }
+}
+```
 
 ## 创建对象
 

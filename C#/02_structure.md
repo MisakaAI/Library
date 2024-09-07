@@ -97,3 +97,75 @@ return;
 // 用于返回特定类型值的方法
 return value;
 ```
+
+## => 表达式体成员
+
+```cs
+// 完整写法
+public string Name
+{
+    get
+    {
+        return _name;
+    }
+}
+
+// 简写形式（表达式体成员）
+public string Name
+{
+    get => _name;
+}
+```
+
+## Lambda 表达式
+
+Lambda 表达式的基本语法为 `(parameters) => expression`
+
+- **左边**：包含参数列表（可以省略参数类型，如果参数是单一的也可以省略括号）。
+- **右边**：包含表达式或代码块，该部分是 Lambda 表达式的主体。
+
+```cs
+// 没有参数
+Action sayHello = () => Console.WriteLine("Hello!");
+sayHello();  // 输出 "Hello!"
+
+// 单个参数
+Func<int, int> increment = x => x + 1;
+Console.WriteLine(increment(1));  // 输出 2
+
+// 多个参数
+Func<int, int, int> add = (x, y) => x + y;
+Console.WriteLine(add(3, 4));  // 输出 7
+
+// 块体 Lambda 表达式
+/* 如果 Lambda 表达式中有多行代码
+可以使用大括号 {} 包含整个代码块
+并且需要显式使用 return 返回值 */
+Func<int, int, int> multiply = (x, y) =>
+{
+    int result = x * y;
+    return result;
+};
+Console.WriteLine(multiply(3, 4));  // 输出 12
+```
+
+```cs
+// 不使用 Lambda 表达式
+// Func<int, int, int> add = (x, y) => x + y;
+public static int Add(int x, int y)
+{
+    return x + y;
+}
+
+Func<int, int, int> add = Add;
+Console.WriteLine(add(3, 4));  // 输出 7
+```
+
+## Func
+
+`Func` 是一个泛型委托，用于表示有返回值的函数。
+
+```cs
+// 接受 两个 int 参数 并且返回 int 类型的结果。
+Func<int, int, int>
+```
