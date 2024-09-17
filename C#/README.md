@@ -28,8 +28,9 @@ C# 语言是适用于 .NET 平台的最流行语言。
 - [多态](19_polymorphism.md)
 - [ADO.NET](20_ADO.NET.md)
 - [序列化](21_serialize.md)
-- [网络](22_http.md1)
-- [数据库](23_SQL.md)
+- [网络](22_http.md)
+- [管道](23_pipe.md)
+- [套接字](24_socket.md)
 
 ## 参考文献
 
