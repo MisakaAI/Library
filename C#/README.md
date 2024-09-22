@@ -4,6 +4,7 @@ C# 语言是适用于 .NET 平台的最流行语言。
 
 ## 目录
 
+- [C# 语言参考](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/)
 - [Hello World](hello.cs)
 - [常用语句](useful.cs)
 - [环境搭建](00_env.md)
@@ -31,6 +32,7 @@ C# 语言是适用于 .NET 平台的最流行语言。
 - [网络](22_http.md)
 - [管道](23_pipe.md)
 - [套接字](24_socket.md)
+- [ASP.NET](ASP.NET/README.md)
 
 ## 参考文献
 
