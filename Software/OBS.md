@@ -89,6 +89,25 @@ OBS的实时预览功能没有必要的时候建议关闭。
 - [BLC弹幕姬](https://github.com/xfgryujk/blivechat)
 - [Bilibili Live Chat](https://github.com/Tsuk1ko/bilibili-live-chat)
 
+### 跨域模式
+
+B站 API 无法被跨域调用，若不开启跨域模式，则会使用反代服务（隐私声明）
+若在 OBS 使用，则推荐开启跨域模式，方法如下：
+任何基于 Chromium 的浏览器（例如 OBS Browser 和 Chrome）都可以通过添加 --disable-web-security 启动参数来禁用网页安全机制，此时可以开启“跨域模式”选项，几乎所有B站 API 将被直接跨域调用（需要 cookie 的除外），这样就不需要依赖反代服务。
+
+#### OBS
+
+直接在启动的快捷方式后追加该参数，然后通过快捷方式启动即可
+
+```sh
+--disable-web-security
+```
+
+#### Chrome
+
+和 OBS 同理，不过必须额外添加一个 `--user-data-dir` 参数来指定用户目录，随意新建一个空文件夹来指定即可。
+该操作看上去十分麻烦，实则是 Chrome 的一个安全措施，因为**禁用网页安全机制是危险行为，日常使用时千万别这么做**
+
 ```css
 body {
     background-color: rgba(0, 0, 0, 0);
