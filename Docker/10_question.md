@@ -8,3 +8,13 @@
 1. `Dockerfile` 中设置 `ENV PYTHONUNBUFFERED=1`
 2. `docker logs  --details`
 3. `python -u main.py`
+
+## 将正在运行的容器设为自启动
+
+```sh
+# 开机自启
+docker update --restart=always <CONTAINER ID>
+
+# 取消开机自启
+docker update --restart=no <CONTAINER ID>
+```
