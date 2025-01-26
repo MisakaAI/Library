@@ -1,4 +1,4 @@
-# 计算机科学
+# Computer Science / 计算机科学
 
 ## 目录
 
@@ -11,3 +11,4 @@
 阶段五：软件测试、软件安全、密码学、图形学等具体方向
 
 - [计算机网络](./Theoretical%20Basis/Network/README.md)
+- [神经网络](./Neural%20Network/README.md)
