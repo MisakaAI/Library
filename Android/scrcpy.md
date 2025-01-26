@@ -2,9 +2,9 @@
 
 安卓手机投屏电脑
 
-- [Scrcpy](https://github.com/Genymobile/scrcpy/)
-- [README](https://github.com/Genymobile/scrcpy/wiki/README.zh-Hans)
-- [FAQ](https://github.com/Genymobile/scrcpy/wiki/FAQ.zh-Hans)
+- [Scrcpy](https://github.com/Genymobile/scrcpy)
+- [README zh‐CN](https://github.com/Genymobile/scrcpy/wiki/README.zh‐CN)
+- [FAQ](https://github.com/Genymobile/scrcpy/wiki/FAQ.zh‐CN)
 
 ## 快捷键
 
@@ -33,7 +33,7 @@ scrcpy -r file.mkv
 ### 无线连接
 
 [Windows7 安卓驱动 下载](https://www.thecustomdroid.com/google-android-usb-drivers/)
-[ADB](https://developer.android.google.cn/studio/command-line/adb?hl=zh-cn)
+[ADB](https://developer.android.google.cn/tools/releases/platform-tools?hl=zh-cn)
 
 ``` bash
 # 查看设备
