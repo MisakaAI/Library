@@ -8,6 +8,14 @@
 
 同时也是一个技能树。
 
+- [人工智能](./AI/README.md) AI
+  - [PyTorch](./AI/PyTorch/README.md)
+  - [Ollama](./AI/LLM/Gemma.md)
+- [安卓](./Android/README.md) Android
+- [计算机科学](./CS/README.md) Computer Science
+- [Blender](./Blender/README.md)
+- [C#](./C#/README.md)
+- [Docker](./Docker/README.md)
 - [Git](./Git/README.md)
 
 ## Q&A
@@ -23,7 +31,8 @@ A: 肯定是有丰富的数学知识，英语又好的程序员牛逼。
 但是英语/数学不好，并不意味着不能写程序。  
 你看，变量名可以用汉语拼音啊，看英文的文档可以用 Google Translate 啊。  
 我也因为不会英语，数学不好，被某个在美帝留过学的程序员嘲笑过。  
-但是管他呢，我敲代码就是兴趣使然，享受编程带给我的乐趣。
+但是管他呢，我敲代码就是兴趣使然，享受编程带给我的乐趣。  
+（更新）现在还可以面向 GPT 编程。
 
 Q: 关于操作系统的选择？  
 A: 珍爱生命，远离折腾。

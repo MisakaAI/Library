@@ -30,6 +30,9 @@ docker run -it ubuntu:22.04 bash
 - `-a, --attach=[]` 登录容器（必须是以docker run -d启动的容器）
 - `-w, --workdir=""` 指定容器的工作目录
 - `-c, --cpu-shares=0` 设置容器CPU权重，在CPU共享场景使用
+- `--cpus` 限制容器可以使用的 CPU 核心数。
+  - `--cpus 0.5` 表示容器只能使用一个 CPU 核心的一半。
+  - `--cpus 2.0` 表示容器可以使用 2 个完整的 CPU 核心。
 - `-e, --env=[]` 指定环境变量，容器中可以使用该环境变量
 - `-m, --memory=""` 指定容器的内存上限
 - `-P, --publish-all=false` 指定容器暴露的端口（随机分配一个端口）
@@ -50,6 +53,7 @@ docker run -it ubuntu:22.04 bash
   - `host` 容器使用主机的网络
   - `container:NAME_or_ID` 使用其他容器的网路，共享IP和PORT等网络资源
   - `none` 容器使用自己的网络（类似--net=bridge），但是不进行配置
+- `--blkio-weight 1000` 用于控制容器对 块设备 I/O（Disk I/O） 的访问优先级。值的范围是 10 到 1000。
 - `--restart="no"` 指定容器停止后的重启策略:
   - no：容器退出时不重启
   - on-failure：容器故障退出（返回值非零）时重启
@@ -58,6 +62,30 @@ docker run -it ubuntu:22.04 bash
 镜像名，一般使用`仓库名[:标签]`，这是一个缩写。
 完整的镜像名为 `地址[:端口号]/]仓库名[:标签]`
 - **bash** 执行的命令
+
+### 重启策略 --restart
+
+- `no`：不自动重启容器（默认）。
+- `always`：无论容器如何停止，都会自动重启。
+- `unless-stopped`：容器崩溃时自动重启，但如果手动停止，则不会重启。
+- `on-failure`：只有容器退出时发生错误（非 0 退出码），Docker 才会重启它。还可以指定最大重启次数。
+
+## 更新容器状态
+
+`docker update` 命令用于动态更新已运行容器的配置，特别是对容器的一些资源限制进行修改。
+这些更改会立即生效，而不需要停止容器。
+通过 `docker update`，你可以修改容器的 CPU、内存、重启策略等设置。
+
+```sh
+# 增加 CPU 配额
+docker update --cpus 2.0 <container-id>
+# 限制内存为 1GB
+docker update -m 1G <container-id>
+# 更新容器的重启策略为 always
+docker update --restart=always <container-id>
+# 设置块 I/O 权重为 500
+docker update --blkio-weight 500 <container-id>
+```
 
 ## 控制容器状态
 
@@ -86,6 +114,36 @@ docker container rm ada5e335252d
 # 清理所有处于终止状态的容器
 docker container prune
 ```
+
+### 以特定格式显示
+
+- [格式化命令和日志输出](https://docs.docker.com/engine/cli/formatting/)
+- [有效占位符](https://docs.docker.com/reference/cli/docker/container/ls/#format)
+
+```sh
+# 查看运行的容器
+docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.State}}\t{{.Status}}"
+```
+
+#### 常用的 docker ps --format 模板变量
+
+- `{{.ID}}`：容器的 ID。
+- `{{.Names}}`：容器的名称。
+- `{{.Image}}`：容器使用的镜像。
+- `{{.Command}}`：容器启动时执行的命令。
+- `{{.CreatedAt}}`：容器创建的时间。
+- `{{.RunningFor}}`：容器运行了多长时间。
+- `{{.Status}}`：容器的当前状态（例如，正在运行、已退出等）。
+- `{{.Ports}}`：容器的端口映射。
+- `{{.Labels}}`：容器的标签。
+- `{{.Networks}}`：容器连接的网络。
+- `{{.Size}}`：容器的大小（包括镜像大小、写入层的大小）。
+- `{{.State}}`：容器的状态（例如，running, exited）。
+- `{{.LogPath}}`：容器的日志文件路径。
+- `{{.Mounts}}`：容器的挂载点。
+- `{{.HostConfig}}`：容器主机配置。
+- `{{.Driver}}`：容器使用的存储驱动（例如，overlay2）。
+- `{{.RestartCount}}`：容器重启的次数。
 
 ## 后台运行 Daemon
 
@@ -132,4 +190,10 @@ docker logs --tail=10
 
 # 显示某个开始时间的所有日志
 docker logs --since="2023-01-01"
+```
+
+## 查看容器的详细配置
+
+```sh
+docker inspect <container-id>
 ```

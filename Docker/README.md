@@ -19,17 +19,14 @@
 
 ## 一些好玩的docker镜像
 
-- [B站录播姬](rec.danmuji.org.md)
-- [memos](memos.md)
-一个可用于知识管理和社交网络的开源、自托管的备忘录中心。
-- [Aria2](aria2-pro.md)
-`Aria2` 是一个多平台轻量级，支持 `HTTP`、`FTP`、`BitTorrent` 等多协议、多来源的命令行下载工具。
-主要是`RockyLinux 9`的 `EPRL源` 缺少 `Aria2`，所以需要用 `Docker` 的方式运行这个服务。
-- [reader](reader.md)
-阅读3服务器版
-- [qBittorrent](qbittorrent.md)
-专业磁力种子下载工具
-- [幻兽帕鲁](Palworld.md)
+- [Aria2](./Hub/aria2-pro.md) 命令行下载工具
+- [GitLab](./Hub/GitLab.md) 代码版本管理
+- [memos](./Hub/memos.md) 备忘录
+- [幻兽帕鲁](./Hub/Palworld.md) 幻兽帕鲁服务器
+- [qBittorrent](./Hub/qbittorrent.md) 磁力种子下载
+- [阅读3服务器版](./Hub/reader.md) 阅读3
+- [B站录播姬](./Hub/rec.danmuji.org.md) 哔哩哔哩直播录制
+- [Wekan](./Hub/Wekan.md) 开源看板工具
 
 ## 参考文献
 

@@ -18,8 +18,9 @@ docker run -d \
     --name=qbittorrent \
     -e PUID=1000 \
     -e PGID=1000 \
-    -e TZ=Etc/UTC \
+    -e TZ=Asia/Shanghai \
     -e WEBUI_PORT=8080 \
+    -e TORRENTING_PORT=63739 \
     -p 8080:8080 \
     -p 63739:63739 \
     -p 63739:63739/udp \
@@ -41,6 +42,21 @@ podman generate systemd --name qbittorrent > /etc/systemd/system/qbittorrent.ser
 systemctl start qbittorrent.service
 systemctl enable qbittorrent.service
 ```
+
+## 参数说明
+
+- `-p 8080:8080` WebUI
+- `-p 6881:6881` TCP连接端口
+- `-p 6881:6881/udp` UDP连接端口
+- `-e PUID=1000` User ID 确保主机上的所有卷目录都归您指定的同一用户所有
+- `-e PGID=1000` Group ID 确保主机上的所有卷目录都归您指定的同一用户组所有
+- `-e TZ=Etc/UTC` 指定要使用时区，请参阅此[列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)。
+- `-e WEBUI_PORT=8080` Web UI的端口
+- `-e TORRENTING_PORT=6881` TCP/UDP连接的端口
+- `-v /config` 包含所有相关的配置文件。
+- `-v /downloads` 磁盘上下载的位置。
+- `--read-only=true` 使用只读文件系统运行容器。请[阅读文档](https://docs.linuxserver.io/misc/read-only/#why)。
+- `--user=1000:1000` 使用非root用户运行容器。请[阅读文档](https://docs.linuxserver.io/misc/non-root/)。
 
 ## 端口选择
 

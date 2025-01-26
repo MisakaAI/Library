@@ -13,17 +13,16 @@ docker run -d \
     -e MULTITHREADING=true \
     -e RCON_ENABLED=true \
     -e RCON_PORT=25575 \
-    -e TZ=UTC \
-    -e ADMIN_PASSWORD="<ADMIN_PASSWORD>" \
-    -e SERVER_PASSWORD="<SERVER_PASSWORD>" \
-    -e PAL_EGG_DEFAULT_HATCHING_TIME=0.0001 \
+    -e TZ=Asia/Shanghai \
+    -e ADMIN_PASSWORD="<管理员密码>" \
+    -e SERVER_PASSWORD="<服务器密码>" \
     -e COMMUNITY=false \
     -e SERVER_NAME="<服务器名称>" \
     -e SERVER_DESCRIPTION="<服务器说明>" \
     -e ALLOW_CONNECT_PLATFORM="Steam" \
     -e PLAYER_STAMINA_DECREASE_RATE=0.5 \
     -e DEATH_PENALTY="None" \
-    -e PAL_EGG_DEFAULT_HATCHING_TIME=0.25 \
+    -e PAL_EGG_DEFAULT_HATCHING_TIME=0.0001 \
     -e BASE_CAMP_MAX_NUM_IN_GUILD=10 \
     -e BASE_CAMP_WORKER_MAX_NUM=50 \
     --restart unless-stopped \
@@ -39,7 +38,7 @@ PLAYER_STAMINA_DECREASE_RATE=0.5
 # 死亡掉落
 DEATH_PENALTY="None"
 # 蛋孵化时间
-PAL_EGG_DEFAULT_HATCHING_TIME=0.25
+PAL_EGG_DEFAULT_HATCHING_TIME=0.0001
 # 工会最大基地数量
 BASE_CAMP_MAX_NUM_IN_GUILD=10
 # 最大工作帕鲁数量

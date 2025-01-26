@@ -18,3 +18,17 @@ docker update --restart=always <CONTAINER ID>
 # 取消开机自启
 docker update --restart=no <CONTAINER ID>
 ```
+
+## 清理容器运行日志
+
+```sh
+# 查找容器 ID
+docker ps -a
+
+# 定位日志文件
+# 容器日志通常存储在 /var/lib/docker/containers/<container-id>/ 目录下
+ls /var/lib/docker/containers/<container-id>/*.log
+
+# 删除日志文件
+rm /var/lib/docker/containers/<container-id>/*-json.log
+```

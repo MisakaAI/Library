@@ -26,6 +26,11 @@ docker run -d \
     -v /data/download:/downloads \
     p3terx/aria2-pro
 
+# 软连接问题
+## 创建软连接 ln -s /data/download/volume /mnt/volume
+## 需要运行容器时添加 -v /mnt/volume:/mnt/volume
+## 否则无法下载到 /download/volume 目录中
+
 # 防火墙
 firewall-cmd --zone=public --permanent --add-port=6800/tcp
 firewall-cmd --zone=public --permanent --add-port=6888/tcp
@@ -40,7 +45,7 @@ systemctl start aria2-pro.service
 systemctl enable aria2-pro.service
 
 # AriaNg
-# https://github.com/mayswind/AriaNg/releases/download/1.3.2/AriaNg-1.3.2.zip
+# https://github.com/mayswind/AriaNg/releases
 ```
 
 ## 选项参数说明

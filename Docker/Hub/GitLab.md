@@ -1,6 +1,6 @@
 # GitLab
 
-[GitLab Docker映像](https://docs.gitlab.com/ee/install/docker.html)
+[GitLab Docker](https://docs.gitlab.com/ee/install/docker/installation.html)
 
 ## 下载镜像
 

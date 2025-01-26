@@ -13,8 +13,7 @@ docker pull ghcr.io/usememos/memos:latest
 mkdir /data/memos
 
 # 启动
-# docker run -d --name memos -p 5230:5230 -v ~/.memos/:/var/opt/memos neosmemo/memos:latest
-docker run -d --name memos -p 5230:5230 --restart=unless-stopped -v /data/memos:/var/opt/memos ghcr.io/usememos/memos:latest
+docker run -d --name memos -p 5230:5230 --restart=unless-stopped -v /data/memos:/var/opt/memos neosmemo/memos:stable
 
 # 防火墙
 firewall-cmd --zone=public --permanent --add-port=5230/tcp
@@ -59,17 +58,17 @@ server {
 # 停止镜像运行，并删除镜像。
 systemctl stop memos.service
 docker rm memos
-docker image rm memos:latest
+docker image rm memos:stable
 
 # 重新拉取及启动
-docker pull neosmemo/memos:latest
-docker run -d --name memos -p 5230:5230 -v /data/memos:/var/opt/memos neosmemo/memos:latest
+docker pull neosmemo/memos:stable
+docker run -d --name memos -p 5230:5230 --restart=unless-stopped -v /data/memos:/var/opt/memos neosmemo/memos:stable
 
 # 重新生成 service 文件 并写入systemd目录
-podman generate systemd --name memos > /etc/systemd/system/memos.service
+# podman generate systemd --name memos > /etc/systemd/system/memos.service
 
 # 重新加载 systemd 配置
-systemctl daemon-reload
+# systemctl daemon-reload
 
 # 启动
 systemctl start memos.service

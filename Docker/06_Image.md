@@ -72,6 +72,9 @@ docker image ls ubuntu:22.04
 
 ### 以特定格式显示
 
+- [格式化命令和日志输出](https://docs.docker.com/engine/cli/formatting/)
+- [有效占位符](https://docs.docker.com/reference/cli/docker/image/ls/#format)
+
 ```bash
 # 仅显示镜像ID
 docker image ls -q

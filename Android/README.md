@@ -10,3 +10,8 @@
 
 - [Android 调试桥](./adb.md)
 - [Scrcpy](./scrcpy.md)
+
+## APP
+
+- [阅读3.0](https://github.com/gedoor/legado)
+- [GKD](https://github.com/gkd-kit/gkd)
