@@ -16,6 +16,7 @@ Large Language Model
 - [Ollama](./LLM/Ollama.md) 本地部署大语言模型
 - [ChatGLM](./LLM/ChatGLM.md) 智谱开源模型
 - [Gemma](./LLM/Gemma.md) Google开源模型
+- [DeepSeek](https://ollama.com/library/deepseek-r1)
 
 ## 知识库
 

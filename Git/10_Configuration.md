@@ -1,5 +1,7 @@
 # 配置 Git
 
+- [配置脚本](./git_config.sh)
+
 ```bash
 # 全局 设置姓名
 git config --global user.name "Your Name"

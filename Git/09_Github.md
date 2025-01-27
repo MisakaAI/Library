@@ -23,6 +23,18 @@ Fork 可以 Clone 一个开源的仓库，到自己的账号下。
 
 ## 一些神奇的操作
 
+### 使用 443 端口
+
+解决：`ssh: connect to host github.com port 22: Connection timed out` 的问题。
+
+修改 `~/.ssh/config`
+
+```config
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+```
+
 ### 使用凭证提交 Aka.免密提交
 
 ```bash
