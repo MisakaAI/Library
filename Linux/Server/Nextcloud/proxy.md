@@ -1,10 +1,4 @@
-# NextCloud
-
-## Server
-
-- [DOWNLOAD SERVER](https://download.nextcloud.com/server/releases/latest.zip)
-
-## 设置代理
+# 代理
 
 由于众所周知的原因，Nextcloud的插件需要使用代理服务器。
 

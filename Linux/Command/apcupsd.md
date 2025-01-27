@@ -20,6 +20,12 @@ cp /etc/default/apcupsd /etc/default/apcupsd.bak
 编辑 `/etc/apcupsd/apcupsd.conf`
 
 ```conf
+# 在 UPSNAME 后面给个易懂的名字
+UPSNAME SER6Pro_UPS
+# 在 UPSCABLE 后指定为 usb
+UPSCABLE usb
+# 在 UPSTYPE 后更改为 usb
+UPSTYPE usb
 # 在 DEVICE 后为空，这样系统会自动检测 USB 连接 UPS
 DEVICE
 ```
@@ -52,58 +58,92 @@ MINUTES 选项，设置为在电源正常恢复前多长时间内禁止自动关
 ```conf
 # 指定 UPS 名称
 UPSNAME PowerGem
+
 # 指定 UPS 连接的电缆/接口类型
 UPSCABLE usb
+
 # 指定 UPS 的类型
 UPSTYPE usb
+
 # 指定 UPS 的设备路径
 DEVICE /dev/usb/hiddev0
+
 # 指定一个锁文件的路径，用于 apcupsd 管理并发访问 UPS 的控制。
 LOCKFILE /var/lock
+
 # 指定 apcupsd 使用的脚本存放目录的路径。
 SCRIPTDIR /etc/apcupsd
+
 # 指定电源故障事件脚本的存放目录路径。
 PWRFAILDIR /etc/apcupsd
+
 # 指定禁止登录时的配置文件路径。
 NOLOGINDIR /etc
+
 # 设置 UPS 进入电池供电模式后，系统等待多少秒后触发相应的动作。
 ONBATTERYDELAY 6
+
 # 设置 UPS 电池剩余电量的阈值，当电池电量低于这个阈值时，系统会触发相关动作。
 BATTERYLEVEL 5
+
 # 设置 UPS 可以提供电力的最短时间阈值。
 MINUTES 3
+
 # 设置 UPS 在掉电后等待重新启动的时间。
 TIMEOUT 0
+
 # 设置发送警告消息的时间间隔。
 ANNOY 300
+
 # 设置发送警告消息之间的最小时间间隔。
 ANNOYDELAY 60
+
 # 设置禁用登录时的处理。
 NOLOGON disable
+
 # 设置在系统关机之前等待的时间。
 KILLDELAY 0
+
 # 设置启用网络服务器功能，允许其他系统访问 apcupsd 的状态信息。
 NETSERVER off
+
 # 设置 apcupsd 网络服务器监听的 IP 地址。
 NISIP 127.0.0.1
+
 # 设置 apcupsd 网络服务器监听的端口号。
 NISPORT 3551
+
 # 设置事件记录的文件路径。
 EVENTSFILE /var/log/apcupsd.events
+
 # 设置事件文件的最大数量。
 EVENTSFILEMAX 10
+
 # 设置 UPS 的类型，这里是独立（standalone）类型。
 UPSCLASS standalone
+
 # 设置 UPS 的工作模式，这里设置为禁用（disable）。
 UPSMODE disable
+
 # 设置统计信息更新的时间间隔。
 STATTIME 0
+
 # 设置状态信息记录的文件路径。
 STATFILE /var/log/apcupsd.status
+
 # 设置是否记录统计信息日志，这里设置为关闭（off）。
 LOGSTATS off
+
 # 设置数据更新的时间间隔。
 DATATIME 0
+```
+
+编辑 `/etc/apcupsd/appcontrol`
+
+```sh
+# 修改 doshutdown 的内容
+<其他命令>
+${SHUTDOWN} -h now "apcupsd UPS ${2} initiated shutdown"
 ```
 
 ### 重启

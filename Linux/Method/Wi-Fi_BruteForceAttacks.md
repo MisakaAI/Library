@@ -100,7 +100,7 @@ aircrack-ng -a2 -b <MAC> -w rockyou.txt <name>.cap
 
 ##### 转换为 hccapx 格式
 
-将 `.cap `文件转换为`hccapx`格式。
+将`.cap`文件转换为`hccapx`格式。
 可以使用 Kali Linux 的转换工具来转换。
 
 ```sh

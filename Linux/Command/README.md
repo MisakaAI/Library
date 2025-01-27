@@ -2,6 +2,8 @@
 
 Linux 常用命令
 
+- [screen](screen.md)
+
 ## 压缩、打包、解压
 
 - [tar](tar.md)
