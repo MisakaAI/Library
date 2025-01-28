@@ -14,5 +14,6 @@ OPC UA 基于OPC基金会提供的新一代技术，提供安全，可靠和独�
 
 ## 脚本
 
-- [获取全部节点](get_all_node.py)
-- [读取数据并写入数据库](scada_to_psql.py)
+- [获取指定 Node 下所有 Node 节点](get_children.py)
+- [获取指定节点的数据](read_value.py)
+- [获取命名空间索引](get_namespace.py)
