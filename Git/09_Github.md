@@ -35,6 +35,26 @@ Host github.com
     Port 443
 ```
 
+### 将https方式改为ssh方式
+
+```sh
+# 查看远程仓库地址
+git remote -v
+
+# 移除远程仓库
+git remote rm origin
+
+# 添加新的远程仓库
+git remote add origin <git@github.com>
+
+# 显示本地 Git 分支的详细信息
+# 包括每个分支的上游（远程跟踪分支）及其与远程分支的同步状态。
+git branch -vv
+
+# 推送
+git push --set-upstream origin main
+```
+
 ### 使用凭证提交 Aka.免密提交
 
 ```bash
@@ -43,8 +63,8 @@ ssh-keygen -t rsa -b 4096 -C "youremail@example.com"
 
 # 查看SSH Key
 cat ~/.ssh/id_rsa.pub
-# id_rsa		私钥，不可泄漏
-# id_rsa.pub	公钥
+# id_rsa        私钥，不可泄漏
+# id_rsa.pub    公钥
 ```
 
 将 `id_rsa.pub` 的内容添加到 [Github](https://github.com/settings/keys)
