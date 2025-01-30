@@ -7,3 +7,4 @@
 - [消息提醒](Talk.pyw)
 - [推送钉钉工作通知](DingMessage.py)
 - [获取天气](openweathermap.py)
+- [发送邮件](send_mail.py)
