@@ -48,7 +48,7 @@ Set-ExecutionPolicy 可更改 Windows PowerShell 执行策略的用户首选项�
 
 #### 参数
 
-```
+```txt
 -ExecutionPolicy <ExecutionPolicy>
 为 shell 指定新的执行策略。参数名（“Name”）为可选项。
 
@@ -83,7 +83,7 @@ Set-ExecutionPolicy 可更改 Windows PowerShell 执行策略的用户首选项�
 
 ### [Get-WmiObject](https://learn.microsoft.com/zh-cn/previous-versions/powershell/module/microsoft.powershell.management/get-wmiobject?view=powershell-5.0)
 
-#### 说明 
+#### 说明
 
 Get-WmiObject 可获取 Windows Management Instrumentation (WMI) 类的实例或可用类的相关信息。
 
@@ -99,9 +99,9 @@ Get-WmiObject 可获取 Windows Management Instrumentation (WMI) 类的实例或
 $(Get-WmiObject -class win32_computersystem).wakeuptype
 ```
 
-```
-唤醒类型
+##### 唤醒类型
 
+```txt
 数据类型：uint16
 访问类型：Read-only
 限定符：MappingStrings（“ SMBIOS|Type 1|System Information|Wake-up Type”）
@@ -176,4 +176,3 @@ Start-Process -FilePath "notepad" -Wait -WindowStyle Maximized
 # 以管理员身份启动 PowerShell
 Start-Process -FilePath "powershell" -Verb RunAs
 ```
-

@@ -1,6 +1,6 @@
 # Linux
 
-- [发行版](distro.md)
+- [发行版](https://github.com/MisakaAI/Awesome/blob/master/Software/system.md)
 - [镜像站](mirrors.md)
 
 ## 安装

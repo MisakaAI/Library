@@ -1,5 +1,21 @@
 # Windows
 
+## 下载
+
+- [Windows 10](https://www.microsoft.com/zh-cn/software-download/windows10)
+  - [HEVC](./win10_HEVC.md)
+- [Windows 11](https://www.microsoft.com/zh-cn/software-download/windows11)
+- [Windows Server](https://www.microsoft.com/zh-cn/windows-server)
+- [MSDN, 我告诉你](https://msdn.itellyou.cn/)
+
+## 激活
+
+- [激活 Windows](Activation.ps1) `irm https://massgrave.dev/get | iex`
+
+## 软件
+
+- [软件](https://github.com/MisakaAI/Awesome/tree/master/Software)
+
 ## 密钥管理服务
 
 Key Management Services，简称KMS。
@@ -27,17 +43,17 @@ Windows Subsystem for Linux，简称WSL。
 - [密钥管理](./OpenSSH/key.md)
 - [卸载](./OpenSSH/remove.md)
 
-## 其他
+## 远程
 
 - [远程桌面](./mstsc.md)
 - [远程唤醒](./Wake-on-LAN/wol.md)
 - [网络唤醒开机则启动向日葵](./Wake-on-LAN//sunlogin.md)
+
+## 其他
+
 - [Chrome 开机启动](./ChromeStartup.md)
 - [Windows 11 开机跳过登录](./win11_install_skip.md)
 - [Windows 10 使用 UTC 时间](./win10_use_utc.md)
 - [Windows 10 无法休眠](./win10_can't_sleep.md)
 - [删除右键菜单 在 Visual Studio 中打开](./Del%20Open%20in%20Visual%20Studio.md)
-
-## Activation.ps1
-
-激活 Windows
+- [HEVC](./win10_HEVC.md)
