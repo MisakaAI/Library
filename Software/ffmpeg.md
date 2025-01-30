@@ -10,6 +10,18 @@ FFmpeg 是一款开源的多媒体处理工具，用于处理视频、音频和�
 
 [Downlaod](https://ffmpeg.org/download.html)
 
+### 编译安装
+
+```sh
+# libmp3lame
+# libopus
+# libfdk_aac
+# x264
+# x265
+# svt-av1
+# libass
+```
+
 ## 常用参数
 
 - `-c` 指定编码器，是`-codec`的缩写
@@ -25,6 +37,12 @@ FFmpeg 是一款开源的多媒体处理工具，用于处理视频、音频和�
 - `-y` 不经过确认，输出时直接覆盖同名文件
 
 ## 使用
+
+## 查看支持的编码器
+
+```sh
+ffmpeg -codecs
+```
 
 ### 播放视频
 
@@ -82,6 +100,7 @@ ffmpeg -i input.mkv -c:v libx265 output.mp4
 ```sh
 ffmpeg -i video.mp4 -c:v libx264 -preset slow -crf 20 -c:a copy out.mp4
 ```
+
 ##### H.264 编码配置文件
 
 在 FFmpeg 中，`-profile` 参数用于设置输出视频文件的 H.264 编码配置文件。
@@ -160,6 +179,23 @@ scale=iw/2:ih/2
 ## 可以用ow、oh代表变换后输出视频的宽和高
 scale=iw/2:ow
 ```
+
+### 音频转码
+
+#### 编码器
+
+- `libopus` 语音 / 低延迟
+- `aac` 常用
+  - `libfdk_aac` Fraunhofer FDK AAC，需要手动编译，这是目前ffmpeg提供的最高质量的AAC编码器，要求ffmpeg配置为 `--enable-libfdk-aac`
+- `ac3` 杜比 / Dolby Digital
+- `flac` 无损
+
+#### 码率
+
+- 128kbps：
+- 192kbps：高频可能发闷（如镲片、吉他泛音衰减），大动态段落（如交响乐）可能浑浊。
+- 256kbps：
+- 320kbps：乐器分离度更高，人声通透，背景细节清晰。
 
 ### 视频分割/裁剪
 
@@ -310,6 +346,34 @@ ffmpeg -hwaccel cuda -hwaccel_output_format cuda -i video.mp4 -c:v h264_nvenc -r
 ```
 
 在此基础上，用户还可以配合 `-maxrate` 来限制最大码率、用 `-bufsize` 来调整缓冲区大小（缓冲区越小，码率波动越小）、用 `rc_lookahead` 来设定前览帧数等。
+
+#### HEVC (x265) 硬件加速
+
+```sh
+ffmpeg -hwaccel cuda -i input.mp4 \
+    -c:v hevc_nvenc \
+    -preset p7 \
+    -tune hq \
+    -rc vbr_hq \
+    -cq 23 \
+    -b_ref_mode 1 \
+    -pix_fmt yuv420p \
+    -c:a aac -b:a 192k \
+    output_hevc.mkv
+```
+
+#### AV1 硬件加速
+
+```sh
+ffmpeg -hwaccel cuda -i input.mp4 \
+-c:v av1_nvenc \
+-preset p7 \
+-rc vbr_hq \
+-cq 30 \
+-pix_fmt yuv420p \
+-c:a aac -b:a 192k \
+output_av1.mkv
+```
 
 ## 参考文献
 
