@@ -13,6 +13,7 @@
 ```bash
 pg_dump -h 192.168.0.120 -U postgres -C dbname > backup.sql
 ```
+
 ## 恢复
 
 使用 `psql` 的 -f 参数进行导入

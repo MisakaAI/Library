@@ -1,6 +1,6 @@
 # PostgreSQL
 
-http://www.postgres.cn/docs/14/index.html
+- [PostgreSQL](http://www.postgres.cn/docs/14/index.html)
 
 PostgreSQL是一种特性非常齐全的自由软件的对象-关系型数据库管理系统（ORDBMS）
 是以加州大学计算机系开发的POSTGRES 4.2版本为基础的对象关系型数据库管理系统
@@ -10,6 +10,7 @@ PostgreSQL是一种特性非常齐全的自由软件的对象-关系型数据库
 - [查询基本信息](01_base.sql)
 - [备份](02_pgdump.md)
 - [公网访问](03_public_access.md)
+- [免密登录](04_pgpass.md)
 
 ## 安装
 
@@ -49,8 +50,6 @@ sudo apt-get -y install postgresql
 
 PostgreSQL的数据库不能直接使用root账户登录。
 一般来说，需要用`postgres`这个用户，这也是安装过程种会自动创建的系统用户。
-
-
 
 我们使用`$`代表系统命令，使用`=>`代表在psql中的命令。
 
