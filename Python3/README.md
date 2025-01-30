@@ -19,6 +19,23 @@ Python由荷兰数学和计算机科学研究学会的吉多·范罗苏姆（Gui
 11. [虚拟环境](11_venv.md)
 12. [Conda](12_conda.md)
 
+## 打包
+
+- [PyInstaller](PyInstaller.md)
+- [Embed](embed.md) 嵌入式
+
+## 第三方库
+
+- [Django](Django/README.md)
+- [FastAPI](FastAPI/FastAPI.md)
+- [Pillow](Pillow/README.md) 图像处理
+- [Psycopg](Psycopg/README.md) PostgreSQL
+- [PyQt](PyQt/README.md) Qt
+- [Requests](Requests/README.md)
+- [Selenium](Selenium/README.md) 浏览器自动化
+- [WebSockets](WebSockets/README.md)
+- [miio](miio/README.md) 控制米家设备
+
 ## 参考文献
 
 - [官网文档](https://www.python.org/)
