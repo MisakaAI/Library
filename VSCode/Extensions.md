@@ -27,6 +27,13 @@ ID: ms-vscode.cpptools
 发布者: Microsoft
 VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
 
+名称: CMake
+ID: twxs.cmake
+说明: CMake langage support for Visual Studio Code
+版本: 0.0.17
+发布者: twxs
+VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=twxs.cmake
+
 ## 图标
 
 名称: vscode-icons
@@ -84,13 +91,6 @@ ID: ritwickdey.LiveServer
 发布者: Ritwick Dey
 VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
 
-名称: open in browser
-ID: techer.open-in-browser
-说明: This allows you to open the current file in your default browser or application.
-版本: 2.0.0
-发布者: TechER
-VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser
-
 名称: HTML CSS Support
 ID: ecmel.vscode-html-css
 说明: CSS Intellisense for HTML
@@ -98,15 +98,66 @@ ID: ecmel.vscode-html-css
 发布者: ecmel
 VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css
 
-## 设置同步
+名称: Vue - Official
+ID: Vue.volar
+说明: Language Support for Vue
+版本: 2.2.0
+发布者: Vue
+VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=Vue.volar
+
+## Git
+
+名称: Git History
+ID: donjayamanne.githistory
+说明: View git log, file history, compare branches or commits
+版本: 0.6.20
+发布者: Don Jayamanne
+VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory
+
+## AI
+
+名称: GitHub Copilot
+ID: GitHub.copilot
+说明: Your AI pair programmer
+版本: 1.260.0
+发布者: GitHub
+VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+
+## 数据库
+
+名称: SQL Formatter
+ID: adpyke.vscode-sql-formatter
+说明: Format sql files using the sql-formatter npm package
+版本: 1.4.4
+发布者: adpyke
+VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=adpyke.vscode-sql-formatter
+
+## 神经网络
+
+名称: Tensorboard
+ID: ms-toolsai.tensorboard
+说明: Launch and view Tensorboards within VS Code
+版本: 2023.10.1002992421
+发布者: Microsoft
+VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=ms-toolsai.tensorboard
+
+## 容器
+
+名称: Docker
+ID: ms-azuretools.vscode-docker
+说明: Makes it easy to create, manage, and debug containerized applications.
+版本: 1.29.4
+发布者: Microsoft
+VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
+
+<!-- ## 设置同步
 
 名称: Settings Sync
 ID: Shan.code-settings-sync
 说明: Synchronize Settings, Snippets, Themes, File Icons, Launch, Keybindings, Workspaces and Extensions Across Multiple Machines Using GitHub Gist.
 版本: 3.4.3
 发布者: Shan Khan
-VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
-
+VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync -->
 
 ## 代码格式化
 
@@ -116,6 +167,13 @@ ID: esbenp.prettier-vscode
 版本: 9.9.0
 发布者: Prettier
 VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
+名称: Black Formatter
+ID: ms-python.black-formatter
+说明: Formatting support for Python files using the Black formatter.
+版本: 2024.4.0
+发布者: Microsoft
+VS Marketplace 链接: https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter
 
 ## 突出显示行尾空格
 

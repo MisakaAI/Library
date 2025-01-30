@@ -35,8 +35,6 @@
 
 `$0` 代表退出代码片段，以及最后光标停留的位置。
 
-
-
 ## 参考文献
 
 - [VS Code 代码片段完全入门指南](https://www.freecodecamp.org/chinese/news/definitive-guide-to-snippets-visual-studio-code/)

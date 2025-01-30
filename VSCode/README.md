@@ -1,4 +1,4 @@
-#  Visual Studio Code
+# Visual Studio Code
 
 - [主页](https://code.visualstudio.com/)
 - [下载](https://code.visualstudio.com/#alt-downloads)
