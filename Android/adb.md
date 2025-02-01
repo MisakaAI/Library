@@ -5,6 +5,9 @@ ADB，即 Android Debug Bridge（Android 调试桥），是 Android 开发/测�
 ## 下载
 
 - [Android SDK Platform-Tools](https://developer.android.com/tools/releases/platform-tools?hl=zh-cn#downloads.html)
+  - [Windows](https://googledownloads.cn/android/repository/platform-tools-latest-windows.zip)
+  - [Linux](https://googledownloads.cn/android/repository/platform-tools-latest-linux.zip)
+  - [Mac](https://googledownloads.cn/android/repository/platform-tools-latest-darwin.zip)
 
 ## 参考文献
 
