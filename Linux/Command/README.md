@@ -27,3 +27,7 @@ Linux 常用命令
 ## 电源
 
 - [apcupsd](apcupsd.md)
+
+## 其他
+
+- [查找重复文件](fdupes.md)
