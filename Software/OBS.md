@@ -2,6 +2,19 @@
 
 - [官网](https://obsproject.com/)
 
+## 插件
+
+- [obs-draw](https://github.com/exeldro/obs-draw) 绘图
+- [obs-composite-blur](https://github.com/FiniteSingularity/obs-composite-blur) 模糊
+- [obs-multi-rtmp](https://github.com/sorayuki/obs-multi-rtmp) 多路推流
+- [obs-loudness-dock](https://github.com/norihiro/obs-loudness-dock) 响度计
+- [obs-markdown](https://github.com/exeldro/obs-markdown) Markdown
+- [obs-shaderfilter](https://github.com/exeldro/obs-shaderfilter) 着色器
+- [obs-auto-subtitle](https://github.com/summershrimp/obs-auto-subtitle) 自动生成字幕
+- [streamup-hotkey-display](https://github.com/StreamUPTips/streamup-hotkey-display) 热键显示
+- [netease-qq-now-playing](https://obsproject.com/forum/resources/netease-qq-now-playing.1944/) 网易云QQ音乐获取歌名/艺人
+- ~~[TransparentPaint](https://github.com/sam0737/TransparentPaint) 配合OBS使用的实况绘图软件。~~
+
 ## 设置
 
 ### 常规
