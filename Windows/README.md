@@ -52,6 +52,7 @@ Windows Subsystem for Linux，简称WSL。
 ## 其他
 
 - [Chrome 开机启动](./ChromeStartup.md)
+- [Windows 共享](./win_share.md)
 - [Windows 11 开机跳过登录](./win11_install_skip.md)
 - [Windows 10 使用 UTC 时间](./win10_use_utc.md)
 - [Windows 10 无法休眠](./win10_can't_sleep.md)
