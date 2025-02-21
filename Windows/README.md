@@ -52,10 +52,11 @@ Windows Subsystem for Linux，简称WSL。
 ## 其他
 
 - [Chrome 开机启动](./ChromeStartup.md)
-- [Windows 共享](./win_share.md)
+- [Windows 共享文件](./win_share.md)
 - [Windows 11 开机跳过登录](./win11_install_skip.md)
 - [Windows 10 使用 UTC 时间](./win10_use_utc.md)
 - [Windows 10 无法休眠](./win10_can't_sleep.md)
 - [Windows 7 安装 Python3](./win7_python3.md)
 - [删除右键菜单 在 Visual Studio 中打开](./Del%20Open%20in%20Visual%20Studio.md)
 - [HEVC](./win10_HEVC.md)
+- 恢复网络设置到默认状态 `netsh winsock reset` 重置 Winsock 目录
