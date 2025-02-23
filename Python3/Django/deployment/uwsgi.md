@@ -21,19 +21,37 @@ pip install uwsgi
 ```ini
 [uwsgi]
 chdir=/var/www/mysite
-wsgi-file=mysite/wsgi.py
-processes=1
-threads=1
+uid=www-data
+gid=www-data
 module=mysite.wsgi:application
 master=True
+home=/usr/venv/django
+processes=2
+threads=4
 vacuum=True
-pidfile=/var/www/djnago/uwsgi.pid
-logto=/var/www/mysite/uwsgi.log
-log-maxsize = 100000
-max-requests = 1000
-uid=nginx
-gid=nginx
+logto=/var/log/uwsgi/mysite.log
+log-maxsize = 10000
+max-requests = 5000
+pidfile=/tmp/mysite.pid
 socket=/var/www/mysite/uwsgi.sock
+```
+
+### 注意事项
+
+```txt
+uwsgi.service: Start request repeated too quickly.
+uwsgi.service: Failed with result 'protocol'.
+Failed to start uwsgi.service - uWSGI HomePage
+```
+
+如果`uwsgi`配置文件中配置了`daemonize=/path/uwsgi.log` (uwsgi服务以守护进程运行)
+会导致`sytemctl`启动时多次重启而导致启动失败
+需改为`logto=/path/uwsgi.log`
+
+如果出现了多次重启导致重启过快的问题，需要先清除失败标记，再启动。
+
+```sh
+systemctl reset-failed uwsgi.service
 ```
 
 ## 创建系统服务
@@ -42,15 +60,13 @@ socket=/var/www/mysite/uwsgi.sock
 
 ```service
 [Unit]
-Description=uWSGI Emperor
+Description=uWSGI
 After=syslog.target
 
 [Service]
-User=nginx
-Group=nginx
+User=www-data
+Group=www-data
 ExecStart=/usr/local/bin/uwsgi --ini /var/www/mysite/uwsgi.ini
-
-# Requires systemd version 211 or newer
 RuntimeDirectory=uwsgi
 Restart=always
 KillSignal=SIGQUIT
