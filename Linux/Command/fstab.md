@@ -34,9 +34,9 @@ UUID=1234-5678  /mnt/mydisk  ext4  defaults  0  2
     - `nfs`
     - `ntfs`
 4. `<options>`：挂载选项
-    - `defaults`：使用默认挂载选项。
+    - `defaults`：使用默认挂载选项。`rw/suid/dev/exec/auto/nouser/async`
     - `ro`：只读挂载。
-rw`：读写挂载。
+    - `rw`：读写挂载。
     - `noexec`：不允许执行二进制文件。
     - `nosuid`：不允许设置用户 ID 位。
     - `nodev`：不解释设备文件。
