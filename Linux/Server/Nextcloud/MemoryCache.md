@@ -8,8 +8,14 @@
 apt install php-apcu
 ```
 
-```php
+```fpm/php.ini
 'memcache.local' => '\OC\Memcache\APCu',
+```
+
+```mods-available/apcu.ini
+apc.enabled=1
+apc.enable_cli=1
+apc.shm_size=512M
 ```
 
 ## Redis
