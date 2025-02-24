@@ -6,6 +6,13 @@
 
 ```sh
 curl https://get.acme.sh | sh -s email=ai@misaka.cn
+
+# https://github.com/acmesh-official/acme.sh/wiki/Install-in-China
+# 如果你的安装服务器位于中国大陆境内, 访问 github 可能会不成功. 所以安装可能会失败.
+# 推荐从这里下载安装
+git clone https://gitee.com/neilpang/acme.sh.git
+cd acme.sh
+./acme.sh --install -m my@example.com
 ```
 
 程序被安装在 `~/.acme.sh/` 目录下
@@ -35,9 +42,16 @@ alias acme.sh=~/.acme.sh/acme.sh
 # DNSPod.cn
 export DP_Id="<id>"
 export DP_Key="<key>"
-# CloudFlare
+# CloudFlare Global API Key
+# https://dash.cloudflare.com/profile/api-tokens
 export CF_Key="763eac4f1bcebd8b5c95e9fc50d010b4"
 export CF_Email="alice@example.com"
+# CloudFlare 用户 API 令牌 区域 ID （域名概述右下角）
+export CF_Token="Y_jpG9AnfQmuX5Ss9M_qaNab6SQwme3HWXNDzRWs"
+export CF_Zone_ID="763eac4f1bcebd8b5c95e9fc50d010b4"
+# CloudFlare 用户 API 令牌 帐户 ID （域名概述右下角）
+export CF_Token="Y_jpG9AnfQmuX5Ss9M_qaNab6SQwme3HWXNDzRWs"
+export CF_Account_ID="763eac4f1bcebd8b5c95e9fc50d010b4"
 ```
 
 ```sh
@@ -48,6 +62,9 @@ export CF_Email="alice@example.com"
 ```
 
 证书就会自动生成了. 这里给出的 `api id` 和 `api key` 会被自动记录下来, 将来你在使用 `dnspod api` 的时候, 就不需要再次指定了. 直接生成就好了:
+
+`~/.acme.sh/account.conf`
+`~/.acme.sh/misaka.cn/misaka.cn.conf`
 
 ```sh
 acme.sh --issue -d misaka.cn --dns dns_dp
