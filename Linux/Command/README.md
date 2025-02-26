@@ -24,6 +24,7 @@ Linux 常用命令
 - [管理磁盘](udisksctl.md)
 - [调整硬盘参数](hdparm.md)
 - [管理硬盘休眠](hd-idle.md)
+- 列出当前系统打开文件的工具 `lsof /dev/sdb1`
 
 ## 电源
 
