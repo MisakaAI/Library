@@ -28,6 +28,7 @@ Linux 常用命令
 
 ## 电源
 
+- [nut](nut.md)
 - [apcupsd](apcupsd.md)
 
 ## 其他
