@@ -6,6 +6,13 @@
 apt install apcupsd
 ```
 
+## 查看USB连接情况
+
+```sh
+lsusb
+# Bus 001 Device 038: ID 051d:0002 American Power Conversion Uninterruptible Power Supply
+```
+
 ## 备份配置文件
 
 ```sh
@@ -20,14 +27,11 @@ cp /etc/default/apcupsd /etc/default/apcupsd.bak
 编辑 `/etc/apcupsd/apcupsd.conf`
 
 ```conf
-# 在 UPSNAME 后面给个易懂的名字
-UPSNAME SER6Pro_UPS
-# 在 UPSCABLE 后指定为 usb
-UPSCABLE usb
-# 在 UPSTYPE 后更改为 usb
-UPSTYPE usb
-# 在 DEVICE 后为空，这样系统会自动检测 USB 连接 UPS
-DEVICE
+UPSNAME SER6Pro_UPS   # 在 UPSNAME 后面给个易懂的名字
+UPSCABLE usb          # 使用USB线缆连接
+UPSTYPE usb           # 指定UPS类型为USB通信
+DEVICE                # 保持为空（自动检测）或设为/dev/usb/hiddev0
+LOCKFILE /var/lock    # 确保守护程序可以创建锁定文件
 ```
 
 ### 关闭网络服务
@@ -38,7 +42,7 @@ NETSERVER off
 
 ## 启用
 
-编辑 `/etc/default/apcupsd`
+编辑 `/etc/default/apcupsd`，`systemd` 不需要
 
 ISCONFIGURED 是一个配置变量，用于指示 apcupsd 守护进程是否已经配置。
 
@@ -105,7 +109,7 @@ NOLOGON disable
 KILLDELAY 0
 
 # 设置启用网络服务器功能，允许其他系统访问 apcupsd 的状态信息。
-NETSERVER off
+NETSERVER on
 
 # 设置 apcupsd 网络服务器监听的 IP 地址。
 NISIP 127.0.0.1
@@ -142,41 +146,78 @@ DATATIME 0
 
 ```sh
 # 修改 doshutdown 的内容
-<其他命令>
-${SHUTDOWN} -h now "apcupsd UPS ${2} initiated shutdown"
+doshutdown)
+    <其他命令>
+    ${SHUTDOWN} -h now "apcupsd UPS ${2} initiated shutdown"
+;;
 ```
 
 ### 重启
 
 ```sh
-systemctl stop apcupsd
+systemctl restart apcupsd
 ```
 
 ## 检查 UPS 状态
 
-使用 `apcaccess status` 命令查看
+使用 `apcaccess` 命令查看
 
-```text
-APC: UPS 的型号和产品编号
-DATE: 系统生成此输出的日期和时间，包括时区偏移。
-HOSTNAME: 运行 apcaccess 命令的计算机名称。
-UPSNAME: UPS 的名称。
-CABLE: 连接 UPS 和计算机的电缆类型。
-DRIVER: UPS 使用的驱动程序类型。
-UPSMODE: UPS 的工作模式。
-  - Stand Alone: 表示 UPS 正在独立工作，没有与其他 UPS 或服务器组成集群。
-STARTTIME: UPS 启动时间。
-MODEL: UPS 的型号。
-STATUS: UPS 的当前状态。
-LINEV: 输入电压。
-LOADPCT: 负载百分比，当前负载占总容量的百分比。
-BCHARGE: 电池剩余容量百分比。
-TIMELEFT: 电池可以提供电力的剩余时间。
-  - 在当前负载条件下，电池可以维持供电状态的剩余时间
-MBATTCHG: 电池充电百分比。
-MINTIMEL: 最短的电池供电时间。
-ALARMDEL: 是否有警告声音。
-  - No alarm: 没有警报声音触发。
-BATTV: 电池电压。
-SELFTEST: UPS 的自检结果。
-```
+### 基本信息
+
+- **APC88**    : 通信协议和数据格式的信息
+- **DATE**     : 报告生成的日期和时间
+- **HOSTNAME** : 连接的主机名称
+- **VERSION**  : 监控软件的版本
+- **UPSNAME**  : 名称
+
+### 连接与硬件信息
+
+- **CABLE**    : 通过 USB 线缆连接到主机
+- **DRIVER**   : 使用的是 USB UPS 驱动程序
+- **UPSMODE**  : 工作在独立模式（Stand Alone），即没有与其他 UPS 并联或配置为主从关系
+- **STARTTIME**: 监控软件的启动时间
+- **MODEL**    : 型号
+- **SERIALNO** : 序列号
+
+### 运行状态
+
+- **STATUS**   : 当前状态（`ONLINE`，表示它正在使用交流电源供电，电池未被使用。）
+- **LINEV**    : 输入的交流电压
+- **LOADPCT**  : 当前负载占 UPS 额定功率的百分比
+- **BCHARGE**  : 电池充电状态
+- **TIMELEFT** : 如果交流电源中断，电池可以支持当前负载运行时间
+- **BATTV**    : 当前电池电压
+
+### 电源转移与历史
+
+- **LASTXFER** :最后一次电源转移（从交流电切换到电池）是由于自动或手动自检
+- **NUMXFERS** :自 UPS 启动以来，切换到电池供电的次数
+- **TONBATT**  :当前在电池供电上的时间
+- **CUMONBATT**:累计使用电池供电的时间
+- **XOFFBATT** :最后一次从电池供电切换回交流电的时间（`N/A` 为不适用，因为没有发生过电源切换）
+
+### 设置与阈值
+
+- **MBATTCHG** : 最小电池充电百分比，在电量低于此值时触发某些操作的阈值
+- **MINTIMEL** : 最小剩余时间，表示电池剩余时间低于此值时会执行关机等动作
+- **MAXTIME**  : 最大运行时间，表示没有设置最长运行时间限制
+- **SENSE**    : 灵敏度设置，影响 UPS 对电压波动的反应速度
+- **LOTRANS**  : 低转移电压
+- **HITRANS**  : 高转移电压
+- **ALARMDEL** : 报警延迟设置为无报警，不会发出警报声
+
+### 标称参数
+
+- **NOMINV**   : 标称输入电压
+- **NOMBATTV** : 标称电池电压
+- **NOMPOWER** : 标称输出功率，表示 UPS 的额定功率
+
+### 自检与状态
+
+- **SELFTEST-** :  自检结果
+- **STATFLAG-** :  状态标志（十六进制数），代表 UPS 的内部状态位（具体含义需参考 APC 文档）。
+- **BATTDATE-** :  电池安装或更换日期
+
+### 结束信息
+
+- **END APC-**  :  报告结束时间
