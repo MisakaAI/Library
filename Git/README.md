@@ -26,6 +26,7 @@
 15. [移除敏感信息](15_privacy.md)
 16. [GitLab](16_GitLab.md)
 17. [子模块](17_Submodule.md)
+18. [将多个连续的提交合并成一个提交](18_Squash.md)
 
 ## 参考文献
 
