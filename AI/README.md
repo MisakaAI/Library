@@ -12,7 +12,6 @@ Artificial Intelligence
 
 Large Language Model
 
-- [chatGPT-3.5](./LLM/gpt-3.5-turbo.py) chatGPT 在线API
 - [Ollama](./LLM/Ollama.md) 本地部署大语言模型
 - [ChatGLM](./LLM/ChatGLM.md) 智谱开源模型
 - [Gemma](./LLM/Gemma.md) Google开源模型
