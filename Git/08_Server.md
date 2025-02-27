@@ -29,13 +29,13 @@ chown -R git:git sample.git
 
 ```bash
 # 创建SSH Key
-ssh-keygen -t rsa -b 4096 -C "youremail@example.com"
-
-# id_rsa		私钥，不可泄漏
-# id_rsa.pub	公钥
-# 把 id_rsa.pub 添加到服务端 /home/git/.ssh/authorized_keys 中
-
+ssh-keygen -t ed25519 -C "youremail@example.com"
 
 # 克隆一个仓库
 git clone git@server:/home/git/sample.git
 ```
+
+- `id_ed25519` 私钥，不可泄漏
+- `id_ed25519.pub` 公钥
+
+把 `id_ed25519.pub` 添加到服务端 /home/git/.ssh/authorized_keys 中

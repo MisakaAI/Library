@@ -59,13 +59,16 @@ git push --set-upstream origin main
 
 ```bash
 # 创建SSH Key
-ssh-keygen -t rsa -b 4096 -C "youremail@example.com"
+# ssh-keygen -t rsa -b 4096 -C "youremail@example.com"
+# 推荐使用 ed25519
+ssh-keygen -t ed25519 -C "youremail@example.com"
 
 # 查看SSH Key
-cat ~/.ssh/id_rsa.pub
-# id_rsa        私钥，不可泄漏
-# id_rsa.pub    公钥
+cat ~/.ssh/id_ed25519.pub
 ```
+
+- `id_ed25519` 私钥，不可泄漏
+- `id_ed25519.pub` 公钥
 
 将 `id_rsa.pub` 的内容添加到 [Github](https://github.com/settings/keys)
 
