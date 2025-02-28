@@ -25,3 +25,13 @@ PrintLastLog no
 ```sh
 systemctl restart ssh.service
 ```
+
+## cron 无法正确执行命令
+
+`%` 需转义为 `\%`，否则 `cron` 会解析为换行符
+
+```sh
+# 单引号 ' 在终端中可以正常运行，在 .sh 脚本中也可以正常运行，但是直接写如 cron 中会出错。
+# 0 3 * * * /usr/bin/pg_dump -h localhost -U postgres -d database > "/Backup/$(date +'%Y%m%d').sql.zst"
+0 3 * * * /usr/bin/pg_dump -h localhost -U postgres -d database > "/Backup/$(date +\%Y\%m\%d).sql.zst"
+```
