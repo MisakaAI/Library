@@ -63,6 +63,11 @@ git push --set-upstream origin main
 # 推荐使用 ed25519
 ssh-keygen -t ed25519 -C "youremail@example.com"
 
+- `-t` 类型 `rsa` `ed25519`
+- `-C` 注释
+- `-f` 路径，精确到文件名
+- `-N ""` 密码（无密码）
+
 # 查看SSH Key
 cat ~/.ssh/id_ed25519.pub
 ```
