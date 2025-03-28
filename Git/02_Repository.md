@@ -183,6 +183,9 @@ git reset HEAD <file>
 # restore
 # 让文件从暂存区返回工作区，但保留文件最后一次修改的内容。
 git restore --staged <file>
+
+# 丢弃工作区修改
+git restore <file>
 ```
 
 ### 撤消对文件的修改

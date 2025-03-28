@@ -26,7 +26,7 @@ git branch --no-merged
 git checkout <name>
 git switch <name>
 
-# 创建并切换到 <name> 分支，等于一下两条命令
+# 创建并切换到 <name> 分支，等于以下两条命令
 git checkout -b <name>
 git switch -c <name>
 
