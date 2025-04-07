@@ -1,7 +1,7 @@
 # Django
 
 [Django](https://www.djangoproject.com/)是一个开放源代码的 Web 应用框架，由 Python 写成。
-这里根据[官方文档](https://docs.djangoproject.com/zh-hans/4.2/)整理了一些日常开发中常用的内容，方便查询。
+这里根据[官方文档](https://docs.djangoproject.com/zh-hans/5.2/)整理了一些日常开发中常用的内容，方便查询。
 
 ## 快速入门
 
@@ -70,6 +70,10 @@ python manage.py createsuperuser
 ### 管理
 
 - [管理站点](admin/admin.md)
+
+### 其他
+
+- [重置 ID 序列](other/sqlsequencereset.md)
 
 ## 参考文献
 
