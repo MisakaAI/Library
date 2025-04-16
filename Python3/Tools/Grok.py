@@ -6,7 +6,6 @@ from openai import OpenAI
 
 os.environ["http_proxy"] = "http://127.0.0.1:7890"
 os.environ["https_proxy"] = "http://127.0.0.1:7890"
-import os
 
 model = "grok-2-latest"
 XAI_API_KEY = ""

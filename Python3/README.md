@@ -39,6 +39,7 @@ Python由荷兰数学和计算机科学研究学会的吉多·范罗苏姆（Gui
 
 - [PyInstaller](PyInstaller.md)
 - [Embed](embed.md) 嵌入式
+- [Ollama](ollama.md)
 
 ## 第三方库
 

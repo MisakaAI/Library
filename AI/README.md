@@ -12,10 +12,11 @@ Artificial Intelligence
 
 Large Language Model
 
-- [Ollama](./LLM/Ollama.md) 本地部署大语言模型
+- [Ollama](./LLM/ollama.md) 本地部署大语言模型
+  - [Python3](../Python3/ollama.md) Python API
 - [ChatGLM](./LLM/ChatGLM.md) 智谱开源模型
 - [Gemma](./LLM/Gemma.md) Google开源模型
-- [DeepSeek](https://ollama.com/library/deepseek-r1)
+- [DeepSeek](./LLM/DeepSeek.md) 深度求索开源模型
 
 ## 知识库
 
