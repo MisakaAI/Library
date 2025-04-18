@@ -50,11 +50,14 @@ A: 珍爱生命，远离折腾。
 当然，*RedHat* / *CentOS* 仍是优秀的操作系统，且很多 Linux 教程都是以 *CentOS* 为基础进行教学的。  
 有一定基础以后就可以根据自己的需求来选择发行版了，比如喜欢折腾的同学可以试试 *Arch Linux* 或者直接 *LFS*。  
 但是不要在发行版的选择中浪费太多时间，人生苦短。  
-（更新）*Debian* / *Ububtu Lts*  
+（2024更新）*Debian* / *Ububtu Lts*  
 但就是想体验一下不同的发行版怎么办？请妥善使用虚拟机。
 \
-**Mac OS**  
-我没用过的唯一原因就是穷，但是有考虑过咬咬牙买个M4芯片的 Mac Mini。
+**macOS**  
+目前主力机：Mac mini (M4 芯片机型) 16GB 统一内存 / 256GB 固态硬盘  
+并夕夕只要¥2999，还要什么自行车？  
+跑本地大模型性价比超高的好吧！！  
+还能被动戒游戏（其实 Steam 能玩星露谷、饥荒什么的，画质开低一点也能打打 Dota）
 
 Q: 与时俱进  
 A: 如果你要学一个新的技术，应当从最新的版本开始学。
@@ -78,7 +81,7 @@ Q: 党争？
 - Vim
 - Visual Studio Code
 - Tab = 4 Space
-- Ubuntu
+- macOS
 
 ```c
 /* C & C++ */
@@ -91,13 +94,20 @@ int main()
 ```
 
 ```css
-/* css */
+/* CSS */
 html {
-    font-size:16px;
+    font-size: 1rem;
+}
+```
+
+```js
+// JavaScript
+for ( let i = 0; i < 10; i++) {
+    console.log(i)
 }
 ```
 
 ```python
-# python3
+# Python3
 print("Hello World!")
 ```
