@@ -74,6 +74,7 @@ python manage.py createsuperuser
 ### 其他
 
 - [重置 ID 序列](other/sqlsequencereset.md)
+- [重置迁移](other/migrations.md)
 
 ## 参考文献
 
