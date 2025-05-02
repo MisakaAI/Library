@@ -10,6 +10,7 @@
 - [obs-loudness-dock](https://github.com/norihiro/obs-loudness-dock) 响度计
 - [obs-markdown](https://github.com/exeldro/obs-markdown) Markdown
 - [obs-shaderfilter](https://github.com/exeldro/obs-shaderfilter) 着色器
+- [obs-vertical-canvas](https://github.com/Aitum/obs-vertical-canvas) 创建垂直布局 / 多流媒体
 - [obs-auto-subtitle](https://github.com/summershrimp/obs-auto-subtitle) 自动生成字幕
 - [streamup-hotkey-display](https://github.com/StreamUPTips/streamup-hotkey-display) 热键显示
 - [netease-qq-now-playing](https://obsproject.com/forum/resources/netease-qq-now-playing.1944/) 网易云QQ音乐获取歌名/艺人
