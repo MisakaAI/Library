@@ -1,5 +1,14 @@
 # DNS
 
+```sh
+echo "nameserver 1.1.1.1
+nameserver 2606:4700:4700::1111
+nameserver 8.8.8.8
+nameserver 2001:4860:4860::8888
+nameserver 223.5.5.5
+nameserver 2400:3200::1" > /etc/resolv.conf
+```
+
 ## 阿里云
 
 - [阿里云公共DNS](https://www.alidns.com/)
