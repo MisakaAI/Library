@@ -25,7 +25,12 @@
 
 ```sh
 # 安装依赖
-apt install php-fpm php-pgsql php-curl php-xml php-gd php-json php-mbstring php-zip php-bz2 php-intl php-gmp php-apcu php-imagick php-bcmath
+apt install -y redis-server
+apt install php-fpm php-pgsql php-curl php-xml php-gd php-json php-mbstring php-zip php-bz2 php-intl php-gmp php-apcu php-imagick php-bcmath php-redis
+
+# redis 开机启动 && 权限
+systemctl enable redis-server.service --now
+usermod -aG redis www-data
 
 # 下载 & 解压
 wget -O /var/www/nextcloud.zip https://download.nextcloud.com/server/releases/latest.zip
@@ -89,16 +94,33 @@ opcache.revalidate_freq=60
 opcache.enable_cli=1
 ```
 
+编辑 `/etc/redis/redis.conf`
+
+```conf
+unixsocket /run/redis/redis-server.sock
+unixsocketperm 770
+maxmemory-policy allkeys-lru
+```
+
+修改 `/etc/php/8.2/fpm/php.ini`
+
+```php.ini
+redis.session.locking_enabled=1
+redis.session.lock_retries=-1
+redis.session.lock_wait_time=10000
+```
+
 重启服务应用变更
 
 ```sh
+systemctl restart redis-server.service
 systemctl restart php8.2-fpm.service
 systemctl restart nginx.service
 ```
 
 修改 Nextcloud 配置，编辑文件 `config/config.php`
 
-```.php
+```php
 <?php
 $CONFIG = array (
   // 管理员操作的受信任IP范围
@@ -108,6 +130,13 @@ $CONFIG = array (
   ),
   // 用于本地存储数据的内存缓存后端
   'memcache.local' => '\\OC\\Memcache\\APCu',
+  // 用 Redis 来实现控制文件锁
+  'memcache.locking' => '\OC\Memcache\Redis',
+  'redis' => array(
+    'host' => '/run/redis/redis-server.sock',
+    'port' => 0,
+    'timeout' => 0.0,
+  ),
   // 某些后台作业每天仅运行一次，值1将仅在UTC上午01：00和UTC上午05：00之间运行这些后台作业。
   'maintenance_window_start' => 1,
   // 启用代理
@@ -186,5 +215,3 @@ sudo -u www-data php -d memory_limit=512M occ app:install richdocumentscode
 - needsDbUpgrade: false 数据库结构与当前版本兼容，无需升级。若为 `true` 需要手动执行 `occ upgrade`
 - productname: Nextcloud 产品名称，固定为 Nextcloud（用于区分衍生版本或分支）
 - extendedSupport: false 未启用扩展支持服务
-
-# 
