@@ -16,4 +16,7 @@ last -f /var/log/btmp | awk '{print $3}' | sort | uniq -c
 
 # 统计失败次数
 last -f /var/log/btmp | wc -l
+
+# 查看登陆成功的IP（筛选非局域网、本机）
+last | grep -v "192\.168" | grep -v "amd64" | grep -v ":pts"
 ```
