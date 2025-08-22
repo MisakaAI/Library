@@ -5,17 +5,19 @@
 ```sh
 curl -fsSL https://ollama.com/install.sh | sh
 # 拉取模型
-ollama pull gemma2:2b
+ollama pull gemma3:4b
 # 运行模型
-ollama run gemma2:2b
+ollama run gemma3:4b
 # 显示模型信息
-ollama show gemma2:2b
+ollama show gemma3:4b
+# 删除模型
+ollama rm gemma3:4b
 # 列出模型
 ollama list
 # 列出当前加载的模型
 ollama ps
 # 停止当前正在运行的模型
-ollama stop gemma2:2b
+ollama stop gemma3:4b
 ```
 
 ## REST API

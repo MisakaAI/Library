@@ -17,6 +17,7 @@ Large Language Model
 - [ChatGLM](./LLM/ChatGLM.md) 智谱开源模型
 - [Gemma](./LLM/Gemma.md) Google开源模型
 - [DeepSeek](./LLM/DeepSeek.md) 深度求索开源模型
+- [Qwen](./LLM/Qwen.md) 通义千问
 
 ## 知识库
 
