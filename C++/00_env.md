@@ -11,7 +11,7 @@
 #### MinGW-w64
 
 1. 下载 [MSYS2](https://www.msys2.org/)
-清华大学镜像站 [(Windows, x86_64)](https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/msys2-x86_64-latest.exe)
+清华大学开源软件镜像站 [(Windows, x86_64)](https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/msys2-x86_64-latest.exe)
 
 2. 添加 [Windows Terminal](https://www.msys2.org/docs/terminals/) 配置
 
@@ -36,7 +36,7 @@
 
 3. 软件仓库
 
-使用清华大学镜像站
+使用清华大学开源软件镜像站
 
 ```bash
 sed -i "s#https\?://mirror.msys2.org/#https://mirrors.tuna.tsinghua.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*
