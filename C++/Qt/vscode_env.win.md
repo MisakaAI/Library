@@ -3,6 +3,11 @@
 Qt6 部署开发环境: Windows / MSYS2 + MINGW64 / Visual Studio Code
 
 - [自动创建Qt项目](create_qt6_project.py)
+- Qt Creator 创建的 Qt 项目在使用 vscode 开发时，需要创建 `.vscode` 目录进行相关配置
+  - [c_cpp_properties.json](qtcreator/c_cpp_properties.json)
+  - [launch.json](qtcreator/launch.json)
+  - [settings.json](qtcreator/settings.json)
+  - [tasks.json](qtcreator/tasks.json)
 
 ```sh
 # 更新MSYS2包数据库
