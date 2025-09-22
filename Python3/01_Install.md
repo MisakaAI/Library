@@ -24,7 +24,8 @@ dnf install python3
 
 - [完整安装程序](https://www.python.org/downloads/windows/)
 - [Microsoft Store](https://apps.microsoft.com/store/detail/python-310/9PJPW5LDXLZ5)
-- [华为云加速下载](https://mirrors.huaweicloud.com/python/)
+- [华为云](https://mirrors.huaweicloud.com/python/)
+- [阿里云](https://mirrors.aliyun.com/python-release/windows/)
 
 > 关于 Windows 7
 >
@@ -53,10 +54,28 @@ pkg_add ftp://ftp.openbsd.org/pub/OpenBSD/4.2/packages/<insert your architecture
 
 最硬核的 Python 安装方法。
 
+1. 获取 [源代码](https://www.python.org/downloads/source/)
+2. 编译安装
+
+#### 在 Linux 上编译 Python
+
 ```bash
-./configure
-make
+# 在 Linux 上编译 Python
+./configure --enable-optimizations --with-lto
+make -j $(nproc)
 make install
 ```
 
-[编译参数](https://docs.python.org/zh-cn/3.10/using/configure.html)
+#### 在 Windows 上编译 Python (MSVC)
+
+```powershell
+# Developer PowerShell for VS 2022
+.\PCbuild\build.bat -c Debug
+.\PCbuild\build.bat
+# .\rt.bat -q
+```
+
+## 参考文献
+
+- [Setup and building](https://devguide.python.org/getting-started/setup-building/index.html)
+- [编译参数](https://docs.python.org/zh-cn/3.10/using/configure.html)
