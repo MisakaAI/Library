@@ -13,10 +13,11 @@
 ~~删除 `pythonXX._pth`，`XX` 取决于 `Python` 版本。~~
 ~~该文件会导致 Python 无法正常导入第三方库。~~
 
-修改 `pythonXX._pth` 文件，在文件中增加
+修改 `pythonXX._pth` 文件，在文件中取消注释
 
 ```txt
-Lib\site-packages
+# import site
+import site
 ```
 
 - [finding-modules](https://docs.python.org/zh-cn/3/using/windows.html#finding-modules)
@@ -24,6 +25,11 @@ Lib\site-packages
 ## 安装第三方库
 
 创建目录 `Lib/site-packages`
+
+### pip
+
+安装 [get-pip-py](https://bootstrap.pypa.io/get-pip.py)
+`.\python.exe .\get-pip.py`
 
 ## 使用 pipreqs 提取项目的依赖
 

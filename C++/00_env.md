@@ -4,7 +4,58 @@
 
 ### Windows
 
-#### Microsoft Visual C++
+#### Microsoft Visual C++ (MSVC)
+
+Microsoft Visual C++ (MSVC) 是 Windows Visual Studio 的一部分，指 C++、C 和汇编语言开发工具和库。
+
+- [Visual Studio Code](https://code.visualstudio.com/Download)
+- [Visual Studio Community 2022](https://visualstudio.microsoft.com/zh-hans/downloads/)
+- [Visual Studio 2022 生成工具](https://aka.ms/vs/17/release/vs_BuildTools.exe)
+- [Microsoft Visual C++ Redistributable for Visual Studio 2022](https://aka.ms/vs/17/release/VC_redist.x64.exe)
+
+##### Visual Studio Code
+
+```txt
+my_project/
+├── .vscode/          # VSCode 特定配置（可选，可由 CMake Tools 自动管理）
+│   ├── c_cpp_properties.json   # C/C++ 语言配置
+│   ├── launch.json             # 调试配置
+│   ├── tasks.json              # 任务配置
+│   └── settings.json           # 用户设置
+├── build/            # 用于存放构建输出（CMake 默认在此目录构建）
+├── src/              # 源代码目录
+│   └── main.cpp      # 你的源代码
+├── include/          # 头文件目录（可选）
+├── CMakeLists.txt    # CMake 的构建定义文件
+└── python_script.py  # Python 脚本
+```
+
+- [CMakeLists.txt](./my_project/CMakeLists.txt)
+- .vscode
+  - [c_cpp_properties.json](./my_project/.vscode/c_cpp_properties.json)
+  - [launch.json](./my_project/.vscode/launch.json)
+  - [tasks.json](./my_project/.vscode/tasks.json)
+  - [settings.json](./my_project/.vscode/settings.json)
+- [mian.cpp](./my_project/src/main.cpp)
+
+```txt
+在 VS Code 中进行 C++ (msvc) 的开发。
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\bin\Hostx86\x86\cl.exe
+
+需要调用 Python 的代码，python 安装路径为：
+C:\Users\misaka\AppData\Local\Programs\Python\Python313\python.exe
+
+使用 cmake 生成项目，需要 CMakeLists.txt
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe
+
+VS Code 需要配置 c_cpp_properties.json launch.json tasks.json settings.json 这四个文件。
+
+然后写一个 main.cpp 调用 Python 执行 print("hello world")
+
+以上文件均需添加注释。
+```
+
+##### 参考文献
 
 - [在 Visual Studio 中安装 C 和C++支持](https://learn.microsoft.com/zh-cn/cpp/build/vscpp-step-0-installation)
 
