@@ -2,10 +2,13 @@
 
 - [Qt](https://www.qt.io/zh-cn/)
   - [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/qt/)
-  - [腾讯云镜像源](https://mirrors.tuna.tsinghua.edu.cn/help/qt/)
+  - [阿里云镜像源](https://mirrors.aliyun.com/qt)
+
+`./qt-online-installer-linux-x64-online.run --mirror https://mirrors.aliyun.com/qt`
 
 ## 部署开发环境
 
+- [MSVC](vscode_env.win.msvc.md)
 - [MingW64](vscode_env.win.md)
 - [Linux](vscode_env.linux.md)
 
