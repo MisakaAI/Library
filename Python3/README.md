@@ -34,7 +34,7 @@ Python由荷兰数学和计算机科学研究学会的吉多·范罗苏姆（Gui
 10. [全局变量](10_global.md)
 11. [虚拟环境](11_venv.md)
 12. [Conda](12_conda.md)
-13. [C Python](13_cpython.md)
+13. [Python/C API](13_c_api.md)
 
 ## 打包
 
@@ -53,6 +53,7 @@ Python由荷兰数学和计算机科学研究学会的吉多·范罗苏姆（Gui
 - [Selenium](Selenium/README.md) 浏览器自动化
 - [WebSockets](WebSockets/README.md)
 - [miio](miio/README.md) 控制米家设备
+- [Cython](Cython/README.md)
 
 ## 参考文献
 

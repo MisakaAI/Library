@@ -1,9 +1,11 @@
-# C++ 调用 Python 完全指南
+# C/C++ 调用 Python 完全指南
+
+将 Python 解释器嵌入其应用程序中的 C 和 C++ 程序员可用的 API
 
 ## Linux
 
 ```bash
-# C++
+# C/C++
 apt install -y gcc g++ make
 apt install build-essential cmake gdb
 apt install ninja-build
@@ -59,7 +61,8 @@ python -c "import torch; print(f'PyTorch {torch.__version__}, CUDA available: {t
 
 ```bash
 # python3-config --includes --ldflags
-g++ -o py_embed c_python.cpp $(python3-config --cflags) $(python3-config --ldflags --embed)
+# --embed 嵌入式
+g++ -o a.out c_python.cpp $(python3-config --cflags --ldflags --embed) -std=c++17
 ```
 
 ## 参考文献
