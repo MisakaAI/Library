@@ -27,6 +27,7 @@
 - [阅读3服务器版](./Hub/reader.md) 阅读3
 - [B站录播姬](./Hub/rec.danmuji.org.md) 哔哩哔哩直播录制
 - [Wekan](./Hub/Wekan.md) 开源看板工具
+- [Kanboard](./Hub/kanboard.md) 开源看板工具
 
 ## 参考文献
 
