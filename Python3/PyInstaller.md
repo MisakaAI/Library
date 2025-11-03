@@ -2,6 +2,7 @@
 
 - [PyInstaller](https://pyinstaller.org/)
 - [Using PyInstaller](https://pyinstaller.org/en/v5.8.0/usage.html)
+- [自动打包脚本](./AutoBuild_PyInstaller.ps1)
 
 ## Installation
 
