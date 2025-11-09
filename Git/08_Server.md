@@ -33,6 +33,12 @@ ssh-keygen -t ed25519 -C "youremail@example.com"
 
 # 克隆一个仓库
 git clone git@server:/home/git/sample.git
+
+# 本地目录
+git clone /home/git/sample.git
+
+# SSH 协议（用户名 git，端口 22）
+git clone ssh://git@server:22/home/git/sample.git
 ```
 
 - `id_ed25519` 私钥，不可泄漏
