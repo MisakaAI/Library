@@ -8,3 +8,13 @@
 ```sh
 ollama run qwen3:8b
 ```
+
+## Qwen Code
+
+- [Qwen Code](https://qwenlm.github.io/qwen-code-docs/zh/)
+
+```sh
+# curl -qL https://www.npmjs.com/install.sh | sh
+npm install -g @qwen-code/qwen-code@latest
+qwen --version
+```
