@@ -11,7 +11,6 @@ Linus Torvalds 曾经说过：
 ## 目录
 
 - [Hello World](hello.cpp)
-- [常用语句](useful.cpp)
 - [环境搭建](00_env.md)
 - [语言基础](01_fundamentals.md)
 - [语句](02_structure.md)
@@ -31,6 +30,7 @@ Linus Torvalds 曾经说过：
 - [集合](16_collection.md)
 - [文件和流](17_file.md)
 - [套接字](18_socket.md)
+- [Qt](Qt/README.md)
 
 ## 参考文献
 

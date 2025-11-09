@@ -8,15 +8,35 @@
 
 同时也是一个技能树。
 
-- [人工智能](./AI/README.md) AI
+- [AI](./AI/README.md) 人工智能
   - [PyTorch](./AI/PyTorch/README.md)
-  - [Ollama](./AI/LLM/Gemma.md)
-- [安卓](./Android/README.md) Android
-- [计算机科学](./CS/README.md) Computer Science
-- [Blender](./Blender/README.md)
-- [C#](./C#/README.md)
-- [Docker](./Docker/README.md)
-- [Git](./Git/README.md)
+  - [Ollama](./AI/LLM/Ollama.md)
+- [Blender](./Blender/README.md) 三维建模
+- [C#](./C#/README.md) 编程语言
+- [C++](./C++/README.md) 编程语言
+- [Computer Science](./CS/README.md) 计算机科学
+- [Docker](./Docker/README.md) 容器
+- [Embedded](./Embedded/README.md) 嵌入式开发
+- [Git](./Git/README.md) 版本控制
+- [HTML](./HTML/index.html) 网页
+- [JavaScript](./JavaScript/README.md) 编程语言
+- [OPC UA](./OPC%20UA/README.md) 工业通信协议
+- [Python3](./Python3/README.md) 编程语言
+- [RaspberryPi](./RaspberryPi/README.md) 树莓派
+- [Software](./Software/README.md) 软件
+- [SQL](./SQL/README.md) 数据库
+
+### 操作系统
+
+- [Windows](./Windows/README.md)
+- [Linux](./Linux/README.md)
+- [macOS](./macOS/README.md)
+- [Android](./Android/README.md) 安卓
+
+## 其他
+
+- [Life](./Life/README.md) 生活指南
+- [Other](.//Other/README.md) 其他
 
 ## Q&A
 
@@ -51,13 +71,14 @@ A: 珍爱生命，远离折腾。
 有一定基础以后就可以根据自己的需求来选择发行版了，比如喜欢折腾的同学可以试试 *Arch Linux* 或者直接 *LFS*。  
 但是不要在发行版的选择中浪费太多时间，人生苦短。  
 （2024更新）*Debian* / *Ububtu Lts*  
+（2025更新）*Linux Mint*  
 但就是想体验一下不同的发行版怎么办？请妥善使用虚拟机。
 \
 **macOS**  
 目前主力机：Mac mini (M4 芯片机型) 16GB 统一内存 / 256GB 固态硬盘  
 并夕夕只要¥2999，还要什么自行车？  
-跑本地大模型性价比超高的好吧！！  
-还能被动戒游戏（其实 Steam 能玩星露谷、饥荒什么的，画质开低一点也能打打 Dota）
+性价比超高的好吧！！  
+还能被动戒游戏（赛博朋克2077 原生支持 macOS 了，买Mac打游戏的叔叔）
 
 Q: 与时俱进  
 A: 如果你要学一个新的技术，应当从最新的版本开始学。
@@ -73,22 +94,25 @@ A: 如果你要学一个新的技术，应当从最新的版本开始学。
 Q: 关于学习资料  
 A: 大部分情况下，能从互联网上找到各种免费的教程。  
 (比如 [*w3cschool*](https://www.w3school.com.cn/)、[*菜鸟教程*](https://www.runoob.com/)、[*哔哩哔哩*](https://www.bilibili.com)、[*阿里云大学*](https://edu.aliyun.com) 等。  
-京东、当当、亚马逊有活动的时候也买了很多实体书。  
-同时也请善用 *百度*、*Google* 等搜索引擎。
+京东、当当、亚马逊有活动的时候也买了一些实体书（收藏用）。  
+官方文档永远值得信赖，例如：[Python](https://docs.python.org/zh-cn/3/)
+同时也请善用 *Google*、*Bing* 等搜索引擎，但是最好屏蔽 *CSDN* -> [uBlacklist](https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe)。  
+（2025更新）善用AI，例如：*ChatGPT*、*Grok*、*DeepSeek*
 
 Q: 党争？
 
 - Vim
 - Visual Studio Code
 - Tab = 4 Space
-- macOS
+- Linux Mint
 
 ```c
-/* C & C++ */
-#include <stdio.h>
-int main()
-{
-    printf("Hello, World!");
+// C/C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello World!" << endl;
     return 0;
 }
 ```

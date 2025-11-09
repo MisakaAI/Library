@@ -27,3 +27,5 @@ Large Language Model
 
 - [歌声音色转换](./SVC/so-vits-svc.md)
 - [文字生成图像](https://github.com/CompVis/stable-diffusion)
+- [离线语音识别](whisper.md)
+- [OCR识别](DeepSeek-OCR.md)

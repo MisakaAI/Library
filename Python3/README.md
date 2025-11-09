@@ -19,6 +19,18 @@ Python由荷兰数学和计算机科学研究学会的吉多·范罗苏姆（Gui
     - 数据分析：`Pandas`、`NumPy`、`Matplotlib`
     - 神经网络：`PyTorch`
     - web开发：`Django`、`Flask`、`FastAPI`
+7. 编辑器 / IDE
+    - [PyCharm](https://www.jetbrains.com/pycharm/)
+    - [VS Code](https://code.visualstudio.com/)
+    - [Thonny](https://thonny.org/)
+    - IDLE
+8. **现代化工具链**
+    - [代码格式化](ruff.md)
+    - [包管理器](uv.md)
+    - [打包编译](nuitka.md)
+    - Web 服务器
+        - [ASGI](uvicorn.md)
+        - [WSGI](gunicorn.md)
 
 ## 目录
 
