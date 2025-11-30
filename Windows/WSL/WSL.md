@@ -56,3 +56,13 @@ wsl --unregister <DistributionName>
 # 装载磁盘或设备
 wsl --mount <DiskPath>
 ```
+
+## WSL1 专用
+
+```sh
+# 禁止更新 systemd
+sudo apt-mark hold systemd
+sudo apt-mark hold systemd-dev
+echo "[boot]
+systemd=false" > /etc/wsl.conf
+```
