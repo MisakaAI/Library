@@ -59,4 +59,5 @@ Windows Subsystem for Linux，简称WSL。
 - [Windows 7 安装 Python3](./win7_python3.md)
 - [删除右键菜单 在 Visual Studio 中打开](./Del%20Open%20in%20Visual%20Studio.md)
 - [HEVC](./win10_HEVC.md)
+- [电源方案](./powercfg.md)
 - 恢复网络设置到默认状态 `netsh winsock reset` 重置 Winsock 目录
