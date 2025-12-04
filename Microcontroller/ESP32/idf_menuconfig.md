@@ -1,0 +1,249 @@
+# Espressif IoT Development Framework Configuration
+
+- `Build type`  --->  构建类型
+  - `Application build type (Default (binary application + 2nd stage bootloader))`  --->  应用构建类型（默认：二进制应用 + 第二阶段引导程序）
+    - `Default (binary application + 2nd stage bootloader)` 默认（生成二进制应用程序 + 第二阶段引导程序）
+    - `Build app runs entirely in RAM (EXPERIMENTAL)` 构建完全运行于 RAM 的应用（实验性）
+  - [ ] `Enable reproducible build` 启用可重现构建
+  - [ ] `No Binary Blobs` 不使用二进制闭源库
+- `Bootloader config`  --->  引导程序配置
+  - `Bootloader manager`  --->  引导管理器
+    - [x] `Use time/date stamp for bootloader` 使用时间/日期戳
+    - (1) `Project version` 项目版本号
+  - `Application Rollback`  --->  应用回滚功能
+    - [x] `Enable app rollback support` 启用应用回滚支持
+    - [ ] `Enable app anti-rollback support` 启用防回滚支持
+  - `Recovery Bootloader and Rollback`  ----  恢复引导和回滚
+  - `Bootloader optimization Level (Size (-Os with GCC, -Oz with Clang))`  --->  Bootloader 优化等级（以体积为主 -Os/-Oz）
+    - (X) `Size (-Os with GCC, -Oz with Clang)` 以体积为主
+    - ( ) `Debug (-Og)` 调试优化
+    - ( ) `Optimize for performance (-O2`) 性能优化
+    - ( ) `Debug without optimization (-O0) (Deprecated, will be removed in IDF v6.0)` 无优化调试
+  - `Log`  --->  日志配置
+    - `Log version (V1)`  ---> 日志版本
+            (X) `V1`
+    - `Bootloader log verbosity (Warning)`  --->
+            ( ) `No output` 不输出日志
+            ( ) `Error` 仅错误信息
+            (X) `Warning` 警告级别（默认）
+            ( ) `Info` 信息级别
+            ( ) `Debug` 调试级别
+            ( ) `Verbose` 最详细级别
+    - `Format`  ---> 格式化输出
+            [ ] `Color` 彩色输出
+            `Timestamp (Milliseconds Since Boot)`  ---> 时间戳
+                (X) `Milliseconds Since Boot` 启动以来毫秒
+    - `Settings`  ---> 设置
+            `Log Mode (Text Log Mode)`  ---> 日志模式
+                (X) `Text Log Mode` 文本日志模式
+  - `Serial Flash Configurations`  --->  串行 Flash 配置
+        [ ] `Allow app adjust Dummy Cycle bits in SPI Flash for higher frequency (READ HELP FIRST)` 允许应用调整 Flash 读延迟
+        [x] `Enable the support for flash chips of XMC (READ DOCS FIRST)` 启用对 XMC 闪存的支持
+  - `VDDSDIO LDO voltage (1.9V)`  --->  VDDSDIO 电压 (1.9V)
+        (X) `1.9V`
+  - [ ] `GPIO triggers factory reset GPIO` 触发恢复出厂设置
+  - [ ] `GPIO triggers boot from test app partition GPIO` 触发从测试分区启动
+  - [x] `Enable protection for unmapped memory regions` 启用未映射内存保护
+  - [x] `Use RTC watchdog in start code` 启用启动阶段的 RTC 看门
+  - [ ] `Allows RTC watchdog disable in user code` 允许用户代码关闭 RTC 看门狗
+  - `(9000)  Timeout for RTC watchdog (ms)` RTC 看门狗超时时间（毫秒）
+  - [x] `Skip image validation when exiting deep sleep` 从深度睡眠恢复时跳过镜像验证
+  - [ ] `Skip image validation from power on reset (READ HELP FIRST)` 上电复位时跳过镜像验证
+  - [ ] `Skip image validation always (READ HELP FIRST)` 总是跳过镜像验证
+  - [ ] `Reserve RTC FAST memory for custom purposes` 保留 RTC FAST 内存用于自定义用途
+- `Security features`  --->  安全功能
+  - [ ] `Require signed app images` 要求应用镜像必须签名
+  - [ ] `Enable hardware Secure Boot in bootloader (READ DOCS FIRST)` 启用硬件安全启动（需阅读文档）
+  - [ ] `Enable flash encryption on boot (READ DOCS FIRST)` 启用闪存加密启动（需阅读文档）
+- `Application manager`  --->  应用管理
+  - [x] `Use time/date stamp for app` 使用时间/日期戳作为应用版本号
+  - [x] `Exclude PROJECT_VER from firmware image` 从固件中排除项目版本号 PROJECT_VER
+  - [x] `Exclude PROJECT_NAME from firmware image` 从固件中排除项目名称 PROJECT_NAME
+  - [ ] `Get the project version from Kconfig` 从 Kconfig 获取项目版本号
+  - (9) `The length of APP ELF SHA is stored in RAM(chars)` 存储在 RAM 中的 APP ELF 哈希长度（字符数）
+- `Boot ROM Behavior`  --->  启动 ROM 行为
+  - `Permanently change Boot ROM output (Always Log)`  --->  启动 ROM 行为
+    - (X) `Always Log` 始终输出日志
+    - ( ) `Permanently disable logging` 永久禁用日志输出
+    - ( ) `Log on GPIO High` 当特定 GPIO 为高电平时输出日志
+    - ( ) `Log on GPIO Low` 当特定 GPIO 为低电平时输出日志
+- `Serial flasher config`  --->  串口烧录配置
+  - [ ] `Disable download stub` 禁用下载 stub
+  - [ ] `Enable Octal Flash` 启用八线 Flash 支持
+  - [*] `Choose flash mode automatically (please read help)` 自动选择 Flash 模式
+    - `Flash SPI mode (DIO)`  --->  Flash SPI 模式
+      - ( ) `QIO` Quad I/O 模式（四线全双向）
+      - ( ) `QOUT` Quad Output 模式（四线输出）
+      - (X) `DIO` Dual I/O 模式（双线全双向）
+      - ( ) `DOUT` Dual Output 模式（双线输出）
+    - `Flash Sampling Mode (STR Mode)`  --->  Flash 采样模式
+      - (X) `STR Mode`
+    - `Flash SPI speed (80 MHz)`  --->  Flash SPI 速度
+      - ( ) 120 MHz (READ DOCS FIRST)
+      - (X) 80 MHz
+      - ( ) 40 MHz
+      - ( ) 20 MHz
+    - `Flash size (4 MB)`  --->  Flash 大小
+      - ( ) 1 MB
+      - ( ) 2 MB
+      - (X) 4 MB
+      - ( ) 8 MB
+      - ( ) 16 MB
+      - ( ) 32 MB
+      - ( ) 64 MB
+      - ( ) 128 MB
+  - [ ] `Detect flash size when flashing bootloader` 烧录时自动检测 Flash 大小
+    - `Before flashing (Reset to bootloader)`  --->  烧录前操作
+      - (X) `Reset to bootloader` 烧录前重启进入引导加载模式
+      - ( ) `No reset` 不在烧录前重启
+    - `After flashing (Reset after flashing)`  --->  烧录后操作
+      - (X) `Reset after flashing` 烧录完成后自动重启运行新固件
+      - ( ) `Stay in bootloader` 烧录完成后停留在引导模式
+- `Partition Table`  --->  分区表
+  - `Partition Table (Custom partition table CSV)`  --->  自定义分区表 CSV 文件
+    - ( ) `Single factory app, no OTA` 单个工厂应用，无 OTA
+    - ( ) `Single factory app (large), no OTA` 单个大型工厂应用，无 OTA
+    - ( ) `Factory app, two OTA definitions` 工厂应用 + 两个 OTA 分区
+    - ( ) `Two large size OTA partitions` 两个大型 OTA 分区
+    - (X) `Custom partition table CSV` 自定义分区表 CSV
+  - `(partitions-4MiBplus.csv) Custom partition CSV file` Flash 上分区表的位置
+  - `(0x8000) Offset of partition table` 默认 0x8000（ESP32 标准位置）
+  - [x] `Generate an MD5 checksum for the partition table` 在烧录时生成 MD5 校验值，用于验证分区表是否完整。
+- `Compiler options`  --->  编译器选项
+  - `Optimization Level (Optimize for performance (-O2))`  --->  优化等级（优化性能 -O2）
+  - `Assertion level (Disabled (sets -DNDEBUG))`  --->  断言等级（禁用，定义 NDEBUG）
+  - `[x] Enable the evaluation of the expression inside assert(X) when NDEBUG is set` 即使 NDEBUG 设置也求值 assert(X) 内表达式
+  - `Compiler float lib source (libgcc)`  --->  浮点库来源
+  - `[ ] Disable messages in ESP_RETURN_ON_* and ESP_EXIT_ON_* macros` 禁用 ESP_RETURN_ON / ESP_EXIT_ON 消息
+  - `[x] Replace ESP-IDF and project paths in binaries`  ----  替换二进制文件中的 ESP-IDF 与项目路径
+  - `[ ] Enable C++ exceptions`  ----  启用 C++ 异常
+  - `[ ] Enable C++ run-time type info (RTTI)` 启用 C++ RTTI
+  - `Stack smashing protection mode (None)`  --->  栈溢出保护模式
+  - `[ ] Disable merging const sections` 禁止合并常量段
+  - `[ ] Enable -Wwrite-strings warning flag` 启用写入字符串警告
+  - `[x] Disable errors for default warnings` 禁止默认警告视为错误
+  - `[ ] Disable new warnings introduced in GCC 12` 屏蔽 GCC12 新警告
+  - `[ ] Disable new warnings introduced in GCC 13` 屏蔽 GCC13 新警告
+  - `[ ] Disable new warnings introduced in GCC 14` 屏蔽 GCC14 新警告
+  - `[ ] Dump RTL files during compilation` 编译过程中导出 RTL 文件
+  - `Compiler runtime library (libgcc)`  --->  编译器运行库
+  - `Orphan sections handling (Place with warning)`  --->  未使用段处理方式
+  - `[ ] Enable compiler static analyzer` 启用静态分析
+- `Component config`  --->  组件配置
+  - `Application Level Tracing`  --->  应用级追踪
+  - `Bluetooth`  --->  蓝牙
+  - [ ] `ESP BLE Mesh Support`  ----  BLE Mesh 支持
+  - `Console Library`  --->  控制台库
+  - `Driver Configurations`  --->  驱动配置
+  - `eFuse Bit Manager`  --->  eFuse 管理
+  - `ESP-TLS`  --->  TLS/SSL 支持
+  - `ADC and ADC Calibration`  --->  ADC 和校准
+  - `Wireless Coexistence`  --->  无线共存
+  - `Common ESP-related`  --->  通用 ESP 功能
+  - `ESP-Driver:Camera Controller Configurations`  --->  驱动配置
+  - `ESP-Driver:GPIO Configurations`  --->  驱动配置
+  - `ESP-Driver:GPTimer Configurations`  --->  驱动配置
+  - `ESP-Driver:I2C Configurations`  --->  驱动配置
+  - `ESP-Driver:I2S Configurations`  --->  驱动配置
+  - `ESP-Driver:LEDC Configurations`  --->  驱动配置
+  - `ESP-Driver:MCPWM Configurations`  --->  驱动配置
+  - `ESP-Driver:PCNT Configurations`  --->  驱动配置
+  - `ESP-Driver:RMT Configurations`  --->  驱动配置
+  - `ESP-Driver:Sigma Delta Modulator Configurations`  --->  驱动配置
+  - `ESP-Driver:SPI Configurations`  --->  驱动配置
+  - `ESP-Driver:Touch Sensor Configurations`  --->  驱动配置
+  - `ESP-Driver:Temperature Sensor Configurations`  --->  驱动配置
+  - `ESP-Driver:TWAI Configurations`  --->  驱动配置
+  - `ESP-Driver:UART Configurations`  --->  驱动配置
+  - `ESP-Driver:UHCI Configurations`  --->  驱动配置
+  - `ESP-Driver:USB Serial/JTAG Configuration`  --->  驱动配置
+  - `Ethernet`  --->  以太网
+  - `Event Loop Library`  --->  事件循环库
+  - `GDB Stub`  --->  GDB 调试
+  - `ESP HID`  --->  人机接口设备
+  - `ESP HTTP client`  --->  HTTP 客户端
+  - `HTTP Server`  --->  HTTP 服务器
+  - `ESP HTTPS OTA`  --->  HTTPS OTA
+  - `ESP HTTPS server`  --->  HTTPS 服务器
+  - `Hardware Settings`  --->  硬件相关设置
+  - `ESP-Driver:LCD Controller Configurations`  --->  
+  - `ESP-MM: Memory Management Configurations`  --->  内存管理配置
+  - `ESP NETIF Adapter`  --->  网络接口配置
+  - `Partition API Configuration`  ----  分区表 API 配置
+  - `PHY`  --->  PHY 驱动
+  - `Power Management`  --->  电源管理
+  - `ESP PSRAM`  --->  PSRAM 支持
+  - `ESP Ringbuf`  --->  环形缓冲区
+  - `ESP-ROM`  ----  ROM 配置
+  - `ESP Security Specific`  ----  安全相关配置
+  - `ESP System Settings`  --->  系统配置
+  - `IPC (Inter-Processor Call)`  --->  核间通信
+  - `ESP Timer (High Resolution Timer)`  --->  高精度定时器
+  - `Wi-Fi`  --->  Wi-Fi 功能
+  - `Core dump`  --->  内核崩溃转储
+  - `FAT Filesystem support`  --->  FAT 文件系统
+  - `FreeRTOS`  --->  FreeRTOS 配置
+  - `Hardware Abstraction Layer (HAL) and Low Level (LL)`  --->  HAL/底层接口
+  - `Heap memory debugging`  --->  堆内存调试
+  - `Log`  --->  日志系统
+  - `LWIP`  --->  TCP/IP 协议栈
+  - `mbedTLS`  --->  TLS 库
+  - `ESP-MQTT Configurations`  --->  MQTT 配置
+  - `LibC`  --->  C 标准库
+  - `NVS`  --->  非易失性存储
+  - `OpenThread`  --->  Thread 协议
+  - `Protocomm`  --->  协议通信
+  - `PThreads`  --->  POSIX 线程
+  - `Main Flash configuration`  --->  主 Flash 配置
+  - `SPI Flash driver`  --->  SPI Flash 驱动
+  - `SPIFFS Configuration`  --->  SPIFFS 文件系统
+  - `TCP Transport`  --->  TCP 传输
+  - `Ultra Low Power (ULP) Co-processor`  --->  超低功耗协处理器
+  - `Unity unit testing library`  --->  单元测试库
+  - `USB-OTG`  --->  USB OTG
+    - (256) `Largest size (in bytes) of transfers to/from default endpoints` 默认端点传输最大字节数
+    - `Hardware FIFO size biasing (Balanced)` ---> 硬件 FIFO 分配偏好
+      - (X) `Balanced` 均衡
+      - ( ) `Bias IN` 偏向 IN
+      - ( ) `Periodic OUT` 偏向定期 OUT
+    - `Hub Driver Configuration` ---> 集线器驱动配置
+      - `Root Port configuration` ---> 根端口配置
+        - (250) `Debounce delay in ms` 消抖延时（毫秒）
+        - (30) `Reset hold in ms` 复位保持时间
+        - (30) `Reset recovery delay in ms` 复位恢复延时
+        - (10) `SetAddress() recovery time in ms` SetAddress() 恢复时间
+      - [ ] `Support Hub` 支持 USB 集线器
+    - [ ] `Enable enumeration filter callback` 启用枚举过滤回调
+  - `Virtual file system`  --->  虚拟文件系统
+  - `Wear Levelling`  --->  Flash 磨损均衡
+  - `Wi-Fi Provisioning Manager`  --->  Wi-Fi 配置管理
+  - `TinyUSB Stack`  --->  TinyUSB 栈
+    - `(1) TinyUSB log level (0-3)` TinyUSB 日志等级（0-3）
+    - `USB Peripheral (OTG1.1)`  --->  USB 外设（OTG1.1）
+    - `TinyUSB DCD`  --->  TinyUSB DCD（Device Controller Driver）
+    - `TinyUSB task configuration`  --->  TinyUSB 任务配置
+    - `Descriptor configuration`  --->  描述符配置
+    - `Massive Storage Class (MSC)`  --->  大容量存储类(USB U盘功能)
+      - [x] **`Enable TinyUSB MSC feature` 启用 TinyUSB MSC 功能**
+      - `(512)   MSC FIFO size (NEW)` MSC FIFO 大小
+      - `(/data) Mount Path (NEW)` 挂载路径
+      - `TinyUSB FAT Format Options`  ---> FAT 格式化选项
+        - `FatFS Format Type (FM_ANY - Automatically select from FAT12/FAT16/FAT32)`  --->  FAT 类型
+          - (X) `FM_ANY - Automatically select from FAT12/FAT16/FAT32` 自动选择
+          - ( ) `FM_FAT - Allow only FAT12/FAT16`
+          - ( ) `FM_FAT32 - Force FAT32 only`
+          - ( ) `FM_EXFAT - Force exFAT (requires exFAT enabled)`
+        - [ ] `FM_SFD - Use SFD (no partition table)` 使用 SFD（无分区表）
+    - `Communication Device Class (CDC)`  --->  USB 串口（REPL）功能
+      - [x] **`Enable TinyUSB CDC feature` 启用 TinyUSB CDC 功能**
+      - (1)     `CDC Channel Count (NEW)` CDC 通道数
+      - (512)   `CDC FIFO size of RX channel (NEW)` CDC 接收缓存大小
+      - (512)   `CDC FIFO size of TX channel (NEW)` CDC 发送缓存大小
+    - `Musical Instrument Digital Interface (MIDI)`  --->  乐器数字接口
+    - `Human Interface Device Class (HID)`  --->  人机接口设备
+    - `Device Firmware Upgrade (DFU)`  --->  设备固件升级
+    - `Bluetooth Host Class (BTH)`  --->  蓝牙主机类
+    - `Network driver (ECM/NCM/RNDIS)`  --->  网络驱动
+    - `Vendor Specific Interface`  --->  厂商自定义接口
+  - `mDNS`  --->  多播 DNS
+- [ ] `Make experimental features visible`  显示实验性功能
