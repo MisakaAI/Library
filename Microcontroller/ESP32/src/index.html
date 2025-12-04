@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <!-- 网页元数据 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件列表</title>
+
+    <!-- CSS样式定义 -->
+    <style>
+        /* CSS变量定义，便于统一管理颜色 */
+        :root {
+            --color-red: #e74c3c;
+            --color-red-hover: #c0392b;
+            --color-green: #2ecc71;
+            --color-green-hover: #27ae60;
+            --text-color: #fff;
+            --border-color: #ddd;
+            --header-bg: #f7f7f7;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+        }
+
+        /* 全局样式设置 */
+        body {
+            font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+            background-color: #fdfdfd;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* 表格现代化样式 */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 50em;
+            background-color: #f5f5f5;
+            font-size: 0.8rem;
+            /* 淡灰背景 */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            /* 轻微阴影 */
+            border-radius: 8px;
+            /* 圆角 */
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #e0e0e0;
+            /* 表头稍深的灰色 */
+            font-weight: 600;
+        }
+
+        tbody tr:hover {
+            background-color: #ececec;
+            /* 鼠标悬停高亮 */
+        }
+
+        .optd {
+            width: 8.5rem;
+            text-align: center;
+        }
+
+        /* 按钮通用样式 */
+        button {
+            margin: 3px;
+            font-size: 14px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            box-shadow: 0 2px 4px var(--shadow-light);
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.05));
+        }
+
+        /* 红色按钮（删除） */
+        button.delete-btn {
+            background-color: var(--color-red);
+        }
+
+        button.delete-btn:hover {
+            background-color: var(--color-red-hover);
+            box-shadow: 0 4px 8px var(--shadow-light);
+        }
+
+        button.delete-btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 1px 2px var(--shadow-light);
+        }
+
+        /* 绿色按钮（下载） */
+        button.btn {
+            background-color: var(--color-green);
+        }
+
+        button.btn:hover {
+            background-color: var(--color-green-hover);
+            box-shadow: 0 4px 8px var(--shadow-light);
+        }
+
+        button.btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 1px 2px var(--shadow-light);
+        }
+
+        /* 蓝色按钮（刷新） */
+        button.blue-btn {
+            background-color: #3498db;
+            /* 基础蓝色 */
+        }
+
+        button.blue-btn:hover {
+            background-color: #2980b9;
+            /* 悬停深蓝 */
+            box-shadow: 0 4px 8px var(--shadow-light);
+        }
+
+        button.blue-btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 1px 2px var(--shadow-light);
+        }
+
+        /* 提示信息 */
+        #msg {
+            color: var(--color-green);
+            font-weight: 500;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页面标题 -->
+    <h2>文件列表</h2>
+
+    <!-- 操作按钮区域 -->
+    <div>
+        <button id="refresh" class="blue-btn">刷新</button>
+        <button id="del_all" class="delete-btn">删除所有文件</button>
+    </div>
+
+    <!-- 消息提示区域 -->
+    <p id="msg"></p>
+
+    <!-- 文件列表表格 -->
+    <table id="files_tbl">
+        <thead>
+            <tr>
+                <th>文件名</th>
+                <th>大小</th>
+                <th class="optd">操作</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- JavaScript逻辑 -->
+    <script>
+        /**
+         * 将对象参数转换为URL查询字符串格式
+         * @param {Object} params - 需要转换的参数对象
+         * @returns {string} - 格式化后的查询字符串
+         */
+        function qs(params) {
+            return Object.keys(params).map(function (k) {
+                return encodeURIComponent(k) + '=' + encodeURIComponent(params[k])
+            }).join('&')
+        }
+
+        /**
+         * 将字节大小转换为人类可读的格式
+         * @param {number} bytes - 字节大小
+         * @returns {string} - 格式化后的大小字符串
+         */
+        function humanSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            else if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            else return (bytes / 1024 / 1024).toFixed(1) + ' MB';
+        }
+
+        /**
+         * 加载并显示文件列表
+         */
+        function loadList() {
+            // 从服务器获取文件列表
+            fetch('/list').then(r => r.json()).then(j => {
+                var tbody = document.querySelector('#files_tbl tbody');
+                tbody.innerHTML = '';
+
+                if (j.length === 0) {
+                    var tr = document.createElement('tr');
+                    var td = document.createElement('td');
+                    td.setAttribute('colspan', '3');
+                    td.textContent = '暂无数据';
+                    tr.appendChild(td);
+                    tbody.appendChild(tr);
+                }
+
+                // 遍历文件列表，为每个文件创建表格行
+                j.forEach(function (fi) {
+                    var tr = document.createElement('tr');
+                    var nameTd = document.createElement('td');
+                    nameTd.textContent = fi.name;
+                    var sizeTd = document.createElement('td');
+                    sizeTd.textContent = humanSize(fi.size);
+                    var opTd = document.createElement('td');
+                    opTd.className = 'optd';
+
+                    // 创建下载按钮
+                    var downBtn = document.createElement('button');
+                    downBtn.textContent = '下载';
+                    downBtn.className = 'btn';
+                    downBtn.onclick = function () {
+                        // 点击下载按钮时，跳转到下载链接
+                        window.location.href = '/download?file=' + encodeURIComponent(fi.name);
+                    };
+
+                    // 创建删除按钮
+                    var delBtn = document.createElement('button');
+                    delBtn.textContent = '删除';
+                    delBtn.className = 'delete-btn';
+                    delBtn.onclick = function () {
+                        // 点击删除按钮时，先确认再执行删除操作
+                        if (!confirm('确定删除 ' + fi.name + ' ?')) return;
+                        fetch('/delete', {
+                            method: 'POST',
+                            body: qs({ file: fi.name }),
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                        })
+                            .then(r => r.text()).then(t => {
+                                document.getElementById('msg').textContent = t;
+                                loadList();
+                            });
+                    };
+
+                    // 将按钮添加到操作单元格中
+                    opTd.appendChild(downBtn);
+                    opTd.appendChild(delBtn);
+
+                    // 将单元格添加到行中
+                    tr.appendChild(nameTd);
+                    tr.appendChild(sizeTd);
+                    tr.appendChild(opTd);
+
+                    // 将行添加到表格中
+                    tbody.appendChild(tr);
+                });
+            }).catch(e => {
+                console.error(e);
+                document.getElementById('msg').textContent = '读取文件列表失败';
+            });
+        }
+
+        // 绑定刷新按钮点击事件
+        document.getElementById('refresh').onclick = loadList;
+
+        // 绑定删除所有文件按钮点击事件
+        document.getElementById('del_all').onclick = function () {
+            // 确认是否删除所有文件
+            if (!confirm('确认删除所有文件？ 此操作不可恢复。')) return;
+            fetch('/delete_all', { method: 'POST' }).then(r => r.text()).then(t => {
+                document.getElementById('msg').textContent = t;
+                loadList();
+            });
+        };
+
+        // 页面加载完成后自动加载文件列表
+        window.onload = loadList;
+    </script>
+</body>
+
+</html>
