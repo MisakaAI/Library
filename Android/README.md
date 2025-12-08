@@ -2,9 +2,10 @@
 
 ## 开发
 
-- [Android](https://developer.android.com/?hl=zh-cn)
-- [国内特供](https://developer.android.google.cn/?hl=zh-cn)
-- [Kotlin](https://kotlinlang.org/)
+- [Kotlin](./00_Kotlin.md)
+- [安装 Android Studio](01_Install.md)
+- [创建项目](02_NewProject.md)
+- []()
 
 ## 工具
 
