@@ -16,10 +16,10 @@
 - [C++](./C++/README.md) 编程语言
 - [Computer Science](./CS/README.md) 计算机科学
 - [Docker](./Docker/README.md) 容器
-- [Embedded](./Embedded/README.md) 嵌入式开发
 - [Git](./Git/README.md) 版本控制
 - [HTML](./HTML/index.html) 网页
 - [JavaScript](./JavaScript/README.md) 编程语言
+- [Microcontroller](./Microcontroller/README.md) 单片机
 - [OPC UA](./OPC%20UA/README.md) 工业通信协议
 - [Python3](./Python3/README.md) 编程语言
 - [RaspberryPi](./RaspberryPi/README.md) 树莓派
