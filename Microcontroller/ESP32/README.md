@@ -17,6 +17,7 @@
     - [路由](./src/route.py)
 - [串口读取](./src/uart.py)
 - [串口发送](./src/sender.py)
+- [低功耗蓝牙](./src/ble.py)
 - 看门狗
 
 ## 使用说明

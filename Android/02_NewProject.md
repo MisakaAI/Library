@@ -28,8 +28,11 @@
         - `java` / `kotlin`
             - `<Package name>/MainActivity.kt` 源代码
         - `res` 资源文件
-            - `layout/activity_main.xml` 布局 XM
+            - `layout/activity_main.xml` 布局文件 XML
             - `values/*.xml` 通用资源（文本/颜色/主题/样式）
+            - `drawable` 图片文件
+            - `menu` 菜单的XML文件
+            - `xml` 通过调用 `Resources.getXML()` 读取任意的XML文件。
 
 ### 应用元数据
 
