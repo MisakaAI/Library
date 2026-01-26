@@ -19,6 +19,10 @@ Large Language Model
 - [DeepSeek](./LLM/DeepSeek.md) 深度求索开源模型
 - [Qwen](./LLM/Qwen.md) 通义千问
 
+## CLI
+
+- [Claude Code](./Code/ClaudeCode.md) Anthropic
+
 ## 知识库
 
 - [MaxKB](https://github.com/1Panel-dev/MaxKB)
