@@ -73,7 +73,8 @@ docker run -it --rm \
     --orthophoto-resolution 2 \
     --feature-quality ultra \
     --pc-quality ultra \
-    --gps-accuracy 0.01
+    --gps-accuracy 0.01 \
+    --skip-report
 ```
 
 - `docker run` 启动一个新的容器
@@ -91,6 +92,7 @@ docker run -it --rm \
 - `--pc-quality ultra`: 点云质量
 - `--use-3dmesh`: 使用3D网格
 - `--gps-accuracy 0.01`: GPS精度（PPK约1cm）
+- `--skip-report` 跳过生成 PDF 报告
 
 ### GPU加速
 
