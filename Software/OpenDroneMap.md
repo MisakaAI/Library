@@ -75,10 +75,23 @@ docker run -it --rm \
     --dsm \
     --dtm \
     --cog \
-    --orthophoto-resolution 2 \
+    --orthophoto-resolution 0.5 \
     --feature-quality ultra \
     --pc-quality ultra \
+    --auto-boundary-distance 0 \
     --gps-accuracy 0.01 \
+    --skip-report
+
+# 更快，但降低质量
+docker run -it --rm \
+    -v /home/misaka/DJI_Test/datasets:/datasets \
+    opendronemap/odm \
+    --project-path /datasets \
+    project \
+    --orthophoto-resolution 2 \
+    --auto-boundary-distance 0 \
+    --fast-orthophoto \
+    --skip-3dmodel \
     --skip-report
 ```
 
@@ -98,6 +111,9 @@ docker run -it --rm \
 - `--use-3dmesh`: 使用3D网格
 - `--gps-accuracy 0.01`: GPS精度（PPK约1cm）
 - `--skip-report` 跳过生成 PDF 报告
+- `--auto-boundary-distance 0` 正射影像边界外的自动扩展距离，0为不增加额外边界。
+- `--fast-orthophoto` 快速正射模式，生成正射影像时跳过高精度 DSM / 点云的完全细化。
+- `--skip-3dmodel` 跳过生成完整的3D模型
 
 ### GPU加速
 
