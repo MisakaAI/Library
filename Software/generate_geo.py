@@ -9,7 +9,7 @@ import re
 
 # 工作目录
 work_dir = os.path.dirname(os.path.abspath(__file__))
-mrk_file = os.path.join(work_dir, "DJI_202601131429_008_新建面状航线40_Timestamp.MRK")
+mrk_file = os.path.join(work_dir, "DJI_*_Timestamp.MRK")
 geo_file = os.path.join(work_dir, "geo.txt")
 
 # 获取所有JPG文件并排序

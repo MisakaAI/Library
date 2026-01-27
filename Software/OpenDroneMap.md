@@ -59,11 +59,16 @@ ODM 会自动检测项目目录中的 `geo.txt` 文件并使用它。
 
 ### 生成 GeoTIFF 图片
 
-mv ./DJI_202601131429 ./project/images
-
 ```sh
+# 创建工作目录 datasets
+mkdir -p ~/DJI_Test/datasets/project/images
+
+# 移动所有图片到工作目录的图片目录中
+mv ./*.JPG ~/DJI_Test/datasets/project/images
+
+# 运行 odm
 docker run -it --rm \
-    -v /mnt/d/Data/DJI_Test/datasets:/datasets \
+    -v /home/misaka/DJI_Test/datasets:/datasets \
     opendronemap/odm \
     --project-path /datasets \
     project \
