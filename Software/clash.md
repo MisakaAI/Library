@@ -72,13 +72,19 @@ firewall-cmd --reload
 
 ```systemd
 [Unit]
-Description=clash daemon
+Description=mihomo Daemon, Another Clash Kernel.
+After=network.target NetworkManager.service systemd-networkd.service iwd.service
 
 [Service]
 Type=simple
-User=root
-ExecStart=/usr/local/bin/clash -d /etc/clash/
-Restart=on-failure
+LimitNPROC=500
+LimitNOFILE=1000000
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_TIME CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_TIME CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE
+Restart=always
+ExecStartPre=/usr/bin/sleep 1s
+ExecStart=/usr/local/bin/clash -d /etc/clash
+ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
 WantedBy=multi-user.target
@@ -88,8 +94,7 @@ WantedBy=multi-user.target
 
 ```bash
 systemctl daemon-reload
-systemctl start clash
-systemctl enable clash
+systemctl enable --now clash.service
 ```
 
 ## 配置 WEB UI
@@ -110,50 +115,109 @@ systemctl restart clash
 
 使用如下脚本填写相关配置项目并放入 `/etc/cron.daily` 目录下，每周自动更新订阅配置文件即可
 
-```bash
-#!/usr/bin/env bash
+```python
+#!/usr/bin/env python3
+# Subscribe for updates
 
-# 订阅链接地址
-SUBSCRIBE=""
-# web-ui存放目录，留空则保持默认不修改
-WEB_UI=""
-# API 端口，留空则保持默认不修改
-CONTROLLER_API_PROT=""
-# API 口令，留空则保持默认不修改
-SECRET=""
+import subprocess
+import signal
+import os
+import urllib.request
+from urllib.parse import quote
+from pathlib import Path
 
-CLASH_CONFIG="/etc/clash/config.yaml"
+target = "clash"
+subscription = quote("")
+config = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini"
+yaml = Path("/etc/mihomo/config.yaml")
 
+proc = subprocess.Popen(
+    ["/usr/local/bin/subconverter"],
+    stdout=subprocess.DEVNULL,
+    stderr=subprocess.DEVNULL,
+    start_new_session=True,
+)
 
-if [ -z "${SUBSCRIBE}" ]; then
-    echo "Subscription address cannot be empty"
-    exit 1
-fi
+try:
+    print(f"[{proc.pid}] Subconverter background program running...")
+    url = f"http://127.0.0.1:25500/sub?target={target}&url={subscription}&config={config}&insert=false&emoji=true&list=false&tfo=false&scv=true&fdn=false&expand=true&sort=false&new_name=true"
+    print("Subscribe for updates: " + url)
 
-systemctl stop clash
+    with urllib.request.urlopen(url) as response:
+        content = response.read()
 
-wget --no-proxy -O ${CLASH_CONFIG} ${SUBSCRIBE}
+    config = content.decode("utf-8")
+    config = (
+        config.replace("port: 7890\nsocks-port: 7891", "mixed-port: 7890 # HTTP(S) 和 SOCKS 代理混合端口")
+        .replace("mode: Rule", "mode: rule")
+        .replace("allow-lan: true", "allow-lan: true # 允许局域网连接")
+        .replace("log-level: infoe", "log-level: info # 日志等级 silent/error/warning/info/debug")
+        .replace(
+            "external-controller: :9090",
+            """external-ui: '/etc/mihomo/metacubexd-gh-pages'
+external-controller: '0.0.0.0:9090'
+geox-url:
+  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb"
+geo-auto-update: false # 是否自动更新 geodata
+geo-update-interval: 24 # 更新间隔，单位：小时
+ipv6: false # 开启 IPv6 总开关，关闭阻断所有 IPv6 链接和屏蔽 DNS 请求 AAAA 记录
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver: [223.5.5.5, 223.6.6.6]
+  proxy-server-nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query', 'https://223.5.5.5/dns-query', 'https://223.6.6.6/dns-query', 'tls://dns.alidns.com', 'tls://223.5.5.5:853', 'tls://223.6.6.6:853']
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter: ['*.lan', localhost.ptlogin2.qq.com]
+  use-hosts: true
+  nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query', 'https://223.5.5.5/dns-query', 'https://223.6.6.6/dns-query', 'tls://dns.alidns.com', 'tls://223.5.5.5:853', 'tls://223.6.6.6:853']
+  fallback: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query', 'https://223.5.5.5/dns-query', 'https://223.6.6.6/dns-query', 'tls://dns.alidns.com', 'tls://223.5.5.5:853', 'tls://223.6.6.6:853']
+  fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }""",
+        )
+    )
 
-if [ -n "${WEB_UI}" ]; then
-# sed -i "s?^#\{0,1\} \{0,1\}external-ui.*?external-ui: ${WEB_UI}?" ${CLASH_CONFIG}
-fi
+    # 写入文件
+    print(f"Subscribe save to {yaml}")
+    with yaml.open("w", encoding="utf-8") as f:
+        f.write(config)
 
-if [ -n "${CONTROLLER_API_PROT}" ]; then
-# sed -i "s?^external-controller.*?external-controller: '0.0.0.0:${CONTROLLER_API_PROT}'?" ${CLASH_CONFIG}
-sed -i "s?^external-controller.*?external-ui: \"/var/www/clash\"\nexternal-controller: '0.0.0.0:${CONTROLLER_API_PROT}'?" ${CLASH_CONFIG}
-fi
+    # 重启服务
+    print("Restart service")
+    subprocess.run(
+        ["systemctl", "restart", "mihomo.service"],
+        capture_output=True,
+        text=True,
+        check=True,  # 如果返回非零状态码会抛出 CalledProcessError
+    )
 
-if [ -n "${SECRET}" ]; then
-sed -i "s?^secret.*?secret: '${SECRET}'?" ${CLASH_CONFIG}
-fi
-
-sed -i "s?^mode: .*?mode: global?" ${CLASH_CONFIG}
-
-systemctl start clash
+finally:
+    print(f"[{proc.pid}] Python is about to exit; kill this child process.")
+    os.killpg(proc.pid, signal.SIGTERM)
 ```
 
-上述脚本写入 `/etc/cron.daily/clash.sh` 并配置好相关变量后，保存退出并赋予可执行权限
+### 参数说明
 
-```bash
-chmod 0755 /etc/cron.daily/clash.sh
-```
+调用参数|必要性|示例|解释
+-|-|-|-
+target|必要|surge&ver=4|指想要生成的配置类型，详见上方 支持类型 中的参数
+url|可选|https%3A//www.xxx.com|指机场所提供的订阅链接或代理节点的分享链接，需要经过 URLEncode 处理，可选的前提是在 default_url 中进行指定。也可以使用 data URI。可使用 tag:xxx,https%3A//www.xxx.com 指定该订阅的所有节点归属于xxx分组，用于配置文件中的!!GROUP=XXX 匹配
+config|可选|https%3A//www.xxx.com|指 外部配置 的地址 (包含分组和规则部分)，需要经过 URLEncode 处理，详见 外部配置 ，当此参数不存在时使用 主程序目录中的配置文件
+insert|可选|true / false|用于设置是否将配置文件中的 insert_url 插入，默认为 true
+emoji|可选|true / false|用于设置节点名称是否包含 Emoji，默认为 true
+list|可选|true / false|用于输出 Surge Node List 或者 Clash Proxy Provider 或者 Quantumult (X) 的节点订阅 或者 解码后的 SIP002
+tfo|可选|true / false|用于开启该订阅链接的 TCP Fast Open，默认为 false
+scv|可选|true / false|用于关闭 TLS 节点的证书检查，默认为 false
+fdn|可选|true / false|用于过滤目标类型不支持的节点，默认为 true
+expand|可选|true / false|用于在 API 端处理或转换 Surge, QuantumultX, Clash 的规则列表，即是否将规则全文置入订阅中，默认为 true，设置为 false 则不会将规则全文写进订阅
+sort|可选|true / false|用于对输出的节点或策略组按节点名进行再次排序，默认为 false
+new_name|可选|true / false|如果设置为 true，则将启用 Clash 的新组名称 (proxies, proxy-groups, rules)
+
+## 参考文献
+
+- [subconverter](https://github.com/tindy2013/subconverter/blob/master/README-cn.md)
+- [metacubex](https://wiki.metacubex.one/)
+- [mihomo](https://github.com/MetaCubeX/mihomo)
+    - [完整示例](https://github.com/MetaCubeX/mihomo/blob/Meta/docs/config.yaml)
+- [metacubexd](https://github.com/MetaCubeX/metacubexd)
