@@ -13,6 +13,7 @@ Artificial Intelligence
 Large Language Model
 
 - [Ollama](./LLM/ollama.md) 本地部署大语言模型
+  - [Open WebUI](./LLM/OpenWebUI.md) Open WebUI
   - [Python3](../Python3/ollama.md) Python API
 - [ChatGLM](./LLM/ChatGLM.md) 智谱开源模型
 - [Gemma](./LLM/Gemma.md) Google开源模型
