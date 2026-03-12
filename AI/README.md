@@ -10,11 +10,10 @@ Artificial Intelligence
 
 ## 大语言模型
 
-Large Language Model
-
+- [Large Language Model](./LLM/README.md) 大语言模型
 - [Ollama](./LLM/ollama.md) 本地部署大语言模型
-  - [Open WebUI](./LLM/OpenWebUI.md) Open WebUI
-  - [Python3](../Python3/ollama.md) Python API
+    - [Open WebUI](./LLM/OpenWebUI.md) Open WebUI
+    - [Python3](../Python3/ollama.md) Python API
 - [ChatGLM](./LLM/ChatGLM.md) 智谱开源模型
 - [Gemma](./LLM/Gemma.md) Google开源模型
 - [DeepSeek](./LLM/DeepSeek.md) 深度求索开源模型
@@ -23,6 +22,7 @@ Large Language Model
 ## CLI
 
 - [Claude Code](./Code/ClaudeCode.md) Anthropic
+- [CodeX](./Code/CodeX.md) OpenAI
 
 ## 知识库
 
