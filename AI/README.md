@@ -25,6 +25,10 @@ Artificial Intelligence
 - [CodeX](./Code/CodeX.md) OpenAI
 - [CC Switch](./Code/cc-switch.md)
 
+## Bot
+
+- [AstrBot](./bot/astrbot.md)
+
 ## 知识库
 
 - [MaxKB](https://github.com/1Panel-dev/MaxKB)
