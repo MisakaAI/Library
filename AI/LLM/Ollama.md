@@ -37,3 +37,41 @@ curl http://localhost:11434/api/chat -d '{
   ]
 }'
 ```
+
+## 应用
+
+```python
+# PDF 翻译
+import pdfplumber
+import requests
+
+OLLAMA_URL = "http://localhost:11434/api/generate"
+MODEL = "translategemma"
+
+def translate(text):
+    prompt = f"Translate the following text into Chinese:\n\n{text}"
+
+    r = requests.post(
+        OLLAMA_URL,
+        json={
+            "model": MODEL,
+            "prompt": prompt,
+            "stream": False
+        }
+    )
+
+    return r.json()["response"]
+
+translated = ""
+
+with pdfplumber.open("A.pdf") as pdf:
+    for page in pdf.pages:
+        text = page.extract_text()
+        if text:
+            translated += translate(text) + "\n\n"
+
+with open("translated.txt", "w", encoding="utf-8") as f:
+    f.write(translated)
+
+print("翻译完成")
+```
