@@ -66,6 +66,8 @@ Python由荷兰数学和计算机科学研究学会的吉多·范罗苏姆（Gui
 - [WebSockets](WebSockets/README.md)
 - [miio](miio/README.md) 控制米家设备
 - [Cython](Cython/README.md)
+- [caldav](caldav.md) 日历
+- [dotenv](dotenv.md) 环境变量
 
 ## 参考文献
 
