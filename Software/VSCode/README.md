@@ -7,3 +7,5 @@
 - [扩展](Extensions.md)
 - [Emmet](Emmet.md)
 - [代码片段](quickSuggestions.md)
+
+- [Mac](mac.md)
