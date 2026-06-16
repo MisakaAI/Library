@@ -24,6 +24,7 @@ Artificial Intelligence
 - [Claude Code](./Code/ClaudeCode.md) Anthropic
 - [CodeX](./Code/CodeX.md) OpenAI
 - [CC Switch](./Code/cc-switch.md)
+- [提示词](./Code/Prompt/README.md)
 
 ## Bot
 
