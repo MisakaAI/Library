@@ -10,7 +10,7 @@
 
 ## 激活
 
-- [激活 Windows](Activation.ps1) `irm https://massgrave.dev/get | iex`
+- [激活 Windows](Activation.ps1) `irm https://get.activated.win | iex`
 
 ## 软件
 
