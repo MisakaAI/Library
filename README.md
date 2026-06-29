@@ -25,6 +25,7 @@
 - [OPC UA](./OPC%20UA/README.md) 工业通信协议
 - [Python3](./Python3/README.md) 编程语言
 - [RaspberryPi](./RaspberryPi/README.md) 树莓派
+- [Rust](./Rust/README.md) 编程语言
 - [Software](./Software/README.md) 软件
 - [SQL](./SQL/README.md) 数据库
 
