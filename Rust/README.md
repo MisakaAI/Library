@@ -100,5 +100,5 @@ file target/aarch64-unknown-linux-musl/release/hello
 
 ## 参考文献
 
-- [](https://rust-lang.org/zh-CN/learn/)
-- []()
+- [学习 Rust](https://rust-lang.org/zh-CN/learn/)
+- [《Rust 程序设计语言》](https://kaisery.github.io/trpl-zh-cn/)
