@@ -1,0 +1,160 @@
+\documentclass[a4paper,12pt]{article}   % 文档类：A4纸张，正文字体大小为12pt
+
+\usepackage[UTF8]{ctex}                 % 支持中文排版（UTF-8编码）
+\usepackage{xcolor}                     % 颜色支持（用于定义和调用颜色）
+\usepackage{minted}                     % 代码高亮宏包（依赖 Pygments）
+\usepackage{fontspec}                   % 字体选择宏包（用于设置系统字体，如等宽字体）
+
+% 字体
+\setmainfont{TeX Gyre Termes}
+\setmonofont{Cascadia Code}
+\setCJKmainfont{Noto Serif CJK SC}
+
+% 代码风格
+\usemintedstyle{gruvbox-light}      % 主题
+\definecolor{codebg}{HTML}{F3F3F3}  % 背景色
+
+% 全局设置
+\setminted{
+    % linenos,                % 显示代码行号
+    breaklines,             % 自动换行（超长行折行）
+    frame=none,             % 不绘制代码框边框
+    framesep=2mm,           % 代码内容与边框（或页面边缘）的间距
+    fontsize=\small,        % 代码字体大小（small 约为 9pt）
+    bgcolor=codebg,         % 代码块背景色（使用自定义颜色 codebg）
+    tabsize=4,              % 制表符占用的空格数
+    autogobble,             % 自动去除代码左侧多余的公共空白（缩进）
+    xleftmargin=0.5em       % 代码块左侧额外缩进距离
+}
+
+\title{minted 代码高亮示例}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Python}
+
+\begin{minted}{python}
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+print([fibonacci(i) for i in range(10)])
+\end{minted}
+
+\section{C++}
+
+\begin{minted}{cpp}
+#include <iostream>
+
+int main() {
+    std::cout << "Hello C++" << std::endl;
+    return 0;
+}
+\end{minted}
+
+\section{Rust}
+
+\begin{minted}{rust}
+fn main() {
+    println!("Hello Rust!");
+}
+\end{minted}
+
+\section{Java}
+
+\begin{minted}{java}
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello Java");
+    }
+}
+\end{minted}
+
+\section{Shell Script}
+
+\begin{minted}{bash}
+#!/bin/bash
+
+echo "Hello Shell"
+
+for f in *.txt; do
+    echo "$f"
+done
+\end{minted}
+
+\section{HTML}
+
+\begin{minted}{html}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello</title>
+</head>
+<body>
+    <h1>Hello HTML</h1>
+</body>
+</html>
+\end{minted}
+
+\section{CSS}
+
+\begin{minted}{css}
+body {
+    font-family: Arial;
+    background: #f5f5f5;
+}
+
+h1 {
+    color: steelblue;
+}
+\end{minted}
+
+\section{JavaScript}
+
+\begin{minted}{javascript}
+function hello(name) {
+    console.log(`Hello ${name}`);
+}
+
+hello("World");
+\end{minted}
+
+\section{JSON}
+
+\begin{minted}{json}
+{
+    "name": "Alice",
+    "age": 20,
+    "languages": [
+        "Python",
+        "Rust",
+        "C++"
+    ]
+}
+\end{minted}
+
+\section{TOML}
+
+\begin{minted}{toml}
+name = "Alice"
+age = 20
+languages = ["Python", "Rust", "C++"]
+\end{minted}
+
+\section{YAML}
+
+\begin{minted}{yaml}
+name: Alice
+age: 20
+languages:
+  - Python
+  - Rust
+  - C++
+\end{minted}
+
+\end{document}
