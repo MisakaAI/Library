@@ -25,6 +25,7 @@ Artificial Intelligence
 - [CodeX](./Code/CodeX.md) OpenAI
 - [CC Switch](./Code/cc-switch.md)
 - [Pi Web](./Code/Pi/pi-web.md)
+- [CLIProxyAPI](./Code/CLIProxyAPI.md)
 - [提示词](./Code/Prompt/README.md)
 
 ## Bot
