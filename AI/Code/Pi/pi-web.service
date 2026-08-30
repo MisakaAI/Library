@@ -1,0 +1,37 @@
+[Unit]
+Description=Pi Web
+Documentation=https://github.com/agegr/pi-web
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+
+# IMPORTANT: use the same Unix account that normally runs pi.
+User=YOUR_USER
+Group=YOUR_USER
+
+# Keep HOME consistent so Pi Web sees the same ~/.pi/agent data.
+Environment=HOME=/home/YOUR_USER
+Environment=PI_WEB_ENV_FILE=/etc/pi-web/pi-web.env
+WorkingDirectory=/home/YOUR_USER
+
+ExecStart=/usr/local/bin/pi-web-start
+
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=30s
+KillMode=control-group
+UMask=0077
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=pi-web
+
+# Optional hardening:
+# If your Pi/agent workflows never need sudo, setuid helpers, or privilege
+# escalation, you can enable this:
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
