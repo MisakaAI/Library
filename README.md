@@ -1,25 +1,25 @@
 # 图书馆
 
-“奶奶曾经说过：我的进化速度比光还要快”
+> “奶奶曾经说过：我的进化速度比光还要快”
 
-这里是一个简单的知识库，在学习新的技能时，用来记一点笔记。
+这里是一个简单的知识库，在学习新的技能时，用来记一点笔记。  
+大部分情况下，直接问 AI 比查这个方便。
 
 ## 目录
 
 同时也是一个技能树。
 
 - [AI](./AI/README.md) 人工智能
-  - [PyTorch](./AI/PyTorch/README.md)
-  - [Ollama](./AI/LLM/Ollama.md)
-- [Blender](./Blender/README.md) 三维建模
-- [C#](./C#/README.md) 编程语言
+- [C#](./C%23/README.md) 编程语言
 - [C++](./C++/README.md) 编程语言
 - [Computer Science](./CS/README.md) 计算机科学
+- [Biochemistry](./Biochemistry/README.md) 生物化学 `For Dr.Water research`
 - [Docker](./Docker/README.md) 容器
 - [Flutter](./Flutter/README.md) 跨平台应用开发框架
 - [Git](./Git/README.md) 版本控制
 - [HTML](./HTML/index.html) 网页
 - [JavaScript](./JavaScript/README.md) 编程语言
+    - [Vue.js](https://cn.vuejs.org/guide/introduction.html)
 - [Microcontroller](./Microcontroller/README.md) 单片机
 - [MAVLink](./MAVLink/README.md) 无人机通信
 - [OPC UA](./OPC%20UA/README.md) 工业通信协议
@@ -31,15 +31,17 @@
 
 ### 操作系统
 
-- [Windows](./Windows/README.md)
 - [Linux](./Linux/README.md)
-- [macOS](./macOS/README.md)
+- [Windows](./Windows/README.md) 微软
 - [Android](./Android/README.md) 安卓
+- [Apple](./Apple/README.md) 苹果
+    - [macOS](./Apple/macOS/README.md)
+    - [iOS](./Apple/iOS/README.md) 含 `iPadOS`
 
 ## 其他
 
 - [Life](./Life/README.md) 生活指南
-- [Other](.//Other/README.md) 其他
+- [Other](./Other/README.md) 其他
 
 ## Q&A
 
@@ -55,7 +57,7 @@ A: 肯定是有丰富的数学知识，英语又好的程序员牛逼。
 你看，变量名可以用汉语拼音啊，看英文的文档可以用 Google Translate 啊。  
 我也因为不会英语，数学不好，被某个在美帝留过学的程序员嘲笑过。  
 但是管他呢，我敲代码就是兴趣使然，享受编程带给我的乐趣。  
-（更新）现在还可以面向 GPT 编程。
+（更新）AI时代了，只要会打字，并且能把想法描述清楚就行。
 
 Q: 关于操作系统的选择？  
 A: 珍爱生命，远离折腾。
@@ -72,15 +74,17 @@ A: 珍爱生命，远离折腾。
 那我为什么不直接用官方源软件版本比较新的发行版呢？（注：与 *CentOS 8* 同时推出的 *CentOS Stream* 在一定程度上解决了该问题。）  
 当然，*RedHat* / *CentOS* 仍是优秀的操作系统，且很多 Linux 教程都是以 *CentOS* 为基础进行教学的。  
 有一定基础以后就可以根据自己的需求来选择发行版了，比如喜欢折腾的同学可以试试 *Arch Linux* 或者直接 *LFS*。  
-但是不要在发行版的选择中浪费太多时间，人生苦短。  
-（2024更新）*Debian* / *Ububtu Lts*  
+但是不要在发行版的选择中浪费太多时间。  
+（2024更新）*Debian* / *Ububtu LTS*  
 （2025更新）*Linux Mint*  
 但就是想体验一下不同的发行版怎么办？请妥善使用虚拟机。
 \
 **macOS**  
 目前主力机：Mac mini (M4 芯片机型) 16GB 统一内存 / 256GB 固态硬盘  
-并夕夕只要¥2999，还要什么自行车？  
-性价比超高的好吧！！
+（2025更新）并夕夕只要¥2999，还要什么自行车？  
+性价比超高的好吧！！  
+（2026更新）涨价严重，但是因为统一内存架构，尤其是在本地部署大模型这块，性价比也不算太差？
+毕竟 PC 的内存/硬盘价格也涨了好几倍。
 
 Q: 与时俱进  
 A: 如果你要学一个新的技术，应当从最新的版本开始学。
@@ -90,26 +94,30 @@ A: 如果你要学一个新的技术，应当从最新的版本开始学。
 1. Stable(稳定版)
 2. Latest(最新版)
 
-不要相信部分过气教程里，支持 Python 2 的库比 Python 3 要多的鬼话，那种情况只存在于 Python 3 刚问世的时候。  
+尤其是不要相信部分过气教程里，支持 Python 2 的库比 Python 3 要多的鬼话，那种情况只存在于 Python 3 刚问世的时候。  
 现在还不支持 Python 3 的库大多是常年无人维护的东西了。（Python 的核心团队计划在 2020 年停止支持 Python 2。）
 
 Q: 关于学习资料  
 A: 大部分情况下，能从互联网上找到各种免费的教程。  
-(比如 [*w3cschool*](https://www.w3school.com.cn/)、[*菜鸟教程*](https://www.runoob.com/)、[*哔哩哔哩*](https://www.bilibili.com)、[*阿里云大学*](https://edu.aliyun.com) 等。  
+比如 [*w3cschool*](https://www.w3school.com.cn/)、[*菜鸟教程*](https://www.runoob.com/)、[*哔哩哔哩*](https://www.bilibili.com)、[*阿里云大学*](https://edu.aliyun.com) 等。  
 京东、当当、亚马逊有活动的时候也买了一些实体书（收藏用）。  
 官方文档永远值得信赖，例如：[Python](https://docs.python.org/zh-cn/3/)
-同时也请善用 *Google*、*Bing* 等搜索引擎，但是最好屏蔽 *CSDN* -> [uBlacklist](https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe)。  
-（2025更新）善用AI，例如：*ChatGPT*、*Grok*、*DeepSeek*
+同时也请善用 *Google*、*Bing* 等搜索引擎，但是记得屏蔽 *CSDN* -> [uBlacklist](https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe)。  
+（2025更新）善用AI，包括但不限于：*ChatGPT*、*Gemini*、*Grok*、*DeepSeek*
 
 Q: 党争？
 
-- Neovim
+- Vim -> Neovim
 - Visual Studio Code
 - Tab = 4 Space
 - Linux Mint
+- Codex >= Claude Code
+- Python3
+    - FastAPI
+    - PySide6
 
-```c
-// C/C++
+```cpp
+// C++
 #include <iostream>
 using namespace std;
 

@@ -1,6 +1,7 @@
 # 软件说明书
 
 - [Adobe](./Adobe/Adobe.md)
+- [Blender](./Blender/README.md) 三维建模
 - [Broadcast](./Broadcast.md) AI降噪
 - [Clash](./clash.md) 代理
 - [ffmpeg](./ffmpeg.md) 音频、视频处理
