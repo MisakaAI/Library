@@ -29,7 +29,7 @@ Artificial Intelligence
 
 - `Transformers` Hugging Face 模型库
 - `vLLM` LLM推理和服务库
-- `llama.cpp` 纯C/C++实现的轻量级LLM推理框架
+- [llama.cpp](./LLM/llama.cpp/README.md) 纯C/C++实现的轻量级LLM推理框架
 - [Ollama](./LLM/Ollama/README.md) 大模型本地运行工具
     - [Open WebUI](./LLM/Ollama/OpenWebUI.md) Open WebUI
     - [Python3](../Python3/ollama.md) Python API
