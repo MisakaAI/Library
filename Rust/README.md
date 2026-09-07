@@ -5,6 +5,11 @@
 - [Rustup](https://rust-lang.org/learn/get-started/)
 
 ```sh
+# 清华大学开源软件镜像站
+echo 'export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup' >> ~/.zshrc
+echo 'export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup' >> ~/.zshrc
+source ~/.zshrc
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 . "$HOME/.cargo/env"
 rustc --version
@@ -12,6 +17,20 @@ cargo --version
 
 # 自动加载环境
 printf '\n# Rust\n. "$HOME/.cargo/env"\n' >> ~/.zshrc
+
+# Rust crates.io 稀疏索引
+mkdir -vp ${CARGO_HOME:-$HOME/.cargo}
+
+cat << EOF | tee -a ${CARGO_HOME:-$HOME/.cargo}/config.toml
+[source.crates-io]
+replace-with = 'mirror'
+
+[source.mirror]
+registry = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
+
+[registries.mirror]
+index = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
+EOF
 ```
 
 ## 编译 & 运行
