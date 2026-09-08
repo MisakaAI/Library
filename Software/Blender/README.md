@@ -39,6 +39,8 @@ ln -s /opt/blender/blender /usr/local/bin/blender
 - [摄像机](06_Camera.md)
 - [材质](07_Materials.md)
 - [场景](08_Scene.md)
+- [MCP](09_MCP.md)
+- [Python API](./10_Python_API.md)
 
 ## 设置
 
