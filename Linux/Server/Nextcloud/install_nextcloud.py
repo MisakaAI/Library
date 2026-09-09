@@ -49,6 +49,40 @@ def section(title: str) -> None:
     print("=" * 68)
 
 
+def escape_desktop_string(value: str) -> str:
+    """Escape a value using the Desktop Entry string rules."""
+    return (
+        value.replace("\\", "\\\\")
+        .replace("\n", "\\n")
+        .replace("\r", "\\r")
+        .replace("\t", "\\t")
+    )
+
+
+def quote_desktop_exec_arg(value: str) -> str:
+    """Encode one literal argument for a Desktop Entry Exec field."""
+    escaped = []
+    for char in value:
+        if char == "\\":
+            # Desktop Entry string parsing and Exec parsing each consume
+            # one level of backslash escaping.
+            escaped.append("\\\\\\\\")
+        elif char in {'"', "`", "$"}:
+            escaped.append("\\\\" + char)
+        elif char == "%":
+            # Prevent the path from being interpreted as an Exec field code.
+            escaped.append("%%")
+        elif char == "\n":
+            escaped.append("\\n")
+        elif char == "\r":
+            escaped.append("\\r")
+        elif char == "\t":
+            escaped.append("\\t")
+        else:
+            escaped.append(char)
+    return f'"{"".join(escaped)}"'
+
+
 # ============================================================
 # 1. 安装 AppImage
 # ============================================================
@@ -313,6 +347,8 @@ def create_desktop_file(version: str) -> None:
         comment_en = f"Nextcloud desktop client {version}"
         comment_zh = f"Nextcloud 桌面客户端 {version}"
         version_line = f"X-AppImage-Version={version}\n"
+    exec_path = quote_desktop_exec_arg(str(APPIMAGE))
+    try_exec_path = escape_desktop_string(str(APPIMAGE))
     content = f"""[Desktop Entry]
 Version=1.0
 Type=Application
@@ -322,8 +358,8 @@ GenericName=Desktop Sync Client
 GenericName[zh_CN]=桌面同步客户端
 Comment={comment_en}
 Comment[zh_CN]={comment_zh}
-Exec={APPIMAGE}
-TryExec={APPIMAGE}
+Exec={exec_path}
+TryExec={try_exec_path}
 Icon={ICON_NAME}
 Terminal=false
 Categories=Network;FileTransfer;
