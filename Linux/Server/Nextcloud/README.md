@@ -16,6 +16,7 @@
 ### Desktop
 
 - [Desktop](https://download.nextcloud.com/desktop/releases/)
+- [Nextcloud AppImage 一键安装工具](./install_nextcloud.py)
 
 ### Mobile
 
