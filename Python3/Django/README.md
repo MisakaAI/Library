@@ -76,6 +76,12 @@ python manage.py createsuperuser
 - [重置 ID 序列](other/sqlsequencereset.md)
 - [重置迁移](other/migrations.md)
 
+## 第三方库
+
+- [django-cors-headers](django-cors-headers.md) 用于处理跨域资源共享 (CORS) 
+- [django-redis](https://github.com/jazzband/django-redis) 使用 Redis 作为缓存后端 
+- [django-ninja](https://github.com/vitalik/django-ninja) 用于构建 REST API 的 Web 框架
+
 ## 参考文献
 
 - [The Django Book](http://djangobook.py3k.cn/2.0/)

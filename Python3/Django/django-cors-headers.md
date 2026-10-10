@@ -1,5 +1,7 @@
 # django-cors-headers
 
+- [Github](https://github.com/adamchainz/django-cors-headers)
+
 用于处理跨域资源共享（CORS）所需的服务器头。
 
 ## 安装
@@ -18,5 +20,3 @@ INSTALLED_APPS = [
     ...,
 ]
 ```
-
-## 
