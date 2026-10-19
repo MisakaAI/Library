@@ -1,5 +1,47 @@
 # 现代化前端开发指南
 
+## 快速施法
+
+```sh
+# 创建 Vue 3 + TypeScript 项目
+npm create vite@latest my-vue-app -- --template vue-ts
+
+# 进入项目
+cd my-vue-app
+# 安装基础依赖
+npm install
+
+# 安装路由和状态管理
+npm install vue-router
+# 安装 UI 组件库
+npm install element-plus # ArcoVue
+npm install @arco-design/web-vue # Arco Design
+
+# 安装 图标
+npm install @remixicon/vue
+# 安装 Tiptap 富文本编辑器
+npm install @tiptap/vue-3 @tiptap/pm @tiptap/starter-kit
+# 可视化图表库
+npm install echarts
+# 状态管理库
+npm install pinia
+# 日期处理
+npm install dayjs
+# 国际化多语言支持
+npm install vue-i18n@11
+# 网络请求库
+npm install axios
+# 数据验证
+npm install zod
+
+# 启动项目
+npm run dev
+# 编译生产版本
+npm run build
+# 本地预览编译结果
+npm run preview
+```
+
 ## 基础概念
 
 - `Node.js`：让 JavaScript 可以在电脑上运行，不只待在浏览器里。
